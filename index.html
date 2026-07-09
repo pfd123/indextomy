@@ -143,7 +143,7 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: 50% 18%;
+      object-position: 50% 8%;
     }
 
     /* ABOUT + SERVICES combined */
@@ -423,27 +423,67 @@
 
     /* MOBILE */
     @media(max-width:860px){
-      nav { padding: 22px 24px; }
-      nav.scrolled { padding: 16px 24px; }
+
+      /* NAV */
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
       .nav-links a:not(.nav-cta) { display: none; }
 
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 100px 24px 50px; }
-      .hero-right { height: 75vw; }
-      .hero-right img { position: absolute; }
+      /* HERO — stack vertically, photo first at top */
+      .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        min-height: auto;
+      }
+      .hero-right {
+        order: -1;               /* photo goes above text */
+        height: 85vw;
+        max-height: 420px;
+        position: relative;
+      }
+      .hero-right img {
+        position: absolute;
+        object-position: 50% 12%; /* face centred, not cropped off */
+      }
+      .hero-right-badge { display: none; }
+      .hero-left {
+        padding: 40px 24px 56px;
+      }
+      .hero h1 { font-size: clamp(36px, 9vw, 54px); }
+      .hero-sub { max-width: 100%; }
 
+      /* ABOUT + PRACTICE */
       .main { grid-template-columns: 1fr; }
-      .main-text { padding: 72px 24px; border-right: none; border-bottom: 1px solid var(--rule); }
-      .main-right { padding: 60px 24px; }
+      .main-text {
+        padding: 64px 24px 48px;
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+      }
+      .main-right { padding: 48px 24px 64px; }
+      .service-row { padding: 22px 0; }
 
+      /* PHOTO + QUOTE */
       .split { grid-template-columns: 1fr; }
-      .split-photo { min-height: 300px; }
-      .split-quote { padding: 60px 24px; border-left: none; border-top: 1px solid var(--rule); }
+      .split-photo {
+        min-height: 72vw;
+        max-height: 400px;
+      }
+      .split-photo img { object-position: 50% 20%; }
+      .split-quote {
+        padding: 52px 24px;
+        border-left: none;
+        border-top: 1px solid var(--rule);
+      }
+      .split-quote blockquote { font-size: clamp(18px, 5vw, 26px); }
 
-      .contact { padding: 80px 24px; }
+      /* CONTACT */
+      .contact { padding: 72px 24px; }
       .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .contact h2 { font-size: clamp(34px, 9vw, 52px); }
+      .time-slots { gap: 8px; }
 
-      footer { flex-direction: column; gap: 20px; text-align: center; padding: 28px 24px; }
+      /* FOOTER */
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
       .f-links { flex-wrap: wrap; justify-content: center; }
     }
   </style>
