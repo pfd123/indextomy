@@ -473,13 +473,22 @@
       }
       .hero-right {
         order: -1;               /* photo goes above text */
-        height: 85vw;
-        max-height: 420px;
+        height: 100vw;
+        max-height: 500px;
         position: relative;
+      }
+      .hero-right::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 120px;
+        background: linear-gradient(to bottom, transparent, var(--cream));
+        pointer-events: none;
+        z-index: 1;
       }
       .hero-right img {
         position: absolute;
-        object-position: 50% 12%; /* face centred, not cropped off */
+        object-position: 50% 42%; /* show full face, less sky */
       }
       .hero-right-badge { display: none; }
       .hero-left {
