@@ -7,7 +7,13 @@
   <meta name="description" content="I'm Peter Donnelly, a psychotherapist specialising in person-centred therapy, somatic experiencing, ecotherapy and queer-informed practice.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Non-blocking font load — eliminates render-blocking 780ms penalty -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <!-- System font stack as fallback while custom fonts load — prevents layout shift -->
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  </style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -508,7 +514,13 @@
     <a href="#contact" class="hero-cta reveal d3">Book a free intro call &rarr;</a>
   </div>
   <div class="hero-right">
-    <img src="https://base44.app/api/apps/6a4f6dcefdb34eaaf5cc8d82/files/mp/public/6a4f6dcefdb34eaaf5cc8d82/0ab423ee8_peter_photo.jpg" alt="Peter Donnelly">
+    <picture>
+      <source srcset="img/peter_photo.webp" type="image/webp">
+      <img src="img/peter_photo.webp" alt="Peter Donnelly"
+           fetchpriority="high"
+           width="1200" height="1600"
+           decoding="async">
+    </picture>
   </div>
 </section>
 
@@ -558,7 +570,13 @@
 <!-- PHOTO + QUOTE -->
 <div class="split">
   <div class="split-photo">
-    <img src="https://base44.app/api/apps/6a4f6dcefdb34eaaf5cc8d82/files/mp/public/6a4f6dcefdb34eaaf5cc8d82/44126baef_about_photo_full.jpg" alt="Peter Donnelly">
+    <picture>
+      <source srcset="img/about_photo.webp" type="image/webp">
+      <img src="img/about_photo.webp" alt="Peter Donnelly"
+           loading="lazy"
+           width="1200" height="1600"
+           decoding="async">
+    </picture>
   </div>
   <div class="split-quote">
     <blockquote class="reveal">"I alone cannot change the world, but I can cast a stone across the waters to create many ripples."</blockquote>
