@@ -3,8 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peter Donnelly, Psychotherapist</title>
-  <meta name="description" content="I'm Peter Donnelly, a psychotherapist specialising in person-centred therapy, somatic experiencing, ecotherapy and queer-informed practice.">
+  <title>Peter Donnelly | Psychotherapist | Person-Centred &amp; Somatic Therapy</title>
+  <meta name="description" content="Person-centred and somatic psychotherapist working online and outdoors. LGBT-affirming. Free 20-minute intro session. Mondays and Fridays.">
+  <link rel="canonical" href="https://www.peterdonnelly.co.uk/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://www.peterdonnelly.co.uk/">
+  <meta property="og:title"       content="Peter Donnelly | Person-Centred &amp; Somatic Psychotherapist">
+  <meta property="og:description" content="Person-centred and somatic psychotherapist working online and outdoors. LGBT-affirming. Free 20-minute intro session. Mondays and Fridays.">
+  <meta property="og:image"       content="https://www.peterdonnelly.co.uk/img/peter_photo.webp">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Peter Donnelly | Person-Centred &amp; Somatic Psychotherapist">
+  <meta name="twitter:description" content="Person-centred and somatic psychotherapist working online and outdoors. LGBT-affirming. Free 20-minute intro session.">
+  <meta name="twitter:image"       content="https://www.peterdonnelly.co.uk/img/peter_photo.webp">
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Peter Donnelly",
+    "jobTitle": "Psychotherapist",
+    "url": "https://www.peterdonnelly.co.uk",
+    "description": "Person-centred and somatic psychotherapist specialising in LGBT-affirming practice, ecotherapy and somatic experiencing.",
+    "areaServed": ["United Kingdom", "Ireland"],
+    "knowsAbout": ["Person-Centred Therapy", "Somatic Experiencing", "Ecotherapy", "LGBT Therapy", "Psychotherapy"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Non-blocking font load — eliminates render-blocking 780ms penalty -->
@@ -595,6 +623,7 @@
     </div>
     <div class="reveal d2">
       <form class="contact-form" action="https://formspree.io/f/mqevvwlo" method="POST" id="contact-form">
+        <input type="hidden" name="_subject" value="New session enquiry — peterdonnelly.co.uk">
         <div class="form-field">
           <label for="name">Your Name</label>
           <input type="text" id="name" name="name" placeholder="First name is fine" required>
