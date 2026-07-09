@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.peterdonnelly.co.uk/sitemap.xml
