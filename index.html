@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter Donnelly, Psychotherapist</title>
+  <meta name="description" content="I'm Peter Donnelly, a psychotherapist specialising in person-centred therapy, somatic experiencing, ecotherapy and queer-informed practice.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root{
+      --paper:  #F6F3EE;
+      --ink:    #191917;
+      --mid:    rgba(25,25,23,0.46);
+      --low:    rgba(25,25,23,0.2);
+      --forest: #3A4133;
+      --rule:   rgba(25,25,23,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body{
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Geist', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+
+    /* REVEAL */
+    .reveal{
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.32s; }
+
+    /* NAV */
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+    /* HERO */
+    .hero{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100svh;
+    }
+    .hero-left{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 100px 56px 80px 48px;
+    }
+    .hero-tag{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 36px;
+    }
+    .hero h1{
+      font-family: 'Fraunces', serif;
+      font-weight: 200;
+      font-size: clamp(42px, 5.2vw, 74px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em { font-style: italic; color: var(--forest); }
+    .hero-sub{
+      margin-top: 32px;
+      font-size: 14.5px;
+      color: var(--mid);
+      max-width: 340px;
+      line-height: 1.7;
+    }
+    .hero-cta{
+      margin-top: 52px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--forest);
+      border-bottom: 1px solid var(--forest);
+      padding-bottom: 4px;
+      width: fit-content;
+      transition: opacity 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.55; }
+
+    .hero-right{
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right img{
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 50% 18%;
+    }
+
+    /* ABOUT + SERVICES combined */
+    .main{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .main-text{
+      padding: 110px 64px 110px 48px;
+      border-right: 1px solid var(--rule);
+    }
+    .mono-label{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 36px;
+      display: block;
+    }
+    .main-text h2{
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(26px, 2.8vw, 40px);
+      line-height: 1.32;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+    .main-text p{
+      font-size: 14.5px;
+      color: var(--mid);
+      line-height: 1.72;
+      max-width: 420px;
+    }
+    .main-text p + p { margin-top: 16px; }
+
+    .main-right{
+      padding: 110px 48px 110px 56px;
+    }
+    .services-list{
+      display: flex;
+      flex-direction: column;
+    }
+    .service-row{
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .service-row:first-child { border-top: 1px solid var(--rule); }
+    .s-num{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+      width: 28px;
+    }
+    .s-body h3{
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .s-body p{
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* PHOTO + QUOTE */
+    .split{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--rule);
+    }
+    .split-photo{
+      position: relative;
+      min-height: 560px;
+      overflow: hidden;
+    }
+    .split-photo img{
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 50% 25%;
+      filter: saturate(0.85);
+    }
+    .split-quote{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px 80px 72px;
+      border-left: 1px solid var(--rule);
+    }
+    .split-quote blockquote{
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(20px, 2.2vw, 30px);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .split-quote cite{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      font-style: normal;
+    }
+
+    /* CONTACT */
+    .contact{
+      padding: 140px 48px;
+      border-top: 1px solid var(--rule);
+    }
+    .contact-inner{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact h2{
+      font-family: 'Fraunces', serif;
+      font-weight: 200;
+      font-size: clamp(38px, 4.4vw, 64px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .contact h2 em { font-style: italic; color: var(--forest); }
+    .contact-intro{
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.72;
+      max-width: 360px;
+      margin-bottom: 20px;
+    }
+    .contact-avail{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--forest);
+    }
+    /* FORM */
+    .contact-form{
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .form-field{
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid var(--rule);
+      padding: 20px 0 4px;
+    }
+    .form-field:first-child{ border-top: 1px solid var(--rule); }
+    .form-field label{
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .form-field input,
+    .form-field textarea{
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: 'Geist', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: var(--ink);
+      resize: none;
+      line-height: 1.6;
+      padding-bottom: 14px;
+    }
+    .form-field textarea{ min-height: 90px; }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder{ color: var(--low); }
+    .time-slots{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-bottom: 16px;
+    }
+    .time-slot{
+      display: none;
+    }
+    .time-slot + label{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      border: 1px solid var(--rule);
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+      user-select: none;
+    }
+    .time-slot:checked + label{
+      background: var(--forest);
+      color: #F6F3EE;
+      border-color: var(--forest);
+    }
+    .form-submit{
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--forest);
+      border-bottom: 1px solid var(--forest);
+      padding-bottom: 4px;
+      transition: opacity 0.2s;
+    }
+    .form-submit:hover{ opacity: 0.55; }
+    .form-thanks{
+      display: none;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--forest);
+      padding-top: 24px;
+    }
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+
+    /* MOBILE */
+    @media(max-width:860px){
+      nav { padding: 22px 24px; }
+      nav.scrolled { padding: 16px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 100px 24px 50px; }
+      .hero-right { height: 75vw; }
+      .hero-right img { position: absolute; }
+
+      .main { grid-template-columns: 1fr; }
+      .main-text { padding: 72px 24px; border-right: none; border-bottom: 1px solid var(--rule); }
+      .main-right { padding: 60px 24px; }
+
+      .split { grid-template-columns: 1fr; }
+      .split-photo { min-height: 300px; }
+      .split-quote { padding: 60px 24px; border-left: none; border-top: 1px solid var(--rule); }
+
+      .contact { padding: 80px 24px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+
+      footer { flex-direction: column; gap: 20px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="nav-name">Peter Donnelly</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#practice">Practice</a>
+    <a href="#contact" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <p class="hero-tag reveal">Person-centred &amp; Somatic Psychotherapy</p>
+    <h1 class="reveal d1">Therapy rooted<br>in <em>body, nature</em><br>and lived truth.</h1>
+    <p class="hero-sub reveal d2">Working with individuals online and outdoors, I bring genuine curiosity to what your body knows, not just your words.</p>
+    <a href="#contact" class="hero-cta reveal d3">Book a free intro call &rarr;</a>
+  </div>
+  <div class="hero-right">
+    <img src="https://base44.app/api/apps/6a4f6dcefdb34eaaf5cc8d82/files/mp/public/6a4f6dcefdb34eaaf5cc8d82/0ab423ee8_peter_photo.jpg" alt="Peter Donnelly">
+  </div>
+</section>
+
+<!-- ABOUT + PRACTICE -->
+<section class="main" id="about">
+  <div class="main-text">
+    <span class="mono-label reveal">About Me</span>
+    <h2 class="reveal d1">Hopeful, honest, accepting.</h2>
+    <p class="reveal d2">I'm a psychotherapist specialising in queer-informed practice and ecotherapy. Originally trained in Person-Centred Therapy and most recently in Somatic Experiencing, my practice has grown to cover a range of specialisms rooted by a genuine passion for the work.</p>
+    <p class="reveal d2">I build a space that fits who you are, not who you think you have to be.</p>
+  </div>
+  <div class="main-right" id="practice">
+    <span class="mono-label reveal">Practice</span>
+    <div class="services-list">
+      <div class="service-row reveal d1">
+        <span class="s-num">01</span>
+        <div class="s-body">
+          <h3>Person-Centred Therapy</h3>
+          <p>Focused on your needs, wants and wishes, in a space that empowers self-discovery and self-acceptance.</p>
+        </div>
+      </div>
+      <div class="service-row reveal d2">
+        <span class="s-num">02</span>
+        <div class="s-body">
+          <h3>Queer-Informed Practice</h3>
+          <p>Specialist support for the LGBTQ+ community. Space held without needing to explain yourself.</p>
+        </div>
+      </div>
+      <div class="service-row reveal d2">
+        <span class="s-num">03</span>
+        <div class="s-body">
+          <h3>Somatic Experiencing</h3>
+          <p>Working with the body as much as the mind, because your body knows before your brain does.</p>
+        </div>
+      </div>
+      <div class="service-row reveal d3">
+        <span class="s-num">04</span>
+        <div class="s-body">
+          <h3>Ecotherapy</h3>
+          <p>Sessions held outdoors as well as online, using the natural world as a grounding co-therapist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO + QUOTE -->
+<div class="split">
+  <div class="split-photo">
+    <img src="https://base44.app/api/apps/6a4f6dcefdb34eaaf5cc8d82/files/mp/public/6a4f6dcefdb34eaaf5cc8d82/44126baef_about_photo_full.jpg" alt="Peter Donnelly">
+  </div>
+  <div class="split-quote">
+    <blockquote class="reveal">"I alone cannot change the world, but I can cast a stone across the waters to create many ripples."</blockquote>
+    <cite class="reveal d1">On the quiet, evolving nature of the work</cite>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <span class="mono-label reveal">Get in Touch</span>
+      <h2 class="reveal d1">Are we a<br><em>good fit?</em></h2>
+      <p class="contact-intro reveal d2">The first session is free and takes around 20 minutes. It's a relaxed conversation to see if we're the right fit for each other, no pressure, no obligation.</p>
+      <span class="contact-avail reveal d2">Available Mondays &amp; Fridays</span>
+    </div>
+    <div class="reveal d2">
+      <form class="contact-form" action="https://formspree.io/f/mqevvwlo" method="POST" id="contact-form">
+        <div class="form-field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First name is fine" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Where I can reach you" required>
+        </div>
+        <div class="form-field">
+          <label for="message">What brings you here?</label>
+          <textarea id="message" name="message" placeholder="A brief sense of what's on your mind, no need for detail." required></textarea>
+        </div>
+        <div class="form-field" style="border-bottom:none; padding-bottom:0;">
+          <label>Preferred time</label>
+          <div class="time-slots">
+            <input class="time-slot" type="radio" name="preferred_time" id="t1" value="Monday Morning">
+            <label for="t1">Mon Morning</label>
+            <input class="time-slot" type="radio" name="preferred_time" id="t2" value="Monday Afternoon">
+            <label for="t2">Mon Afternoon</label>
+            <input class="time-slot" type="radio" name="preferred_time" id="t3" value="Friday Morning">
+            <label for="t3">Fri Morning</label>
+            <input class="time-slot" type="radio" name="preferred_time" id="t4" value="Friday Afternoon">
+            <label for="t4">Fri Afternoon</label>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Send &rarr;</button>
+      </form>
+      <p class="form-thanks" id="form-thanks">Thank you. I'll be in touch soon.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="f-name">Peter Donnelly</span>
+  <div class="f-links">
+    <a href="#about">About</a>
+    <a href="#practice">Practice</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <span class="f-copy">&copy; 2026</span>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Formspree AJAX
+  const form = document.getElementById('contact-form');
+  const thanks = document.getElementById('form-thanks');
+  if(form){
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method:'POST', body: data, headers:{ 'Accept':'application/json' } });
+      if(res.ok){ form.style.display='none'; thanks.style.display='block'; }
+      else { alert('Something went wrong, please email hello@peterdonnellytherapy.com directly.'); }
+    });
+  }
+</script>
+</body>
+</html>
