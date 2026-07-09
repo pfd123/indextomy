@@ -179,7 +179,7 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: 50% 0%;
+      object-position: 50% 20%;
     }
 
     /* ABOUT + SERVICES combined */
@@ -546,6 +546,9 @@
   </div>
   <div class="hero-right">
     <picture>
+      <!-- Desktop: pre-cropped to face level -->
+      <source media="(min-width: 768px)" srcset="img/peter_photo_desktop.webp" type="image/webp">
+      <!-- Mobile: full image, positioned via CSS -->
       <source srcset="img/peter_photo.webp" type="image/webp">
       <img src="img/peter_photo.webp" alt="Peter Donnelly"
            fetchpriority="high"
