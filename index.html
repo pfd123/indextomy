@@ -58,34 +58,6 @@
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
-    /* QUOTE SWAP */
-    .quote-swap {
-      position: relative;
-    }
-    .qs {
-      display: block;
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .qs-1 {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .qs-2 {
-      position: absolute;
-      top: 0; left: 0;
-      opacity: 0;
-      transform: translateY(8px);
-      width: 100%;
-    }
-    .quote-swap.swapped .qs-1 {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-    .quote-swap.swapped .qs-2 {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
   </style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -376,6 +348,68 @@
       color: var(--ink);
       margin-bottom: 24px;
     }
+    /* STICKY QUOTE SCROLL */
+    .sticky-quote-wrap {
+      position: relative;
+      height: 300vh; /* scroll distance = 3 screen heights */
+    }
+    .sticky-quote-inner {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .sticky-quote-panel {
+      width: 100%;
+      max-width: 760px;
+      padding: 0 48px;
+      position: relative;
+      text-align: center;
+    }
+    .sq-line {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(22px, 3vw, 42px);
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      position: absolute;
+      top: 50%;
+      left: 48px; right: 48px;
+      transform: translateY(-50%);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .sq-line-1 { opacity: 1; transform: translateY(-50%); }
+    .sq-line-2 { opacity: 0; transform: translateY(calc(-50% + 16px)); }
+    .sq-cite {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: 32px;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.6s ease 0.3s;
+      position: absolute;
+      bottom: -52px;
+      left: 0; right: 0;
+      text-align: center;
+    }
+    .sq-cite.visible { opacity: 1; }
+    .sticky-quote-inner.phase-2 .sq-line-1 {
+      opacity: 0;
+      transform: translateY(calc(-50% - 16px));
+    }
+    .sticky-quote-inner.phase-2 .sq-line-2 {
+      opacity: 1;
+      transform: translateY(-50%);
+    }
+
     .split-quote cite{
       font-family: 'Geist Mono', monospace;
       font-size: 10px;
@@ -778,23 +812,14 @@
   </div>
 </section>
 
-<!-- PHOTO + QUOTE -->
-<div class="split">
-  <div class="split-photo">
-    <picture>
-      <source srcset="img/about_photo.webp" type="image/webp">
-      <img src="img/about_photo.webp" alt="Walking through a bluebell woodland — ecotherapy"
-           loading="lazy"
-           width="1200" height="1487"
-           decoding="async">
-    </picture>
-  </div>
-  <div class="split-quote">
-    <blockquote class="quote-swap">
-      <span class="qs qs-1 active">"I love supporting clients to find safety in their own systems again; gently, with curiosity, and free from judgment."</span>
-      <span class="qs qs-2">"We start exactly where we are, paying attention to the stories of our bodies and minds."</span>
-    </blockquote>
-    <cite class="reveal d1">On the quiet, evolving nature of the work</cite>
+<!-- STICKY QUOTE -->
+<div class="sticky-quote-wrap" id="sticky-quote-wrap">
+  <div class="sticky-quote-inner" id="sticky-quote-inner">
+    <div class="sticky-quote-panel">
+      <span class="sq-line sq-line-1">"I love supporting clients to find safety in their own systems again; gently, with curiosity, and free from judgment."</span>
+      <span class="sq-line sq-line-2">"We start exactly where we are, paying attention to the stories of our bodies and minds."</span>
+      <span class="sq-cite" id="sq-cite">On the quiet, evolving nature of the work</span>
+    </div>
   </div>
 </div>
 
@@ -931,22 +956,33 @@
   });
 })();
 
-// QUOTE SWAP on scroll
+// STICKY QUOTE SCROLL
 (function(){
-  var quote = document.querySelector('.quote-swap');
-  if(!quote) return;
-  var triggered = false;
-  function check(){
-    if(triggered) return;
-    var rect = quote.getBoundingClientRect();
-    var triggerPoint = window.innerHeight * 0.35;
-    if(rect.top < triggerPoint){
-      triggered = true;
-      setTimeout(function(){ quote.classList.add('swapped'); }, 600);
+  var wrap  = document.getElementById('sticky-quote-wrap');
+  var inner = document.getElementById('sticky-quote-inner');
+  var cite  = document.getElementById('sq-cite');
+  if(!wrap || !inner) return;
+
+  function onScroll(){
+    var rect     = wrap.getBoundingClientRect();
+    var wrapH    = wrap.offsetHeight;      // 300vh
+    var scrolled = -rect.top;              // px scrolled into the wrap
+    var progress = scrolled / wrapH;      // 0 → 1
+
+    if(progress < 0 || progress > 1) return;
+
+    // Phase 2 triggers at 40% through the scroll distance
+    if(progress > 0.4){
+      inner.classList.add('phase-2');
+      cite.classList.add('visible');
+    } else {
+      inner.classList.remove('phase-2');
+      cite.classList.remove('visible');
     }
   }
-  window.addEventListener('scroll', check, { passive: true });
-  check();
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();
 </script>
 </body>
