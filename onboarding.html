@@ -9,71 +9,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --green: #1a3a2a;
-      --paper: #F6F3EE;
-      --accent: #2d5a3d;
-      --muted: rgba(26,58,42,0.42);
-      --border: rgba(26,58,42,0.18);
-    }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { font-size: 16px; }
+
+    /* ── ROOT VARS — identical to main site ── */
+    :root{
+      --paper:  #F6F3EE;
+      --ink:    #191917;
+      --mid:    rgba(25,25,23,0.46);
+      --low:    rgba(25,25,23,0.2);
+      --forest: #3A4133;
+      --rule:   rgba(25,25,23,0.1);
+    }
 
     body {
       background: var(--paper);
-      color: var(--green);
+      color: var(--ink);
       font-family: 'Geist Mono', monospace;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Progress bar */
-    #progress {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      width: 0%;
-      background: var(--green);
-      transition: width 0.5s ease;
-      z-index: 200;
-    }
-
-    /* NAV — identical to main site */
-    :root {
-      --rule: rgba(26,58,42,0.12);
-      --mid:  rgba(26,58,42,0.52);
-      --low:  rgba(26,58,42,0.35);
-      --ink:  #1a3a2a;
-      --forest: #1a3a2a;
-    }
-    nav {
+    /* ── NAV — copied exactly from main site ── */
+    nav{
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 30px 48px;
       transition: background 0.5s, padding 0.4s, border-color 0.5s;
       border-bottom: 1px solid transparent;
     }
-    nav.scrolled {
+    nav.scrolled{
       background: rgba(246,243,238,0.92);
       backdrop-filter: blur(14px);
       padding: 20px 48px;
       border-color: var(--rule);
     }
-    .nav-name {
+    .nav-name{
       font-family: 'Geist Mono', monospace;
       font-weight: 300;
       font-size: 11px;
       letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: var(--green);
+      color: var(--ink);
       text-decoration: none;
     }
-    .nav-links {
+    .nav-links{
       display: flex; gap: 36px; align-items: center;
     }
-    .nav-links a {
+    .nav-links a{
       font-family: 'Geist Mono', monospace;
       font-size: 10.5px;
       font-weight: 300;
@@ -86,33 +69,26 @@
     .nav-links a:hover { color: var(--ink); }
     .nav-cta { color: var(--forest) !important; }
 
-    /* FOOTER — identical to main site */
-    footer {
+    /* ── FOOTER — copied exactly from main site ── */
+    footer{
       padding: 28px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-top: 1px solid var(--rule);
+      margin-top: 60px;
     }
-    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
-    .f-name {
+    .f-name{
       font-family: 'Geist Mono', monospace;
       font-weight: 300;
       font-size: 10px;
       letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: var(--green);
     }
-    .f-accred {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
+    .f-links{
+      display: flex; gap: 28px;
     }
-    .f-links { display: flex; gap: 28px; }
-    .f-links a {
+    .f-links a{
       font-family: 'Geist Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.09em;
@@ -122,7 +98,21 @@
       transition: color 0.2s;
     }
     .f-links a:hover { color: var(--ink); }
-    .f-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
     .f-locations {
       font-family: 'Geist Mono', monospace;
       font-size: 10px;
@@ -132,37 +122,48 @@
       color: var(--low);
     }
 
-    /* Slide container */
+    /* ── PROGRESS BAR ── */
+    #progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--forest);
+      transition: width 0.5s ease;
+      z-index: 200;
+    }
+
+    /* ── MAIN ── */
     main {
-      min-height: 100vh;
+      min-height: calc(100vh - 120px);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 100px 24px 80px;
+      padding: 120px 48px 80px;
     }
 
-    /* Individual slides */
+    /* ── SLIDES ── */
     .slide {
       display: none;
       width: 100%;
-      max-width: 660px;
+      max-width: 680px;
       flex-direction: column;
       animation: rise 0.38s cubic-bezier(.22,.68,0,1.2) both;
     }
     .slide.active { display: flex; }
 
     @keyframes rise {
-      from { opacity: 0; transform: translateY(28px); }
+      from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Step number */
+    /* Step counter */
     .step-no {
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 20px;
+      color: var(--low);
+      margin-bottom: 22px;
     }
 
     /* Question heading */
@@ -170,45 +171,36 @@
       font-family: 'Fraunces', serif;
       font-style: italic;
       font-weight: 300;
-      font-size: clamp(1.55rem, 4vw, 2.15rem);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
       line-height: 1.25;
-      color: var(--green);
-      margin-bottom: 8px;
+      color: var(--ink);
+      margin-bottom: 10px;
     }
-    .q .req { color: var(--accent); font-style: normal; }
 
-    /* Subtitle */
+    /* Subtitle / hint */
     .sub {
       font-size: 11px;
       letter-spacing: 0.04em;
-      line-height: 1.75;
-      color: var(--muted);
-      margin-bottom: 30px;
+      line-height: 1.8;
+      color: var(--mid);
+      margin-bottom: 32px;
     }
 
-    /* Two-column field grid */
+    /* Field rows */
     .field-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-    .field-row.trio { grid-template-columns: 1fr 1fr 1fr; }
-    .field-col { display: flex; flex-direction: column; }
-
-    /* Field group */
-    .field {
-      display: flex;
-      flex-direction: column;
+      gap: 36px;
       margin-bottom: 28px;
     }
+    .field { display: flex; flex-direction: column; margin-bottom: 28px; }
     .field:last-child { margin-bottom: 0; }
 
-    /* Labels above inputs */
     .field-label {
       font-size: 9px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--mid);
       margin-bottom: 8px;
     }
 
@@ -217,103 +209,80 @@
     input[type="email"],
     input[type="tel"],
     input[type="number"],
-    textarea,
-    select {
+    textarea {
       background: transparent;
       border: none;
-      border-bottom: 1.5px solid var(--border);
-      color: var(--green);
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink);
       font-family: 'Fraunces', serif;
       font-style: italic;
       font-size: 1.2rem;
       font-weight: 300;
-      padding: 8px 2px 12px;
+      padding: 8px 0 12px;
       outline: none;
       width: 100%;
       transition: border-color 0.2s;
       border-radius: 0;
       -webkit-appearance: none;
     }
+    input:focus, textarea:focus { border-bottom-color: var(--ink); }
+    input::placeholder, textarea::placeholder { color: var(--low); font-style: italic; }
 
-    textarea {
-      resize: none;
-      min-height: 100px;
-      line-height: 1.65;
-    }
+    textarea { resize: none; min-height: 90px; line-height: 1.65; }
 
-    input:focus, textarea:focus, select:focus {
-      border-bottom-color: var(--green);
-    }
-
-    input::placeholder, textarea::placeholder {
-      color: rgba(26,58,42,0.22);
-    }
-
-    /* Date triple inputs */
+    /* DOB row */
     .dob-row {
       display: grid;
-      grid-template-columns: 60px 60px 90px;
-      gap: 20px;
-      align-items: end;
+      grid-template-columns: 64px 64px 96px;
+      gap: 24px;
     }
+    .dob-row .field { margin-bottom: 0; }
     .dob-row input { text-align: center; }
-    .dob-sep {
-      font-size: 1.2rem;
-      font-family: 'Fraunces', serif;
-      font-style: italic;
-      color: var(--muted);
-      padding-bottom: 12px;
-      align-self: end;
-    }
 
-    /* Yes / No */
-    .yn-wrap { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    /* Yes/No */
+    .yn-wrap { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
     .yn-opt {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 14px 18px;
-      border: 1.5px solid var(--border);
+      gap: 16px;
+      padding: 15px 20px;
+      border: 1px solid var(--rule);
       cursor: pointer;
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--green);
+      color: var(--ink);
       transition: all 0.18s;
       user-select: none;
-      border-radius: 2px;
     }
     .yn-opt:hover, .yn-opt.picked {
-      background: var(--green);
+      background: var(--ink);
       color: var(--paper);
-      border-color: var(--green);
+      border-color: var(--ink);
     }
     .yn-key {
-      width: 22px;
-      height: 22px;
-      border: 1.5px solid currentColor;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      flex-shrink: 0;
-      border-radius: 2px;
+      width: 22px; height: 22px;
+      border: 1px solid currentColor;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; flex-shrink: 0;
     }
 
-    /* Agreement box */
+    /* Agreement */
     .agreement-box {
-      border: 1px solid var(--border);
-      border-left: 2.5px solid var(--green);
+      border: 1px solid var(--rule);
+      border-left: 2px solid var(--forest);
       padding: 24px 28px;
-      max-height: 300px;
+      max-height: 280px;
       overflow-y: auto;
       font-size: 11px;
       line-height: 1.9;
-      color: var(--green);
+      color: var(--ink);
       margin-bottom: 22px;
-      border-radius: 0 2px 2px 0;
-      scroll-behavior: smooth;
     }
+    .agreement-box p { margin-bottom: 10px; }
+    .agreement-box strong { font-weight: 500; }
+    .agreement-box ol { padding-left: 18px; margin-bottom: 10px; }
+    .agreement-box li { margin-bottom: 4px; }
     .agreement-box h3 {
       font-family: 'Fraunces', serif;
       font-style: italic;
@@ -321,155 +290,87 @@
       font-size: 1rem;
       margin-bottom: 14px;
     }
-    .agreement-box p { margin-bottom: 10px; }
-    .agreement-box strong { font-weight: 500; }
-    .agreement-box ol { padding-left: 18px; margin-bottom: 10px; }
-    .agreement-box li { margin-bottom: 4px; }
 
     .accept-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      color: var(--green);
-      margin-bottom: 28px;
+      display: flex; align-items: center; gap: 12px;
+      cursor: pointer; font-size: 11px; letter-spacing: 0.06em;
+      color: var(--ink); margin-bottom: 28px;
     }
     .accept-row input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--green);
-      border: 1.5px solid var(--green);
-      cursor: pointer;
-      flex-shrink: 0;
-      border-radius: 0;
-      border-bottom: 1.5px solid var(--green);
-      background: transparent;
+      width: 16px; height: 16px;
+      accent-color: var(--forest); cursor: pointer; flex-shrink: 0;
     }
 
     /* Buttons */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--green);
-      color: var(--paper);
-      border: none;
-      padding: 14px 28px;
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--ink); color: var(--paper);
+      border: none; padding: 14px 28px;
       font-family: 'Geist Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      border-radius: 2px;
-      margin-top: 28px;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; transition: opacity 0.2s; margin-top: 28px;
     }
-    .btn:hover { opacity: 0.8; }
-    .btn:disabled { opacity: 0.28; cursor: not-allowed; }
-    .btn .hint { font-size: 9px; opacity: 0.55; }
+    .btn:hover { opacity: 0.78; }
+    .btn:disabled { opacity: 0.25; cursor: not-allowed; }
+    .btn .hint { font-size: 9px; opacity: 0.5; }
 
-    .btn-outline {
-      background: transparent;
-      color: var(--green);
-      border: 1.5px solid var(--border);
+    .btn-ghost {
+      background: transparent; color: var(--mid);
+      border: 1px solid var(--rule);
     }
-    .btn-outline:hover { border-color: var(--green); opacity: 1; }
+    .btn-ghost:hover { color: var(--ink); border-color: var(--ink); opacity: 1; }
 
     .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* Nav arrows */
-    .nav {
-      position: fixed;
-      bottom: 26px;
-      right: 26px;
-      display: flex;
-      gap: 8px;
-      z-index: 100;
-    }
-    .nav-btn {
-      width: 38px;
-      height: 38px;
-      border: 1.5px solid var(--border);
-      background: var(--paper);
-      color: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.18s;
-      border-radius: 2px;
-      font-size: 14px;
-    }
-    .nav-btn:hover:not(:disabled) { background: var(--green); color: var(--paper); }
-    .nav-btn:disabled { opacity: 0.2; cursor: not-allowed; }
-
-    /* Error */
-    .err {
-      font-size: 10px;
-      letter-spacing: 0.05em;
-      color: #b85c38;
-      margin-top: 6px;
-      display: none;
+    /* Error state */
+    .invalid { border-bottom-color: #c0392b !important; }
+    .err-msg {
+      font-size: 10px; letter-spacing: 0.05em;
+      color: #c0392b; margin-top: 4px; display: none;
     }
 
     /* Thank you */
-    #thanks {
+    #step-6 {
       text-align: center;
-      max-width: 500px;
-      margin: 0 auto;
+      align-items: center;
     }
-    #thanks .mark {
+    #step-6 .big {
       font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(3.5rem, 10vw, 6rem);
-      color: var(--green);
-      line-height: 1;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(4rem, 10vw, 7rem);
+      color: var(--ink); line-height: 1;
       margin-bottom: 28px;
-      display: block;
     }
-    #thanks h2 {
+    #step-6 h2 {
       font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: 1.6rem;
-      margin-bottom: 14px;
+      font-style: italic; font-weight: 300;
+      font-size: 1.6rem; margin-bottom: 12px;
     }
-    #thanks p {
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      line-height: 1.85;
+    #step-6 p {
+      font-size: 11px; letter-spacing: 0.05em;
+      color: var(--mid); line-height: 1.9;
     }
-    #thanks a {
-      color: var(--green);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-      display: inline-block;
-      margin-top: 28px;
-      transition: border-color 0.2s;
+    #step-6 a {
+      display: inline-block; margin-top: 32px;
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid); text-decoration: none;
+      border-bottom: 1px solid var(--rule); padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
     }
-    #thanks a:hover { border-color: var(--green); }
+    #step-6 a:hover { color: var(--ink); border-color: var(--ink); }
 
     /* Mobile */
-    @media (max-width: 600px) {
-      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
-      .f-right { align-items: center; }
+    @media(max-width: 860px) {
       nav { padding: 20px 24px; }
       nav.scrolled { padding: 14px 24px; }
       .nav-links a:not(.nav-cta) { display: none; }
-      main { padding: 80px 20px 72px; }
+    }
+    @media(max-width: 600px) {
+      main { padding: 100px 24px 60px; }
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-right { align-items: center; }
       .field-row { grid-template-columns: 1fr; gap: 0; }
-      .field-row.trio { grid-template-columns: 1fr; }
-      .nav { bottom: 14px; right: 14px; }
-      .agreement-box { max-height: 220px; padding: 18px 18px; }
-      .dob-row { grid-template-columns: 55px 55px 80px; }
+      .dob-row { grid-template-columns: 56px 56px 80px; gap: 16px; }
     }
   </style>
 </head>
@@ -477,17 +378,22 @@
 
 <div id="progress"></div>
 
-<header>
-  <a class="logo" href="https://peterdonnelly.co.uk">Peter Donnelly</a>
-  <span id="step-label">Step 1 of 6</span>
-</header>
+<!-- NAV — identical to main site -->
+<nav id="nav">
+  <a href="/" class="nav-name">Peter Donnelly</a>
+  <div class="nav-links">
+    <a href="/#about">About</a>
+    <a href="/#practice">Practice</a>
+    <a href="/#contact" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
 
 <main>
 
   <!-- STEP 1: Consent -->
   <div class="slide active" id="step-1">
     <div class="step-no">01 / 06</div>
-    <div class="q">Hi there! Are you happy to provide some details before our work begins? <span class="req">*</span></div>
+    <div class="q">Hi there! Are you happy to provide some details before our work begins?</div>
     <div class="sub">In order for us to work safely together I need to collect a few details. They will be stored safely and remain confidential.</div>
     <div class="yn-wrap">
       <div class="yn-opt" id="yn-yes" onclick="pickYN('yes')">
@@ -497,7 +403,7 @@
         <span class="yn-key">N</span> No
       </div>
     </div>
-    <button class="btn" id="btn-consent" onclick="goTo(2)" disabled>Continue <span class="hint">↵</span></button>
+    <button class="btn" id="btn-1" onclick="goTo(2)" disabled>Continue <span class="hint">↵</span></button>
   </div>
 
   <!-- STEP 2: Personal Details -->
@@ -508,52 +414,52 @@
 
     <div class="field-row">
       <div class="field">
-        <span class="field-label">First name <span style="color:#b85c38">*</span></span>
-        <input type="text" id="fname" placeholder="e.g. Jamie" autocomplete="given-name">
+        <span class="field-label">First name *</span>
+        <input type="text" id="fname" placeholder="First name" autocomplete="given-name">
       </div>
       <div class="field">
-        <span class="field-label">Last name <span style="color:#b85c38">*</span></span>
-        <input type="text" id="lname" placeholder="e.g. Smith" autocomplete="family-name">
+        <span class="field-label">Last name *</span>
+        <input type="text" id="lname" placeholder="Last name" autocomplete="family-name">
       </div>
     </div>
 
     <div class="field">
-      <span class="field-label">Date of birth <span style="color:#b85c38">*</span></span>
+      <span class="field-label">Date of birth *</span>
       <div class="dob-row">
-        <div class="field-col">
-          <span class="field-label">DD</span>
-          <input type="number" id="dob-d" min="1" max="31" placeholder="01">
+        <div class="field">
+          <span class="field-label">Day</span>
+          <input type="number" id="dob-d" min="1" max="31" placeholder="DD">
         </div>
-        <div class="field-col">
-          <span class="field-label">MM</span>
-          <input type="number" id="dob-m" min="1" max="12" placeholder="06">
+        <div class="field">
+          <span class="field-label">Month</span>
+          <input type="number" id="dob-m" min="1" max="12" placeholder="MM">
         </div>
-        <div class="field-col">
-          <span class="field-label">YYYY</span>
-          <input type="number" id="dob-y" min="1920" max="2010" placeholder="1990">
+        <div class="field">
+          <span class="field-label">Year</span>
+          <input type="number" id="dob-y" min="1920" max="2010" placeholder="YYYY">
         </div>
       </div>
     </div>
 
     <div class="field-row">
       <div class="field">
-        <span class="field-label">Phone number <span style="color:#b85c38">*</span></span>
+        <span class="field-label">Phone number *</span>
         <input type="tel" id="phone" placeholder="+44 7700 000000" autocomplete="tel">
       </div>
       <div class="field">
-        <span class="field-label">Email address <span style="color:#b85c38">*</span></span>
+        <span class="field-label">Email address *</span>
         <input type="email" id="email" placeholder="you@email.com" autocomplete="email">
       </div>
     </div>
 
     <div class="field">
-      <span class="field-label">Current address <span style="color:#b85c38">*</span></span>
-      <input type="text" id="address" placeholder="Start typing your address..." autocomplete="street-address">
+      <span class="field-label">Current address *</span>
+      <input type="text" id="address" placeholder="Your full address including postcode" autocomplete="street-address">
     </div>
 
     <div class="btn-row">
       <button class="btn" onclick="validateStep2()">Continue <span class="hint">↵</span></button>
-      <button class="btn btn-outline" onclick="goTo(1)">Back</button>
+      <button class="btn btn-ghost" onclick="goTo(1)">Back</button>
     </div>
   </div>
 
@@ -561,7 +467,7 @@
   <div class="slide" id="step-3">
     <div class="step-no">03 / 06</div>
     <div class="q">Where will you be attending counselling from?</div>
-    <div class="sub" id="step3-sub">Will you be attending from your address?</div>
+    <div class="sub" id="sub-3">Will you be attending from your home address?</div>
 
     <div class="yn-wrap">
       <div class="yn-opt" id="loc-yes" onclick="pickLocation('yes')">
@@ -572,16 +478,16 @@
       </div>
     </div>
 
-    <div id="alt-address-wrap" style="display:none; margin-bottom: 20px;">
+    <div id="alt-address-wrap" style="display:none">
       <div class="field">
-        <span class="field-label">Counselling location address</span>
-        <input type="text" id="alt-address" placeholder="Where will you be attending from?">
+        <span class="field-label">Counselling location *</span>
+        <input type="text" id="alt-address" placeholder="Address you will attend from">
       </div>
     </div>
 
     <div class="btn-row">
-      <button class="btn" id="btn-loc" onclick="validateStep3()" disabled>Continue <span class="hint">↵</span></button>
-      <button class="btn btn-outline" onclick="goTo(2)">Back</button>
+      <button class="btn" id="btn-3" onclick="validateStep3()" disabled>Continue <span class="hint">↵</span></button>
+      <button class="btn btn-ghost" onclick="goTo(2)">Back</button>
     </div>
   </div>
 
@@ -589,61 +495,56 @@
   <div class="slide" id="step-4">
     <div class="step-no">04 / 06</div>
     <div class="q">Health and emergency contact</div>
-    <div class="sub">This helps me support you safely. All information is kept strictly confidential.</div>
+    <div class="sub">This helps me support you safely. Everything is kept strictly confidential.</div>
 
     <div class="field">
-      <span class="field-label">GP details <span style="color:#b85c38">*</span> — Name, Address, Phone</span>
-      <textarea id="gp" placeholder="Dr. Sarah Jones, Riverside Medical Centre, Belfast, 028 9000 0000" rows="3"></textarea>
-      <span class="sub" style="margin-top: 6px; margin-bottom: 0; font-size: 10px;">Your GP details will only ever be contacted in an emergency situation.</span>
+      <span class="field-label">GP details — name, address and phone *</span>
+      <textarea id="gp" placeholder="Dr. Name, Practice Name, Address, Phone number" rows="3"></textarea>
+      <span class="sub" style="margin-top:8px;margin-bottom:0;font-size:10px;">Your GP will only ever be contacted in an emergency situation.</span>
     </div>
 
     <div class="field">
       <span class="field-label">Any health conditions or medications I should be aware of?</span>
-      <textarea id="health" placeholder="If none, leave blank." rows="3"></textarea>
+      <textarea id="health" placeholder="If none, please write none." rows="2"></textarea>
     </div>
 
     <div class="field-row">
       <div class="field">
-        <span class="field-label">Emergency contact name <span style="color:#b85c38">*</span></span>
-        <input type="text" id="ec-name" placeholder="e.g. Alex Smith">
+        <span class="field-label">Emergency contact name *</span>
+        <input type="text" id="ec-name" placeholder="Full name">
       </div>
       <div class="field">
-        <span class="field-label">Their relationship to you <span style="color:#b85c38">*</span></span>
+        <span class="field-label">Their relationship to you *</span>
         <input type="text" id="ec-rel" placeholder="e.g. Partner, Parent, Friend">
       </div>
     </div>
 
     <div class="field">
-      <span class="field-label">Emergency contact phone number <span style="color:#b85c38">*</span></span>
+      <span class="field-label">Emergency contact phone number *</span>
       <input type="tel" id="ec-phone" placeholder="+44 7700 000000">
     </div>
 
     <div class="btn-row">
       <button class="btn" onclick="validateStep4()">Continue <span class="hint">↵</span></button>
-      <button class="btn btn-outline" onclick="goTo(3)">Back</button>
+      <button class="btn btn-ghost" onclick="goTo(3)">Back</button>
     </div>
   </div>
 
-  <!-- STEP 5: Counselling Agreement -->
+  <!-- STEP 5: Agreement -->
   <div class="slide" id="step-5">
     <div class="step-no">05 / 06</div>
     <div class="q">Counselling Agreement</div>
-    <div class="sub">Please read through carefully before accepting. This ensures we both know what is required of us.</div>
+    <div class="sub">Please read through carefully before accepting.</div>
 
     <div class="agreement-box">
       <h3>Counselling with Peter Donnelly</h3>
       <p>My name is Peter Donnelly, and I am a qualified counsellor, registered with the British Association of Counselling and Psychotherapy (BACP). I work to the BACP's ethical framework for counsellors. I hold an enhanced DBS certificate, professional indemnity insurance, and engage in continual training to offer clients the best support possible.</p>
-
       <p><strong>The way I work</strong></p>
       <p>I have trained in the person-centred approach which values your process, trusting you as the expert on your own life. I will support you in finding your own answers.</p>
-
       <p><strong>Counselling Sessions</strong></p>
-      <p>Sessions take place through Zoom or by phone and last 50 minutes. You can decide whether to book a phone or Zoom session. There are times where counselling online may not be suitable for your current situation. If I believe that working online or over the phone is not the most suitable means of support for you, I will let you know and assist in finding a more suitable referral local to you.</p>
-
+      <p>Sessions take place through Zoom or by phone and last 50 minutes. You can decide whether to book a phone or Zoom session. If I believe that working online or over the phone is not the most suitable means of support for you, I will let you know and assist in finding a more suitable referral local to you.</p>
       <p><strong>Fees and Payment</strong></p>
-      <p>The fee is £60 per 50-minute session. Fees are payable in advance of the session to secure your booking. Payment can be made to the account details below. I have a limited number of reduced rate slots available for those who require it.</p>
-      <p>Account Name: Peter Donnelly | Sort Code: 60 83 71 | Account Number: 72395613</p>
-
+      <p>The fee is £90 per 50-minute session, payable in advance to secure your booking. I have a limited number of reduced rate slots available for those who require it.</p>
       <p><strong>Confidentiality</strong></p>
       <p>Counselling sessions are strictly confidential between counsellor and client. The exceptions to this are:</p>
       <ol>
@@ -654,249 +555,37 @@
         <li>I am required by a Court to disclose information</li>
       </ol>
       <p>Where appropriate, I would endeavour to discuss with you what was happening and why.</p>
-
       <p><strong>Record Keeping</strong></p>
-      <p>I will keep brief notes of the sessions that we have together. I am registered with the Information Commissioners Office (ICO) as a controller of sensitive data and work to their standards for storing any personal information. You have the right to request that I erase your personal data, under certain conditions.</p>
-
+      <p>I will keep brief notes of our sessions. I am registered with the Information Commissioners Office (ICO) as a controller of sensitive data. You have the right to request that I erase your personal data, under certain conditions.</p>
       <p><strong>Contacting Between Sessions</strong></p>
-      <p>In instances where you need to contact me between sessions you can email me at peter.within@gmail.com. I will respond as time permits between sessions. I only use email to communicate information about appointments and bookings. To protect your confidentiality I will not discuss session material. I do not engage socially with clients outside of therapeutic sessions, including social media.</p>
-
-      <p>This is not a crisis or emergency service. If you need to speak to someone immediately or you or someone you know is in a life-threatening situation, call the emergency services on 999 or 112, NHS on 111, or the 24/7 Samaritans helpline on 116 123.</p>
-
+      <p>You can email me at peter.within@gmail.com. I only use email to communicate information about appointments and bookings. I do not engage socially with clients outside of therapeutic sessions, including social media.</p>
+      <p>This is not a crisis or emergency service. If you need immediate support call 999 or 112, NHS on 111, or the Samaritans 24/7 on 116 123.</p>
       <p><strong>Non-attendance and Cancellations</strong></p>
       <p>Sessions cancelled within 24 hours of appointment time will be charged at full rate.</p>
     </div>
 
     <label class="accept-row" for="agreed">
-      <input type="checkbox" id="agreed" onchange="toggleAgreementBtn()">
+      <input type="checkbox" id="agreed" onchange="toggleSubmit()">
       I have read and agree to the counselling agreement
     </label>
 
     <div class="btn-row">
-      <button class="btn" id="btn-agree" onclick="validateStep5()" disabled>Submit <span class="hint">↵</span></button>
-      <button class="btn btn-outline" onclick="goTo(4)">Back</button>
+      <button class="btn" id="btn-5" onclick="submitForm()" disabled>Submit <span class="hint">↵</span></button>
+      <button class="btn btn-ghost" onclick="goTo(4)">Back</button>
     </div>
   </div>
 
-  <!-- STEP 6: Thank You -->
+  <!-- STEP 6: Thank you -->
   <div class="slide" id="step-6">
-    <div id="thanks">
-      <span class="mark">Pd</span>
-      <h2>Thank you for completing this.</h2>
-      <p>I will be in touch shortly to confirm your first session.<br>If you have any questions in the meantime feel free to reach out.</p>
-      <a href="https://peterdonnelly.co.uk">Return to peterdonnelly.co.uk</a>
-    </div>
+    <span class="big">Pd</span>
+    <h2>Thank you for completing this.</h2>
+    <p>I will be in touch shortly to confirm your first session.<br>If you have any questions in the meantime, feel free to reach out.</p>
+    <a href="/">Return to peterdonnelly.co.uk</a>
   </div>
 
 </main>
 
-<!-- Hidden Formspree form for actual submission -->
-<form id="hidden-form" action="https://formspree.io/f/mqevvwlo" method="POST" style="display:none">
-  <input type="hidden" name="consent" id="hf-consent">
-  <input type="hidden" name="first_name" id="hf-fname">
-  <input type="hidden" name="last_name" id="hf-lname">
-  <input type="hidden" name="date_of_birth" id="hf-dob">
-  <input type="hidden" name="phone" id="hf-phone">
-  <input type="hidden" name="email" id="hf-email">
-  <input type="hidden" name="address" id="hf-address">
-  <input type="hidden" name="counselling_location" id="hf-location">
-  <input type="hidden" name="gp_details" id="hf-gp">
-  <input type="hidden" name="health_conditions" id="hf-health">
-  <input type="hidden" name="emergency_contact_name" id="hf-ec-name">
-  <input type="hidden" name="emergency_contact_relationship" id="hf-ec-rel">
-  <input type="hidden" name="emergency_contact_phone" id="hf-ec-phone">
-  <input type="hidden" name="agreement_accepted" value="Yes">
-</form>
-
-<nav class="nav">
-  <button class="nav-btn" id="nav-up" onclick="navUp()" disabled title="Previous">↑</button>
-  <button class="nav-btn" id="nav-dn" onclick="navDn()" title="Next">↓</button>
-</nav>
-
-<script>
-  let current = 1;
-  const TOTAL = 6;
-  let consent = null;
-  let location_choice = null;
-
-  function setProgress(n) {
-    document.getElementById('progress').style.width = ((n - 1) / (TOTAL - 1) * 100) + '%';
-    document.getElementById('step-label').textContent = 'Step ' + n + ' of ' + TOTAL;
-    document.getElementById('nav-up').disabled = n <= 1;
-    document.getElementById('nav-dn').disabled = n >= TOTAL;
-  }
-
-  function goTo(n) {
-    document.getElementById('step-' + current).classList.remove('active');
-    current = n;
-    document.getElementById('step-' + current).classList.add('active');
-    setProgress(current);
-    window.scrollTo(0, 0);
-    // Focus first input on step
-    const first = document.querySelector('#step-' + current + ' input, #step-' + current + ' textarea');
-    if (first && first.type !== 'checkbox' && first.type !== 'hidden') {
-      setTimeout(() => first.focus(), 120);
-    }
-  }
-
-  // Step 1: Consent
-  function pickYN(val) {
-    consent = val;
-    document.getElementById('yn-yes').classList.toggle('picked', val === 'yes');
-    document.getElementById('yn-no').classList.toggle('picked', val === 'no');
-    const btn = document.getElementById('btn-consent');
-    btn.disabled = false;
-    if (val === 'yes') {
-      setTimeout(() => goTo(2), 350);
-    } else {
-      // If they say no, show a kind message
-      btn.textContent = 'OK';
-      btn.onclick = function() {
-        document.getElementById('step-1').innerHTML = `
-          <div class="step-no">01 / 06</div>
-          <div class="q" style="font-size:1.6rem;">That is absolutely fine.</div>
-          <div class="sub" style="margin-top:16px;">If you have any questions before feeling ready to proceed, please do reach out at <a href="mailto:peter.within@gmail.com" style="color:var(--green)">peter.within@gmail.com</a>.</div>
-          <a href="https://peterdonnelly.co.uk" style="margin-top:32px;display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:3px;">← Return to site</a>`;
-      };
-    }
-  }
-
-  // Step 2: Personal Details
-  function validateStep2() {
-    const fields = ['fname','lname','dob-d','dob-m','dob-y','phone','email','address'];
-    let ok = true;
-    fields.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el.value.trim()) { el.style.borderBottomColor = '#b85c38'; ok = false; }
-      else { el.style.borderBottomColor = ''; }
-    });
-    if (!ok) return;
-    goTo(3);
-    // Update step 3 subtitle
-    const fname = document.getElementById('fname').value;
-    const addr = document.getElementById('address').value;
-    document.getElementById('step3-sub').textContent =
-      'Will you be attending from ' + addr + ', ' + fname + '?';
-  }
-
-  // Step 3: Location
-  function pickLocation(val) {
-    location_choice = val;
-    document.getElementById('loc-yes').classList.toggle('picked', val === 'yes');
-    document.getElementById('loc-no').classList.toggle('picked', val === 'no');
-    document.getElementById('alt-address-wrap').style.display = val === 'no' ? 'block' : 'none';
-    document.getElementById('btn-loc').disabled = false;
-  }
-
-  function validateStep3() {
-    if (!location_choice) return;
-    if (location_choice === 'no') {
-      const alt = document.getElementById('alt-address');
-      if (!alt.value.trim()) { alt.style.borderBottomColor = '#b85c38'; return; }
-      alt.style.borderBottomColor = '';
-    }
-    goTo(4);
-  }
-
-  // Step 4: Health
-  function validateStep4() {
-    const required = ['gp','ec-name','ec-rel','ec-phone'];
-    let ok = true;
-    required.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el.value.trim()) { el.style.borderBottomColor = '#b85c38'; ok = false; }
-      else { el.style.borderBottomColor = ''; }
-    });
-    if (!ok) return;
-    goTo(5);
-  }
-
-  // Step 5: Agreement
-  function toggleAgreementBtn() {
-    document.getElementById('btn-agree').disabled = !document.getElementById('agreed').checked;
-  }
-
-  function validateStep5() {
-    if (!document.getElementById('agreed').checked) return;
-    submitForm();
-  }
-
-  // Submit via Formspree fetch
-  function submitForm() {
-    const dob = document.getElementById('dob-d').value + '/' +
-                document.getElementById('dob-m').value + '/' +
-                document.getElementById('dob-y').value;
-    const locVal = location_choice === 'yes'
-      ? document.getElementById('address').value
-      : document.getElementById('alt-address').value;
-
-    const data = {
-      consent: 'Yes',
-      first_name: document.getElementById('fname').value,
-      last_name: document.getElementById('lname').value,
-      date_of_birth: dob,
-      phone: document.getElementById('phone').value,
-      email: document.getElementById('email').value,
-      address: document.getElementById('address').value,
-      counselling_location: locVal,
-      gp_details: document.getElementById('gp').value,
-      health_conditions: document.getElementById('health').value || 'None',
-      emergency_contact_name: document.getElementById('ec-name').value,
-      emergency_contact_relationship: document.getElementById('ec-rel').value,
-      emergency_contact_phone: document.getElementById('ec-phone').value,
-      agreement_accepted: 'Yes'
-    };
-
-    const btn = document.getElementById('btn-agree');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-
-    fetch('https://formspree.io/f/mqevvwlo', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(r => {
-      if (r.ok) { goTo(6); }
-      else { btn.textContent = 'Something went wrong — try again'; btn.disabled = false; }
-    })
-    .catch(() => { btn.textContent = 'Something went wrong — try again'; btn.disabled = false; });
-  }
-
-  // Nav arrows
-  function navUp() { if (current > 1) goTo(current - 1); }
-  function navDn() { if (current < TOTAL) { /* only allow forward if step done */ } }
-
-  // Keyboard shortcuts
-  document.addEventListener('keydown', function(e) {
-    if (e.target.tagName === 'TEXTAREA') return;
-    if (current === 1) {
-      if (e.key === 'y' || e.key === 'Y') pickYN('yes');
-      if (e.key === 'n' || e.key === 'N') pickYN('no');
-    }
-    if (current === 3) {
-      if (e.key === 'y' || e.key === 'Y') pickLocation('yes');
-      if (e.key === 'n' || e.key === 'N') pickLocation('no');
-    }
-    if (e.key === 'Enter' && !e.shiftKey) {
-      if (current === 1 && consent) goTo(2);
-      if (current === 2) validateStep2();
-      if (current === 3) validateStep3();
-      if (current === 4) validateStep4();
-    }
-  });
-
-  // Init
-  setProgress(1);
-
-  // Nav scroll behaviour — identical to main site
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
-
-</script>
-
+<!-- FOOTER — identical to main site -->
 <footer>
   <div class="f-name-block">
     <span class="f-name">Peter Donnelly</span>
@@ -911,5 +600,164 @@
     <span class="f-locations">UK &middot; Ireland &middot; Europe &nbsp;&nbsp;&nbsp; &copy; 2026</span>
   </div>
 </footer>
+
+<script>
+  let current = 1;
+  let consent = null;
+  let locationChoice = null;
+
+  function goTo(n) {
+    document.getElementById('step-' + current).classList.remove('active');
+    current = n;
+    document.getElementById('step-' + current).classList.add('active');
+    updateProgress();
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      const first = document.querySelector('#step-' + current + ' input:not([type=checkbox]), #step-' + current + ' textarea');
+      if (first) first.focus();
+    }, 120);
+  }
+
+  function updateProgress() {
+    document.getElementById('progress').style.width = ((current - 1) / 5 * 100) + '%';
+  }
+
+  // Step 1
+  function pickYN(val) {
+    consent = val;
+    document.getElementById('yn-yes').classList.toggle('picked', val === 'yes');
+    document.getElementById('yn-no').classList.toggle('picked', val === 'no');
+    document.getElementById('btn-1').disabled = false;
+    if (val === 'yes') {
+      setTimeout(() => goTo(2), 320);
+    } else {
+      document.getElementById('btn-1').textContent = 'OK';
+      document.getElementById('btn-1').onclick = function() {
+        document.getElementById('step-1').innerHTML = `
+          <div class="step-no">01 / 06</div>
+          <div class="q">That is absolutely fine.</div>
+          <div class="sub" style="margin-top:16px;">Please feel free to get in touch whenever you are ready.<br><a href="mailto:peter.within@gmail.com" style="color:var(--ink)">peter.within@gmail.com</a></div>
+          <a href="/" style="display:inline-flex;align-items:center;margin-top:32px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;">Return to site</a>`;
+      };
+    }
+  }
+
+  // Step 2
+  function validateStep2() {
+    const ids = ['fname','lname','dob-d','dob-m','dob-y','phone','email','address'];
+    let ok = true;
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) { el.classList.add('invalid'); ok = false; }
+      else { el.classList.remove('invalid'); }
+    });
+    if (!ok) return;
+    // Update step 3 subtitle dynamically
+    const name = document.getElementById('fname').value;
+    const addr = document.getElementById('address').value;
+    document.getElementById('sub-3').textContent = 'Will you be attending from ' + addr + ', ' + name + '?';
+    goTo(3);
+  }
+
+  // Step 3
+  function pickLocation(val) {
+    locationChoice = val;
+    document.getElementById('loc-yes').classList.toggle('picked', val === 'yes');
+    document.getElementById('loc-no').classList.toggle('picked', val === 'no');
+    document.getElementById('alt-address-wrap').style.display = val === 'no' ? 'block' : 'none';
+    document.getElementById('btn-3').disabled = false;
+  }
+
+  function validateStep3() {
+    if (!locationChoice) return;
+    if (locationChoice === 'no') {
+      const el = document.getElementById('alt-address');
+      if (!el.value.trim()) { el.classList.add('invalid'); return; }
+      el.classList.remove('invalid');
+    }
+    goTo(4);
+  }
+
+  // Step 4
+  function validateStep4() {
+    const required = ['gp','ec-name','ec-rel','ec-phone'];
+    let ok = true;
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) { el.classList.add('invalid'); ok = false; }
+      else { el.classList.remove('invalid'); }
+    });
+    if (!ok) return;
+    goTo(5);
+  }
+
+  // Step 5
+  function toggleSubmit() {
+    document.getElementById('btn-5').disabled = !document.getElementById('agreed').checked;
+  }
+
+  function submitForm() {
+    if (!document.getElementById('agreed').checked) return;
+    const dob = document.getElementById('dob-d').value + '/' + document.getElementById('dob-m').value + '/' + document.getElementById('dob-y').value;
+    const location = locationChoice === 'yes' ? document.getElementById('address').value : document.getElementById('alt-address').value;
+
+    const data = {
+      consent: 'Yes',
+      first_name: document.getElementById('fname').value,
+      last_name: document.getElementById('lname').value,
+      date_of_birth: dob,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value,
+      address: document.getElementById('address').value,
+      counselling_location: location,
+      gp_details: document.getElementById('gp').value,
+      health_conditions: document.getElementById('health').value || 'None',
+      emergency_contact_name: document.getElementById('ec-name').value,
+      emergency_contact_relationship: document.getElementById('ec-rel').value,
+      emergency_contact_phone: document.getElementById('ec-phone').value,
+      agreement_accepted: 'Yes',
+      _subject: 'New Client: ' + document.getElementById('fname').value + ' ' + document.getElementById('lname').value
+    };
+
+    const btn = document.getElementById('btn-5');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    fetch('https://formspree.io/f/mqevvwlo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(r => {
+      if (r.ok) { goTo(6); }
+      else { btn.textContent = 'Error — please try again'; btn.disabled = false; }
+    }).catch(() => { btn.textContent = 'Error — please try again'; btn.disabled = false; });
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'TEXTAREA') return;
+    if (current === 1) {
+      if (e.key === 'y' || e.key === 'Y') pickYN('yes');
+      if (e.key === 'n' || e.key === 'N') pickYN('no');
+    }
+    if (current === 3) {
+      if (e.key === 'y' || e.key === 'Y') pickLocation('yes');
+      if (e.key === 'n' || e.key === 'N') pickLocation('no');
+    }
+    if (e.key === 'Enter' && !e.shiftKey) {
+      if (current === 2) validateStep2();
+      if (current === 3) validateStep3();
+      if (current === 4) validateStep4();
+    }
+  });
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  updateProgress();
+</script>
 </body>
 </html>
