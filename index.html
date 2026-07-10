@@ -238,7 +238,51 @@
       display: flex;
       flex-direction: column;
     }
-    .service-row{
+    /* CAROUSEL */
+    .slide { display: none; }
+    .slide.active { display: block; }
+    .s-body { position: relative; cursor: pointer; }
+    .s-carousel-dots {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+      align-items: center;
+    }
+    .s-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--low);
+      transition: background 0.25s, transform 0.25s;
+      flex-shrink: 0;
+    }
+    .s-dot.active {
+      background: var(--forest);
+      transform: scale(1.4);
+    }
+    .s-arrows {
+      display: none;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      gap: 10px;
+      align-items: center;
+    }
+    .service-row.open .s-arrows { display: flex; }
+    .s-arrow {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: var(--mid);
+      line-height: 1;
+      font-size: 14px;
+      transition: color 0.2s;
+      font-family: inherit;
+    }
+    .s-arrow:hover { color: var(--forest); }
+
+        .service-row{
       display: flex;
       align-items: baseline;
       gap: 20px;
@@ -604,34 +648,103 @@
   <div class="main-right" id="practice">
     <span class="mono-label reveal">Practice</span>
     <div class="services-list">
-      <div class="service-row reveal d1">
+
+      <!-- 01 Person-Centred -->
+      <div class="service-row reveal d1" data-service="0">
         <span class="s-num">01</span>
         <div class="s-body">
-          <h3>Person-Centred Therapy</h3>
-          <p>Focused on your needs, wants and wishes, in a space that empowers self-discovery and self-acceptance.</p>
+          <div class="slide active">
+            <h3>Person-Centred Therapy</h3>
+            <p>Focused on your needs, wants and wishes, in a space that empowers self-discovery and self-acceptance.</p>
+          </div>
+          <div class="slide">
+            <h3>What this looks like</h3>
+            <p>We go at your pace. There is no agenda, no diagnosis, no fixing. You lead; I follow. Sessions feel like a conversation with someone who is fully on your side.</p>
+          </div>
+          <div class="slide">
+            <h3>Who it suits</h3>
+            <p>Anyone who has felt unseen, unheard, or like they have to perform a version of themselves for the world. This is a place to drop that.</p>
+          </div>
+          <div class="slide">
+            <h3>The evidence</h3>
+            <p>Person-centred therapy has decades of research behind it. Its core conditions, empathy, congruence, and unconditional positive regard, remain the strongest predictors of therapeutic change.</p>
+          </div>
+          <div class="s-carousel-dots"></div>
         </div>
       </div>
-      <div class="service-row reveal d2">
+
+      <!-- 02 Queer-Informed -->
+      <div class="service-row reveal d2" data-service="1">
         <span class="s-num">02</span>
         <div class="s-body">
-          <h3>Queer-Informed Practice</h3>
-          <p>Specialist support for the LGBTQ+ community. Space held without needing to explain yourself.</p>
+          <div class="slide active">
+            <h3>Queer-Informed Practice</h3>
+            <p>Specialist support for the LGBTQ+ community. Space held without needing to explain yourself.</p>
+          </div>
+          <div class="slide">
+            <h3>What this looks like</h3>
+            <p>You will not need to educate me on queer identity, coming out, or the weight of heteronormativity. I already understand. We can get straight to what matters to you.</p>
+          </div>
+          <div class="slide">
+            <h3>Who it suits</h3>
+            <p>LGBTQ+ adults navigating identity, relationships, family dynamics, shame, or the particular exhaustion of living in a world not built for you.</p>
+          </div>
+          <div class="slide">
+            <h3>My background</h3>
+            <p>As a gay man myself, I bring lived experience as well as clinical training. The room holds both. You are not a case study here.</p>
+          </div>
+          <div class="s-carousel-dots"></div>
         </div>
       </div>
-      <div class="service-row reveal d2">
+
+      <!-- 03 Somatic -->
+      <div class="service-row reveal d2" data-service="2">
         <span class="s-num">03</span>
         <div class="s-body">
-          <h3>Somatic Experiencing</h3>
-          <p>Working with the body as much as the mind, because your body knows before your brain does.</p>
+          <div class="slide active">
+            <h3>Somatic Experiencing</h3>
+            <p>Working with the body as much as the mind, because your body knows before your brain does.</p>
+          </div>
+          <div class="slide">
+            <h3>What this looks like</h3>
+            <p>We might notice where you feel tension, numbness, or a sense of bracing. Gently, slowly, we work to complete what the nervous system got stuck on. No force, no drama.</p>
+          </div>
+          <div class="slide">
+            <h3>Who it suits</h3>
+            <p>People carrying anxiety, trauma, or a sense of being permanently on edge, even when life looks fine on paper. Often helpful when talking alone has not been enough.</p>
+          </div>
+          <div class="slide">
+            <h3>The approach</h3>
+            <p>Somatic Experiencing was developed by Dr Peter Levine. It works with the body's natural capacity to heal, supporting the nervous system to move from survival into safety.</p>
+          </div>
+          <div class="s-carousel-dots"></div>
         </div>
       </div>
-      <div class="service-row reveal d3">
+
+      <!-- 04 Ecotherapy -->
+      <div class="service-row reveal d3" data-service="3">
         <span class="s-num">04</span>
         <div class="s-body">
-          <h3>Ecotherapy</h3>
-          <p>Sessions held outdoors as well as online, using the natural world as a grounding co-therapist.</p>
+          <div class="slide active">
+            <h3>Ecotherapy</h3>
+            <p>Sessions held outdoors as well as online, using the natural world as a grounding co-therapist.</p>
+          </div>
+          <div class="slide">
+            <h3>What this looks like</h3>
+            <p>We walk and talk, or we sit in a green space together. Nature is not a backdrop here, it is part of the therapy. The rhythm of walking, the quality of light, the ground beneath your feet.</p>
+          </div>
+          <div class="slide">
+            <h3>Who it suits</h3>
+            <p>Anyone who finds it easier to open up when not sitting face to face. Or those who feel most themselves outside. Or those who are simply drawn to something different.</p>
+          </div>
+          <div class="slide">
+            <h3>The evidence</h3>
+            <p>Time in nature measurably reduces cortisol and supports nervous system regulation. Combined with skilled therapeutic presence, it creates conditions for something quietly transformative.</p>
+          </div>
+          <div class="s-carousel-dots"></div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -735,6 +848,56 @@
       else { alert('Something went wrong, please email hello@peterdonnellytherapy.com directly.'); }
     });
   }
+</script>
+<script>
+(function(){
+  // Build dots + arrows for each service row
+  document.querySelectorAll('[data-service]').forEach(function(row){
+    var slides = row.querySelectorAll('.slide');
+    var dotsEl = row.querySelector('.s-carousel-dots');
+    var body   = row.querySelector('.s-body');
+    var current = 0;
+
+    // Create dots
+    var dots = [];
+    slides.forEach(function(_, i){
+      var d = document.createElement('span');
+      d.className = 's-dot' + (i === 0 ? ' active' : '');
+      dotsEl.appendChild(d);
+      dots.push(d);
+    });
+
+    // Create arrows
+    var arrows = document.createElement('div');
+    arrows.className = 's-arrows';
+    var prev = document.createElement('button');
+    prev.className = 's-arrow'; prev.setAttribute('aria-label','Previous'); prev.innerHTML = '&#8592;';
+    var next = document.createElement('button');
+    next.className = 's-arrow'; next.setAttribute('aria-label','Next'); next.innerHTML = '&#8594;';
+    arrows.appendChild(prev);
+    arrows.appendChild(next);
+    body.appendChild(arrows);
+
+    function goTo(n){
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    // Click anywhere on row to advance
+    row.addEventListener('click', function(e){
+      if(e.target === prev || prev.contains(e.target)) return;
+      if(e.target === next || next.contains(e.target)) return;
+      row.classList.add('open');
+      goTo(current + 1);
+    });
+
+    prev.addEventListener('click', function(e){ e.stopPropagation(); goTo(current - 1); });
+    next.addEventListener('click', function(e){ e.stopPropagation(); goTo(current + 1); });
+  });
+})();
 </script>
 </body>
 </html>
