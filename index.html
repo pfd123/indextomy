@@ -479,6 +479,12 @@
       text-transform: uppercase;
       color: var(--mid);
     }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
     .f-locations {
       font-family: 'Geist Mono', monospace;
       font-size: 10px;
@@ -701,8 +707,10 @@
     <a href="#practice">Practice</a>
     <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
   </div>
-  <span class="f-copy">&copy; 2026</span>
-  <span class="f-locations">Northern Ireland &middot; England &middot; Scotland &middot; Wales</span>
+  <div class="f-right">
+    <span class="f-locations">Northern Ireland &middot; England &middot; Scotland &middot; Wales &middot; Europe</span>
+    <span class="f-copy">&copy; 2026</span>
+  </div>
 </footer>
 
 <script>
