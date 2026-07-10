@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Information — Peter Donnelly</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #1a3a2a;
+      --paper: #F6F3EE;
+      --paper-dark: #ede9e2;
+      --accent: #2d5a3d;
+      --muted: rgba(26,58,42,0.45);
+      --radius: 3px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--green);
+      font-family: 'Geist Mono', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── PROGRESS BAR ── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--green);
+      width: 0%;
+      transition: width 0.4s ease;
+      z-index: 100;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 50;
+      background: var(--paper);
+      border-bottom: 1px solid rgba(26,58,42,0.08);
+    }
+
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.15rem;
+      color: var(--green);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .step-counter {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SLIDE WRAPPER ── */
+    #form-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 24px 60px;
+    }
+
+    /* ── SLIDE ── */
+    .slide {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      max-width: 620px;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .slide.active { display: flex; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── QUESTION NUMBER ── */
+    .q-num {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-num span { display: inline-block; }
+
+    /* ── QUESTION LABEL ── */
+    .q-label {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      line-height: 1.25;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .q-label .required { color: var(--accent); }
+
+    /* ── DESCRIPTION ── */
+    .q-desc {
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* ── INPUTS ── */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid rgba(26,58,42,0.25);
+      color: var(--green);
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      font-weight: 300;
+      padding: 10px 2px 12px;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 120px;
+      line-height: 1.6;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-bottom-color: var(--green);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(26,58,42,0.25);
+      font-style: italic;
+    }
+
+    /* ── DATE INPUT ── */
+    .date-group {
+      display: flex;
+      gap: 16px;
+    }
+
+    .date-group > div {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .date-group label {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .date-group input {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    /* ── YES/NO ── */
+    .yn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .yn-btn {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      border: 1.5px solid rgba(26,58,42,0.18);
+      background: transparent;
+      cursor: pointer;
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      transition: all 0.2s;
+      text-align: left;
+      border-radius: var(--radius);
+    }
+
+    .yn-btn:hover, .yn-btn.selected {
+      background: var(--green);
+      color: var(--paper);
+      border-color: var(--green);
+    }
+
+    .yn-btn .key-hint {
+      width: 22px;
+      height: 22px;
+      border: 1px solid currentColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+
+    /* ── LEGAL BLOCK ── */
+    .legal-text {
+      background: rgba(26,58,42,0.04);
+      border-left: 2px solid rgba(26,58,42,0.15);
+      padding: 24px 28px;
+      font-size: 11px;
+      line-height: 1.9;
+      color: var(--green);
+      max-height: 320px;
+      overflow-y: auto;
+      margin-bottom: 24px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .legal-text h3 {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .legal-text p { margin-bottom: 10px; }
+    .legal-text strong { font-weight: 400; }
+
+    .legal-accept {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--green);
+      margin-bottom: 28px;
+    }
+
+    .legal-accept input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid var(--green);
+      background: transparent;
+      border-bottom: 1.5px solid var(--green);
+      cursor: pointer;
+      flex-shrink: 0;
+      accent-color: var(--green);
+    }
+
+    /* ── OK BUTTON ── */
+    .ok-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--green);
+      color: var(--paper);
+      border: none;
+      padding: 14px 28px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      border-radius: var(--radius);
+      margin-top: 32px;
+    }
+
+    .ok-btn:hover { opacity: 0.82; }
+    .ok-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .ok-btn .enter-hint {
+      font-size: 9px;
+      opacity: 0.6;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── NAV ARROWS ── */
+    .nav-arrows {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      display: flex;
+      gap: 8px;
+      z-index: 50;
+    }
+
+    .nav-arrow {
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid rgba(26,58,42,0.22);
+      background: var(--paper);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: var(--radius);
+      font-size: 14px;
+    }
+
+    .nav-arrow:hover { background: var(--green); color: var(--paper); }
+    .nav-arrow:disabled { opacity: 0.2; cursor: not-allowed; }
+
+    /* ── ERROR ── */
+    .field-error {
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: #b85c38;
+      margin-top: 8px;
+      display: none;
+    }
+
+    /* ── THANK YOU ── */
+    #slide-thanks {
+      text-align: center;
+    }
+
+    #slide-thanks .big-mark {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(3rem, 10vw, 6rem);
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    #slide-thanks p {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      header { padding: 14px 20px; }
+      #form-wrap { padding: 90px 20px 80px; }
+      .legal-text { max-height: 240px; }
+      .nav-arrows { bottom: 16px; right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<header>
+  <a class="logo" href="https://peterdonnelly.co.uk">Peter Donnelly</a>
+  <span class="step-counter" id="step-label">1 of 14</span>
+</header>
+
+<div id="form-wrap">
+
+  <!-- Q1: Consent -->
+  <div class="slide active" data-index="0" id="s0">
+    <div class="q-num"><span>01 →</span></div>
+    <div class="q-label">Hi there! Are you happy to provide some details before our work begins? <span class="required">*</span></div>
+    <div class="q-desc">In order for us to work safely together I need to collect a few details, they will be stored safely and remain confidential.</div>
+    <div class="yn-group">
+      <button class="yn-btn" data-val="Yes" onclick="selectYN(this, 's0')">
+        <span class="key-hint">Y</span> Yes
+      </button>
+      <button class="yn-btn" data-val="No" onclick="selectYN(this, 's0')">
+        <span class="key-hint">N</span> No
+      </button>
+    </div>
+    <button class="ok-btn" onclick="next()" id="ok0" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+    <div class="field-error" id="err0">Please make a selection to continue.</div>
+  </div>
+
+  <!-- Q2: First name -->
+  <div class="slide" data-index="1" id="s1">
+    <div class="q-num"><span>02 →</span></div>
+    <div class="q-label">First name <span class="required">*</span></div>
+    <input type="text" id="f-fname" placeholder="Type your answer…" autocomplete="given-name" oninput="syncOK('ok1', 'f-fname')">
+    <div class="field-error" id="err1">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok1" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q3: Last name -->
+  <div class="slide" data-index="2" id="s2">
+    <div class="q-num"><span>03 →</span></div>
+    <div class="q-label">Last name <span class="required">*</span></div>
+    <input type="text" id="f-lname" placeholder="Type your answer…" autocomplete="family-name" oninput="syncOK('ok2', 'f-lname')">
+    <div class="field-error" id="err2">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok2" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q4: Date of birth -->
+  <div class="slide" data-index="3" id="s3">
+    <div class="q-num"><span>04 →</span></div>
+    <div class="q-label">Date of birth <span class="required">*</span></div>
+    <div class="date-group">
+      <div>
+        <label for="f-dob-d">Day</label>
+        <input type="text" id="f-dob-d" placeholder="DD" maxlength="2" inputmode="numeric" oninput="syncDOB()">
+      </div>
+      <div>
+        <label for="f-dob-m">Month</label>
+        <input type="text" id="f-dob-m" placeholder="MM" maxlength="2" inputmode="numeric" oninput="syncDOB()">
+      </div>
+      <div>
+        <label for="f-dob-y">Year</label>
+        <input type="text" id="f-dob-y" placeholder="YYYY" maxlength="4" inputmode="numeric" oninput="syncDOB()">
+      </div>
+    </div>
+    <div class="field-error" id="err3">Please enter a valid date of birth.</div>
+    <button class="ok-btn" onclick="next()" id="ok3" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q5: Phone number -->
+  <div class="slide" data-index="4" id="s4">
+    <div class="q-num"><span>05 →</span></div>
+    <div class="q-label">Phone number <span class="required">*</span></div>
+    <input type="tel" id="f-phone" placeholder="+44…" autocomplete="tel" oninput="syncOK('ok4', 'f-phone')">
+    <div class="field-error" id="err4">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok4" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q6: Current address -->
+  <div class="slide" data-index="5" id="s5">
+    <div class="q-num"><span>06 →</span></div>
+    <div class="q-label">Current address <span class="required">*</span></div>
+    <textarea id="f-address" placeholder="Type your answer…" autocomplete="street-address" oninput="syncOK('ok5', 'f-address')"></textarea>
+    <div class="field-error" id="err5">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok5" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q7: Attending from same address? -->
+  <div class="slide" data-index="6" id="s6">
+    <div class="q-num"><span>07 →</span></div>
+    <div class="q-label">Will you be attending counselling from this address? <span class="required">*</span></div>
+    <div class="yn-group">
+      <button class="yn-btn" data-val="Yes" onclick="selectYN(this, 's6'); handleAddressLogic()">
+        <span class="key-hint">Y</span> Yes
+      </button>
+      <button class="yn-btn" data-val="No" onclick="selectYN(this, 's6'); handleAddressLogic()">
+        <span class="key-hint">N</span> No
+      </button>
+    </div>
+    <button class="ok-btn" onclick="next()" id="ok6" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+    <div class="field-error" id="err6">Please make a selection to continue.</div>
+  </div>
+
+  <!-- Q7b: Where attending from (conditional — only if No above) -->
+  <div class="slide" data-index="7" id="s7">
+    <div class="q-num"><span>07b →</span></div>
+    <div class="q-label">Where will you be attending counselling from? <span class="required">*</span></div>
+    <textarea id="f-attend-addr" placeholder="Type your answer…" oninput="syncOK('ok7', 'f-attend-addr')"></textarea>
+    <div class="field-error" id="err7">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok7" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q8: Email -->
+  <div class="slide" data-index="8" id="s8">
+    <div class="q-num"><span>08 →</span></div>
+    <div class="q-label">Email address <span class="required">*</span></div>
+    <input type="email" id="f-email" placeholder="name@example.com" autocomplete="email" oninput="syncOK('ok8', 'f-email')">
+    <div class="field-error" id="err8">Please enter a valid email address.</div>
+    <button class="ok-btn" onclick="next()" id="ok8" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q9: GP details -->
+  <div class="slide" data-index="9" id="s9">
+    <div class="q-num"><span>09 →</span></div>
+    <div class="q-label">GP details <span class="required">*</span></div>
+    <div class="q-desc">Name, address and phone number. Note: your GP will NOT be contacted. This is only collected for use in the event of an emergency.</div>
+    <textarea id="f-gp" placeholder="Type your answer…" oninput="syncOK('ok9', 'f-gp')"></textarea>
+    <div class="field-error" id="err9">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok9" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q10: Health conditions / medications -->
+  <div class="slide" data-index="10" id="s10">
+    <div class="q-num"><span>10 →</span></div>
+    <div class="q-label">Any health conditions or medications I might need to be aware of? <span class="required">*</span></div>
+    <textarea id="f-health" placeholder="Type your answer…" oninput="syncOK('ok10', 'f-health')"></textarea>
+    <div class="field-error" id="err10">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok10" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q11: Emergency contact name -->
+  <div class="slide" data-index="11" id="s11">
+    <div class="q-num"><span>11 →</span></div>
+    <div class="q-label">Emergency contact name <span class="required">*</span></div>
+    <div class="q-desc">To support you in the event of an emergency.</div>
+    <input type="text" id="f-ec-name" placeholder="Type your answer…" oninput="syncOK('ok11', 'f-ec-name')">
+    <div class="field-error" id="err11">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok11" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q12: Emergency contact phone -->
+  <div class="slide" data-index="12" id="s12">
+    <div class="q-num"><span>12 →</span></div>
+    <div class="q-label" id="ec-phone-label">Their phone number <span class="required">*</span></div>
+    <input type="tel" id="f-ec-phone" placeholder="+44…" oninput="syncOK('ok12', 'f-ec-phone')">
+    <div class="field-error" id="err12">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok12" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q13: Emergency contact relationship -->
+  <div class="slide" data-index="13" id="s13">
+    <div class="q-num"><span>13 →</span></div>
+    <div class="q-label" id="ec-rel-label">Their relationship to you <span class="required">*</span></div>
+    <input type="text" id="f-ec-rel" placeholder="e.g. Partner, sibling, friend…" oninput="syncOK('ok13', 'f-ec-rel')">
+    <div class="field-error" id="err13">This field is required.</div>
+    <button class="ok-btn" onclick="next()" id="ok13" disabled>OK <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Q14: Counselling Agreement (Legal) -->
+  <div class="slide" data-index="14" id="s14">
+    <div class="q-num"><span>14 →</span></div>
+    <div class="q-label">Counselling Agreement <span class="required">*</span></div>
+    <div class="q-desc">Please read through the agreement below before accepting.</div>
+    <div class="legal-text">
+      <p><strong>Counselling with me</strong></p>
+      <p>My name is Peter Donnelly, and I am a qualified counsellor, registered with the British Association of Counselling and Psychotherapy (BACP). I work to the BACP's ethical framework for Counsellors. I hold an enhanced DBS certificate, professional indemnity insurance, and engage in continual training to offer clients the best support possible.</p>
+
+      <p><strong>The way I work</strong></p>
+      <p>There are different types of counselling to choose from and it is important you find the right fit for you. I have trained in the person-centred approach which values your process; trusting you as the expert on your own life. I will support you in finding your own answers.</p>
+
+      <p><strong>Counselling Session</strong></p>
+      <p>Sessions take place through Zoom or by phone and last 50 minutes. You can decide whether to book a phone or Zoom session. There are times where counselling online may not be suitable for your current situation. If I believe that working online, or over the phone is not the most suitable means of support for you I will let you know, and assist in finding a more suitable referral local to you.</p>
+
+      <p><strong>Fees and Payment</strong></p>
+      <p>The fee is £90 per 50 minute session. Fees are payable in advance of the session in order to secure your booking. I have a limited number of reduced rate slots available for those who require it.</p>
+
+      <p><strong>Confidentiality</strong></p>
+      <p>Counselling sessions are strictly confidential between counsellor and client. The exceptions to this are:</p>
+      <p>1) You have revealed a serious risk to yourself or others<br>
+      2) You have disclosed information relating to risk to a child or a vulnerable adult<br>
+      3) You have disclosed information relating to a possible act of terrorism<br>
+      4) You have disclosed information relating to money laundering or drug trafficking<br>
+      5) I am required by a Court to disclose information</p>
+      <p>Where appropriate, I would endeavour to discuss with you what was happening and why.</p>
+
+      <p><strong>Record Keeping</strong></p>
+      <p>I will keep brief notes of the sessions that we have together. I am registered with the Information Commissioners Office (ICO) as a controller of sensitive data and work to their standards for storing any personal information. You have the right to request that I erase your personal data, under certain conditions.</p>
+
+      <p><strong>Contacting between sessions</strong></p>
+      <p>In instances where you need to contact me between sessions you can email me at peter@peterdonnelly.co.uk. I will respond as time permits between sessions. I only use email to communicate information about appointments and bookings; to protect your confidentiality I will not discuss session material. I do not engage socially with clients outside of therapeutic sessions. This includes social media.</p>
+      <p>This is not a crisis or emergency service. If you need to speak to someone immediately or you or someone you know is in a life-threatening situation, call the emergency services on 999 or 112, NHS on 111, or the Samaritans 24/7 on 116 123.</p>
+
+      <p><strong>Non-attendance and cancellations</strong></p>
+      <p>Sessions cancelled within 24 hours of appointment time will be charged at full rate.</p>
+    </div>
+
+    <label class="legal-accept">
+      <input type="checkbox" id="f-legal" onchange="syncLegal()">
+      I accept the counselling agreement
+    </label>
+    <div class="field-error" id="err14">You must accept the agreement to continue.</div>
+    <button class="ok-btn" onclick="submitForm()" id="ok14" disabled>Submit <span class="enter-hint">↵ Enter</span></button>
+  </div>
+
+  <!-- Thank you -->
+  <div class="slide" id="slide-thanks">
+    <div class="big-mark">Pd</div>
+    <p>Thank you. Your details have been received safely.<br>I look forward to our work together.</p>
+    <p style="margin-top:16px;"><a href="https://peterdonnelly.co.uk" style="color:var(--muted);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;">← peterdonnelly.co.uk</a></p>
+  </div>
+
+</div><!-- /form-wrap -->
+
+<!-- Navigation arrows -->
+<div class="nav-arrows">
+  <button class="nav-arrow" id="nav-prev" onclick="prev()" disabled title="Previous">↑</button>
+  <button class="nav-arrow" id="nav-next" onclick="next()" title="Next">↓</button>
+</div>
+
+<!-- Hidden Formspree form for submission -->
+<form id="formspree-target" action="https://formspree.io/f/mqevvwlo" method="POST" style="display:none">
+  <input type="hidden" name="consent" id="h-consent">
+  <input type="hidden" name="first_name" id="h-fname">
+  <input type="hidden" name="last_name" id="h-lname">
+  <input type="hidden" name="date_of_birth" id="h-dob">
+  <input type="hidden" name="phone" id="h-phone">
+  <input type="hidden" name="address" id="h-address">
+  <input type="hidden" name="attending_from_same_address" id="h-addr-same">
+  <input type="hidden" name="attending_address" id="h-attend-addr">
+  <input type="hidden" name="email" id="h-email">
+  <input type="hidden" name="gp_details" id="h-gp">
+  <input type="hidden" name="health_conditions_medications" id="h-health">
+  <input type="hidden" name="emergency_contact_name" id="h-ec-name">
+  <input type="hidden" name="emergency_contact_phone" id="h-ec-phone">
+  <input type="hidden" name="emergency_contact_relationship" id="h-ec-rel">
+  <input type="hidden" name="counselling_agreement_accepted" value="Yes">
+  <input type="hidden" name="_subject" id="h-subject">
+</form>
+
+<script>
+  // ── STATE ──
+  const TOTAL_SLIDES = 15; // 0-13 = questions, 14 = legal
+  let current = 0;
+  let skipAddressSlide = false; // if Yes to same address, skip s7
+
+  // Slide order (default). We'll skip s7 conditionally.
+  const allSlides = ['s0','s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14'];
+
+  function getSlideOrder() {
+    if (skipAddressSlide) return allSlides.filter(id => id !== 's7');
+    return allSlides;
+  }
+
+  function showSlide(idx) {
+    const order = getSlideOrder();
+    if (idx < 0 || idx >= order.length) return;
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    const el = document.getElementById(order[idx]);
+    if (el) {
+      el.classList.add('active');
+      // Focus first input
+      const inp = el.querySelector('input:not([type="hidden"]):not([type="checkbox"]), textarea');
+      if (inp) setTimeout(() => inp.focus(), 80);
+    }
+    current = idx;
+    updateNav();
+    updateProgress();
+  }
+
+  function updateNav() {
+    const order = getSlideOrder();
+    document.getElementById('nav-prev').disabled = current === 0;
+    document.getElementById('nav-next').disabled = current >= order.length - 1;
+    const isThanks = document.getElementById('slide-thanks').classList.contains('active');
+    document.querySelector('.nav-arrows').style.display = isThanks ? 'none' : 'flex';
+    document.getElementById('step-label').textContent = `${current + 1} of ${order.length}`;
+  }
+
+  function updateProgress() {
+    const order = getSlideOrder();
+    const pct = ((current) / (order.length - 1)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  }
+
+  function next() {
+    const order = getSlideOrder();
+    if (current >= order.length - 1) return;
+    if (!validateCurrent()) return;
+    showSlide(current + 1);
+  }
+
+  function prev() {
+    if (current > 0) showSlide(current - 1);
+  }
+
+  function validateCurrent() {
+    const order = getSlideOrder();
+    const slideId = order[current];
+    const errEl = document.getElementById('err' + current);
+
+    // Hide all errors first
+    document.querySelectorAll('.field-error').forEach(e => e.style.display = 'none');
+
+    if (slideId === 's0') {
+      const sel = document.querySelector('#s0 .yn-btn.selected');
+      if (!sel) { showErr('err0'); return false; }
+      if (sel.dataset.val === 'No') {
+        // End form — they said no
+        document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+        document.getElementById('slide-thanks').classList.add('active');
+        document.getElementById('slide-thanks').querySelector('.big-mark').textContent = '';
+        document.getElementById('slide-thanks').querySelector('p').textContent = 'That\'s completely okay. Please feel free to reach out when you\'re ready.';
+        document.querySelector('.nav-arrows').style.display = 'none';
+        return false;
+      }
+      return true;
+    }
+
+    if (slideId === 's1') return requireField('f-fname', 'err1');
+    if (slideId === 's2') return requireField('f-lname', 'err2');
+    if (slideId === 's3') return validateDOB();
+    if (slideId === 's4') return requireField('f-phone', 'err4');
+    if (slideId === 's5') return requireField('f-address', 'err5');
+    if (slideId === 's6') {
+      const sel = document.querySelector('#s6 .yn-btn.selected');
+      if (!sel) { showErr('err6'); return false; }
+      return true;
+    }
+    if (slideId === 's7') return requireField('f-attend-addr', 'err7');
+    if (slideId === 's8') return validateEmail();
+    if (slideId === 's9') return requireField('f-gp', 'err9');
+    if (slideId === 's10') return requireField('f-health', 'err10');
+    if (slideId === 's11') {
+      if (!requireField('f-ec-name', 'err11')) return false;
+      // Update dynamic labels
+      const ecName = document.getElementById('f-ec-name').value.trim();
+      document.getElementById('ec-phone-label').innerHTML = `${ecName}'s phone number <span class="required">*</span>`;
+      document.getElementById('ec-rel-label').innerHTML = `${ecName}'s relationship to you <span class="required">*</span>`;
+      return true;
+    }
+    if (slideId === 's12') return requireField('f-ec-phone', 'err12');
+    if (slideId === 's13') return requireField('f-ec-rel', 'err13');
+
+    return true;
+  }
+
+  function requireField(id, errId) {
+    const val = document.getElementById(id).value.trim();
+    if (!val) { showErr(errId); return false; }
+    return true;
+  }
+
+  function validateDOB() {
+    const d = document.getElementById('f-dob-d').value.trim();
+    const m = document.getElementById('f-dob-m').value.trim();
+    const y = document.getElementById('f-dob-y').value.trim();
+    if (!d || !m || !y || y.length !== 4) { showErr('err3'); return false; }
+    return true;
+  }
+
+  function validateEmail() {
+    const val = document.getElementById('f-email').value.trim();
+    if (!val || !val.includes('@')) { showErr('err8'); return false; }
+    return true;
+  }
+
+  function showErr(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'block';
+  }
+
+  // ── YES/NO BUTTONS ──
+  function selectYN(btn, slideId) {
+    document.querySelectorAll('#' + slideId + ' .yn-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    // Enable OK
+    const idx = allSlides.indexOf(slideId);
+    const okEl = document.getElementById('ok' + idx);
+    if (okEl) okEl.disabled = false;
+  }
+
+  function handleAddressLogic() {
+    const sel = document.querySelector('#s6 .yn-btn.selected');
+    skipAddressSlide = sel && sel.dataset.val === 'Yes';
+  }
+
+  // ── FIELD SYNC ──
+  function syncOK(okId, fieldId) {
+    const val = document.getElementById(fieldId).value.trim();
+    document.getElementById(okId).disabled = !val;
+  }
+
+  function syncDOB() {
+    const d = document.getElementById('f-dob-d').value.trim();
+    const m = document.getElementById('f-dob-m').value.trim();
+    const y = document.getElementById('f-dob-y').value.trim();
+    document.getElementById('ok3').disabled = !(d && m && y && y.length === 4);
+  }
+
+  function syncLegal() {
+    document.getElementById('ok14').disabled = !document.getElementById('f-legal').checked;
+  }
+
+  // ── KEYBOARD ──
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      const order = getSlideOrder();
+      const slideId = order[current];
+      if (slideId === 's14') {
+        submitForm();
+      } else {
+        next();
+      }
+    }
+    if (e.key === 'y' || e.key === 'Y') {
+      const order = getSlideOrder();
+      const slideId = order[current];
+      if (slideId === 's0' || slideId === 's6') {
+        const btn = document.querySelector('#' + slideId + ' .yn-btn[data-val="Yes"]');
+        if (btn) { btn.click(); }
+      }
+    }
+    if (e.key === 'n' || e.key === 'N') {
+      const order = getSlideOrder();
+      const slideId = order[current];
+      if (slideId === 's0' || slideId === 's6') {
+        const btn = document.querySelector('#' + slideId + ' .yn-btn[data-val="No"]');
+        if (btn) { btn.click(); }
+      }
+    }
+  });
+
+  // ── SUBMIT ──
+  function submitForm() {
+    if (!document.getElementById('f-legal').checked) {
+      showErr('err14');
+      return;
+    }
+
+    const dob = `${document.getElementById('f-dob-d').value}/${document.getElementById('f-dob-m').value}/${document.getElementById('f-dob-y').value}`;
+    const fname = document.getElementById('f-fname').value.trim();
+    const lname = document.getElementById('f-lname').value.trim();
+
+    document.getElementById('h-consent').value = 'Yes';
+    document.getElementById('h-fname').value = fname;
+    document.getElementById('h-lname').value = lname;
+    document.getElementById('h-dob').value = dob;
+    document.getElementById('h-phone').value = document.getElementById('f-phone').value.trim();
+    document.getElementById('h-address').value = document.getElementById('f-address').value.trim();
+    document.getElementById('h-addr-same').value = document.querySelector('#s6 .yn-btn.selected')?.dataset.val || '';
+    document.getElementById('h-attend-addr').value = document.getElementById('f-attend-addr').value.trim();
+    document.getElementById('h-email').value = document.getElementById('f-email').value.trim();
+    document.getElementById('h-gp').value = document.getElementById('f-gp').value.trim();
+    document.getElementById('h-health').value = document.getElementById('f-health').value.trim();
+    document.getElementById('h-ec-name').value = document.getElementById('f-ec-name').value.trim();
+    document.getElementById('h-ec-phone').value = document.getElementById('f-ec-phone').value.trim();
+    document.getElementById('h-ec-rel').value = document.getElementById('f-ec-rel').value.trim();
+    document.getElementById('h-subject').value = `New Client: ${fname} ${lname}`;
+
+    const form = document.getElementById('formspree-target');
+    const data = new FormData(form);
+
+    fetch('https://formspree.io/f/mqevvwlo', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(r => {
+      if (r.ok) {
+        // Show thank you
+        document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+        document.getElementById('slide-thanks').classList.add('active');
+        document.querySelector('.nav-arrows').style.display = 'none';
+        document.getElementById('step-label').textContent = '';
+        document.getElementById('progress-bar').style.width = '100%';
+      } else {
+        alert('Something went wrong. Please try again or email peter@peterdonnelly.co.uk directly.');
+      }
+    }).catch(() => {
+      alert('Something went wrong. Please try again or email peter@peterdonnelly.co.uk directly.');
+    });
+  }
+
+  // ── INIT ──
+  updateNav();
+  updateProgress();
+</script>
+</body>
+</html>
