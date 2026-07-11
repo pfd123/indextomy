@@ -127,9 +127,11 @@
     .field { display: flex; flex-direction: column; }
 
     .field-label {
-      font-size: 9px; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--mid);
-      margin-bottom: 10px; line-height: 1.5;
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink);
+      margin-bottom: 8px; line-height: 1.5;
     }
     .field-hint {
       font-size: 9px; letter-spacing: 0.06em;
@@ -145,15 +147,15 @@
       border: none;
       border-bottom: 1px solid var(--rule-solid);
       color: var(--ink);
-      font-family: 'Fraunces', serif;
-      font-style: italic; font-size: 1.05rem; font-weight: 300;
+      font-family: 'Geist Mono', monospace;
+      font-style: normal; font-size: 15px; font-weight: 300;
       padding: 8px 0 11px;
       outline: none; width: 100%;
       transition: border-color 0.2s;
       border-radius: 0; -webkit-appearance: none;
     }
     input:focus, textarea:focus { border-bottom-color: var(--forest); }
-    input::placeholder, textarea::placeholder { color: var(--low); font-style: italic; }
+    input::placeholder, textarea::placeholder { color: var(--low); font-style: normal; }
     textarea { resize: vertical; min-height: 80px; line-height: 1.7; }
 
     input[type="number"]::-webkit-inner-spin-button,
