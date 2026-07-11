@@ -12,14 +12,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; }
 
-    /* ── ROOT VARS — identical to main site ── */
-    :root{
+    :root {
       --paper:  #F6F3EE;
       --ink:    #191917;
       --mid:    rgba(25,25,23,0.46);
       --low:    rgba(25,25,23,0.2);
       --forest: #3A4133;
       --rule:   rgba(25,25,23,0.1);
+      --rule-solid: #dddad5;
     }
 
     body {
@@ -27,184 +27,112 @@
       color: var(--ink);
       font-family: 'Geist Mono', monospace;
       min-height: 100vh;
-      overflow-x: hidden;
     }
 
-    /* ── NAV — copied exactly from main site ── */
-    nav{
+    /* ── NAV ── */
+    nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 30px 48px;
       transition: background 0.5s, padding 0.4s, border-color 0.5s;
       border-bottom: 1px solid transparent;
     }
-    nav.scrolled{
+    nav.scrolled {
       background: rgba(246,243,238,0.92);
       backdrop-filter: blur(14px);
       padding: 20px 48px;
       border-color: var(--rule);
     }
-    .nav-name{
+    .nav-name {
       font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
+      font-weight: 300; font-size: 11px;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
     }
-    .nav-links{
-      display: flex; gap: 36px; align-items: center;
-    }
-    .nav-links a{
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a {
       font-family: 'Geist Mono', monospace;
-      font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.2s;
+      font-size: 10.5px; font-weight: 300;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--mid); text-decoration: none; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--ink); }
     .nav-cta { color: var(--forest) !important; }
 
-    /* ── FOOTER — copied exactly from main site ── */
-    footer{
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--rule);
-      margin-top: 60px;
-    }
-    .f-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .f-links{
-      display: flex; gap: 28px;
-    }
-    .f-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .f-links a:hover { color: var(--ink); }
-    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
-    .f-accred {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-    .f-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-    }
-    .f-locations {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--low);
-    }
-
     /* ── PROGRESS BAR ── */
     #progress {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      width: 0%;
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
       background: var(--forest);
-      transition: width 0.5s ease;
-      z-index: 200;
+      transition: width 0.5s ease; z-index: 200;
     }
 
-    /* ── MAIN ── */
-    main {
-      min-height: calc(100vh - 120px);
+    /* ── PAGE WRAPPER ── */
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 130px 48px 80px;
+    }
+
+    /* ── STEP HEADER ── */
+    .step-header {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 48px 80px;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--rule);
     }
-
-    /* ── SLIDES ── */
-    .slide {
-      display: none;
-      width: 100%;
-      max-width: 680px;
-      flex-direction: column;
-      animation: rise 0.38s cubic-bezier(.22,.68,0,1.2) both;
-    }
-    .slide.active { display: flex; }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Step counter */
-    .step-no {
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--low);
-      margin-bottom: 22px;
-    }
-
-    /* Question heading */
-    .q {
+    .step-title {
       font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      line-height: 1.25;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
       color: var(--ink);
-      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .step-counter {
+      font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--low);
+      white-space: nowrap; margin-left: 24px;
+      flex-shrink: 0;
     }
 
-    /* Subtitle / hint */
-    .sub {
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      line-height: 1.8;
-      color: var(--mid);
-      margin-bottom: 32px;
+    /* ── SECTION GROUPS ── */
+    .form-section {
+      margin-bottom: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .form-section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 9px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--forest);
+      margin-bottom: 22px; font-weight: 400;
     }
 
-    /* Field rows */
-    .field-row {
+    /* ── FIELDS ── */
+    .field-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      margin-bottom: 28px;
+      gap: 28px 40px;
     }
-    .field { display: flex; flex-direction: column; margin-bottom: 28px; }
-    .field:last-child { margin-bottom: 0; }
+    .field-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+    .field-grid.dob { grid-template-columns: 80px 80px 110px; }
+    .field-full { grid-column: 1 / -1; }
+
+    .field { display: flex; flex-direction: column; }
 
     .field-label {
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 8px;
+      font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--mid);
+      margin-bottom: 10px; line-height: 1.5;
+    }
+    .field-hint {
+      font-size: 9px; letter-spacing: 0.06em;
+      color: var(--low); margin-top: 6px; line-height: 1.6;
     }
 
-    /* Inputs */
     input[type="text"],
     input[type="email"],
     input[type="tel"],
@@ -212,166 +140,180 @@
     textarea {
       background: transparent;
       border: none;
-      border-bottom: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule-solid);
       color: var(--ink);
       font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-size: 1.2rem;
-      font-weight: 300;
-      padding: 8px 0 12px;
-      outline: none;
-      width: 100%;
+      font-style: italic; font-size: 1.05rem; font-weight: 300;
+      padding: 8px 0 11px;
+      outline: none; width: 100%;
       transition: border-color 0.2s;
-      border-radius: 0;
-      -webkit-appearance: none;
+      border-radius: 0; -webkit-appearance: none;
     }
-    input:focus, textarea:focus { border-bottom-color: var(--ink); }
+    input:focus, textarea:focus { border-bottom-color: var(--forest); }
     input::placeholder, textarea::placeholder { color: var(--low); font-style: italic; }
+    textarea { resize: vertical; min-height: 80px; line-height: 1.7; }
 
-    textarea { resize: none; min-height: 90px; line-height: 1.65; }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+    input[type="number"] { -moz-appearance: textfield; }
 
-    /* DOB row */
-    .dob-row {
-      display: grid;
-      grid-template-columns: 64px 64px 96px;
-      gap: 24px;
-    }
-    .dob-row .field { margin-bottom: 0; }
-    .dob-row input { text-align: center; }
-
-    /* Yes/No */
-    .yn-wrap { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-    .yn-opt {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 15px 20px;
-      border: 1px solid var(--rule);
+    /* ── CHOICE OPTIONS ── */
+    .choice-group { display: flex; flex-direction: column; gap: 8px; }
+    .choice-opt {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px;
+      border: 1px solid var(--rule-solid);
       cursor: pointer;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink);
-      transition: all 0.18s;
-      user-select: none;
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid); transition: all 0.18s; user-select: none;
     }
-    .yn-opt:hover, .yn-opt.picked {
-      background: var(--ink);
-      color: var(--paper);
-      border-color: var(--ink);
+    .choice-opt:hover { border-color: var(--forest); color: var(--ink); }
+    .choice-opt.picked {
+      background: var(--forest); color: var(--paper);
+      border-color: var(--forest);
     }
-    .yn-key {
-      width: 22px; height: 22px;
+    .choice-key {
+      width: 20px; height: 20px;
       border: 1px solid currentColor;
       display: flex; align-items: center; justify-content: center;
-      font-size: 10px; flex-shrink: 0;
+      font-size: 9px; flex-shrink: 0; font-weight: 400;
     }
 
-    /* Agreement */
+    /* ── AGREEMENT ── */
     .agreement-box {
-      border: 1px solid var(--rule);
+      border: 1px solid var(--rule-solid);
       border-left: 2px solid var(--forest);
       padding: 24px 28px;
-      max-height: 280px;
+      max-height: 300px;
       overflow-y: auto;
-      font-size: 11px;
-      line-height: 1.9;
+      font-size: 10.5px;
+      line-height: 1.95;
       color: var(--ink);
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
     .agreement-box p { margin-bottom: 10px; }
-    .agreement-box strong { font-weight: 500; }
+    .agreement-box strong { font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; font-size: 9px; }
     .agreement-box ol { padding-left: 18px; margin-bottom: 10px; }
     .agreement-box li { margin-bottom: 4px; }
-    .agreement-box h3 {
-      font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: 1rem;
-      margin-bottom: 14px;
-    }
 
     .accept-row {
-      display: flex; align-items: center; gap: 12px;
-      cursor: pointer; font-size: 11px; letter-spacing: 0.06em;
-      color: var(--ink); margin-bottom: 28px;
+      display: flex; align-items: center; gap: 14px;
+      cursor: pointer; font-size: 10px; letter-spacing: 0.08em;
+      color: var(--ink); margin-bottom: 32px;
     }
-    .accept-row input[type="checkbox"] {
-      width: 16px; height: 16px;
-      accent-color: var(--forest); cursor: pointer; flex-shrink: 0;
+    .accept-box {
+      width: 18px; height: 18px; border: 1px solid var(--rule-solid);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 0.2s;
+    }
+    .accept-box.checked { background: var(--forest); border-color: var(--forest); }
+    .accept-box.checked::after {
+      content: ''; display: block;
+      width: 5px; height: 9px;
+      border-right: 1.5px solid var(--paper);
+      border-bottom: 1.5px solid var(--paper);
+      transform: rotate(40deg) translate(-1px, -1px);
     }
 
-    /* Buttons */
+    /* ── BUTTONS ── */
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
     .btn {
       display: inline-flex; align-items: center; gap: 12px;
       background: var(--ink); color: var(--paper);
       border: none; padding: 14px 28px;
       font-family: 'Geist Mono', monospace;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      cursor: pointer; transition: opacity 0.2s; margin-top: 28px;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      cursor: pointer; transition: opacity 0.2s;
     }
-    .btn:hover { opacity: 0.78; }
-    .btn:disabled { opacity: 0.25; cursor: not-allowed; }
-    .btn .hint { font-size: 9px; opacity: 0.5; }
-
+    .btn:hover { opacity: 0.75; }
+    .btn:disabled { opacity: 0.2; cursor: not-allowed; }
+    .btn .hint { font-size: 9px; opacity: 0.45; }
     .btn-ghost {
       background: transparent; color: var(--mid);
-      border: 1px solid var(--rule);
+      border: 1px solid var(--rule-solid);
     }
     .btn-ghost:hover { color: var(--ink); border-color: var(--ink); opacity: 1; }
 
-    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    /* ── SLIDE ANIMATION ── */
+    .slide { display: none; }
+    .slide.active {
+      display: block;
+      animation: rise 0.35s cubic-bezier(.22,.68,0,1.1) both;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-    /* Error state */
+    /* ── ERROR ── */
     .invalid { border-bottom-color: #c0392b !important; }
     .err-msg {
-      font-size: 10px; letter-spacing: 0.05em;
-      color: #c0392b; margin-top: 4px; display: none;
+      font-size: 9px; letter-spacing: 0.06em;
+      color: #c0392b; margin-top: 5px; display: none;
     }
 
-    /* Thank you */
-    #step-6 {
-      text-align: center;
-      align-items: center;
-    }
+    /* ── THANK YOU ── */
+    #step-6 { text-align: center; padding: 40px 0; }
     #step-6 .big {
-      font-family: 'Fraunces', serif;
-      font-style: italic; font-weight: 300;
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
       font-size: clamp(4rem, 10vw, 7rem);
-      color: rgba(25,25,23,0.55); line-height: 1;
-      margin-bottom: 28px;
+      color: rgba(25,25,23,0.55); line-height: 1; margin-bottom: 28px;
     }
     #step-6 h2 {
-      font-family: 'Fraunces', serif;
-      font-style: italic; font-weight: 300;
-      font-size: 1.6rem; margin-bottom: 12px;
-      color: rgba(25,25,23,0.55);
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+      font-size: 1.6rem; margin-bottom: 14px; color: rgba(25,25,23,0.55);
     }
-    #step-6 p {
-      font-size: 11px; letter-spacing: 0.05em;
-      color: var(--mid); line-height: 1.9;
-    }
+    #step-6 p { font-size: 11px; letter-spacing: 0.04em; color: var(--mid); line-height: 1.9; }
     #step-6 a {
-      display: inline-block; margin-top: 32px;
+      display: inline-block; margin-top: 36px;
       font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--mid); text-decoration: none;
-      border-bottom: 1px solid var(--rule); padding-bottom: 2px;
+      border-bottom: 1px solid var(--rule-solid); padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
     #step-6 a:hover { color: var(--ink); border-color: var(--ink); }
 
-    /* Mobile */
-    @media(max-width: 860px) {
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--rule); margin-top: 60px;
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-name {
+      font-family: 'Geist Mono', monospace; font-weight: 300;
+      font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase;
+    }
+    .f-accred {
+      font-family: 'Geist Mono', monospace; font-size: 10px; font-weight: 300;
+      letter-spacing: 0.09em; text-transform: uppercase; color: var(--mid);
+    }
+    .f-links { display: flex; gap: 28px; }
+    .f-links a {
+      font-family: 'Geist Mono', monospace; font-size: 10px;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--mid); text-decoration: none; transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+    .f-locations {
+      font-family: 'Geist Mono', monospace; font-size: 10px; font-weight: 300;
+      letter-spacing: 0.09em; text-transform: uppercase; color: var(--low);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 860px) {
       nav { padding: 20px 24px; }
       nav.scrolled { padding: 14px 24px; }
       .nav-links a:not(.nav-cta) { display: none; }
     }
-    @media(max-width: 600px) {
-      main { padding: 100px 24px 60px; }
+    @media (max-width: 600px) {
+      .page-wrap { padding: 100px 24px 60px; }
+      .field-grid { grid-template-columns: 1fr; gap: 22px; }
+      .field-grid.dob { grid-template-columns: 72px 72px 100px; }
       footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
       .f-right { align-items: center; }
-      .field-row { grid-template-columns: 1fr; gap: 0; }
-      .dob-row { grid-template-columns: 56px 56px 80px; gap: 16px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
     }
   </style>
 </head>
@@ -379,54 +321,72 @@
 
 <div id="progress"></div>
 
-<!-- NAV — identical to main site -->
+<!-- NAV -->
 <nav id="nav">
   <a href="/" class="nav-name">Peter Donnelly</a>
   <div class="nav-links">
     <a href="/#about">About</a>
     <a href="/#practice">Practice</a>
-    <a href="/#contact" class="nav-cta">Book a Call</a>
+    <a href="/" class="nav-cta">Back to site</a>
   </div>
 </nav>
 
-<main>
+<div class="page-wrap">
 
   <!-- STEP 1: Consent -->
   <div class="slide active" id="step-1">
-    <div class="step-no">01 / 06</div>
-    <div class="q">Hi there! Are you happy to provide some details before our work begins?</div>
-    <div class="sub">In order for us to work safely together I need to collect a few details. They will be stored safely and remain confidential.</div>
-    <div class="yn-wrap">
-      <div class="yn-opt" id="yn-yes" onclick="pickYN('yes')">
-        <span class="yn-key">Y</span> Yes
-      </div>
-      <div class="yn-opt" id="yn-no" onclick="pickYN('no')">
-        <span class="yn-key">N</span> No
+    <div class="step-header">
+      <div class="step-title">Before we begin</div>
+      <div class="step-counter">01 / 05</div>
+    </div>
+
+    <div class="form-section">
+      <div class="section-label">Consent</div>
+      <p style="font-size:11px;line-height:1.95;color:var(--mid);margin-bottom:24px;">
+        This form helps me prepare to work with you safely and with care. Everything you share is strictly confidential and held in line with BACP ethical guidelines and GDPR.
+      </p>
+      <p style="font-size:11px;line-height:1.95;color:var(--mid);margin-bottom:28px;">
+        Do you consent to your information being stored securely for the purpose of your counselling with Peter Donnelly?
+      </p>
+      <div class="choice-group">
+        <div class="choice-opt" id="yn-yes" onclick="pickYN('yes')">
+          <span class="choice-key">Y</span> Yes, I consent
+        </div>
+        <div class="choice-opt" id="yn-no" onclick="pickYN('no')">
+          <span class="choice-key">N</span> No, I do not consent
+        </div>
       </div>
     </div>
-    <button class="btn" id="btn-1" onclick="goTo(2)" disabled>Continue <span class="hint">↵</span></button>
+
+    <div class="btn-row">
+      <button class="btn" id="btn-1" onclick="goTo(2)" disabled>Continue <span class="hint">↵</span></button>
+    </div>
   </div>
 
   <!-- STEP 2: Personal Details -->
   <div class="slide" id="step-2">
-    <div class="step-no">02 / 06</div>
-    <div class="q">Your details</div>
-    <div class="sub">Just a few basics so I have everything I need before our first session.</div>
+    <div class="step-header">
+      <div class="step-title">Your details</div>
+      <div class="step-counter">02 / 05</div>
+    </div>
 
-    <div class="field-row">
-      <div class="field">
-        <span class="field-label">First name *</span>
-        <input type="text" id="fname" placeholder="First name" autocomplete="given-name">
-      </div>
-      <div class="field">
-        <span class="field-label">Last name *</span>
-        <input type="text" id="lname" placeholder="Last name" autocomplete="family-name">
+    <div class="form-section">
+      <div class="section-label">Name</div>
+      <div class="field-grid">
+        <div class="field">
+          <span class="field-label">First name *</span>
+          <input type="text" id="fname" placeholder="First name" autocomplete="given-name">
+        </div>
+        <div class="field">
+          <span class="field-label">Last name *</span>
+          <input type="text" id="lname" placeholder="Last name" autocomplete="family-name">
+        </div>
       </div>
     </div>
 
-    <div class="field">
-      <span class="field-label">Date of birth *</span>
-      <div class="dob-row">
+    <div class="form-section">
+      <div class="section-label">Date of Birth</div>
+      <div class="field-grid dob">
         <div class="field">
           <span class="field-label">Day</span>
           <input type="number" id="dob-d" min="1" max="31" placeholder="DD">
@@ -442,20 +402,41 @@
       </div>
     </div>
 
-    <div class="field-row">
-      <div class="field">
-        <span class="field-label">Phone number *</span>
-        <input type="tel" id="phone" placeholder="+44 7700 000000" autocomplete="tel">
-      </div>
-      <div class="field">
-        <span class="field-label">Email address *</span>
-        <input type="email" id="email" placeholder="you@email.com" autocomplete="email">
+    <div class="form-section">
+      <div class="section-label">Contact</div>
+      <div class="field-grid">
+        <div class="field">
+          <span class="field-label">Email address *</span>
+          <input type="email" id="email" placeholder="you@email.com" autocomplete="email">
+        </div>
+        <div class="field">
+          <span class="field-label">Phone number *</span>
+          <input type="tel" id="phone" placeholder="+44 7700 000000" autocomplete="tel">
+        </div>
+        <div class="field field-full">
+          <span class="field-label">Home address *</span>
+          <input type="text" id="address" placeholder="Full address including postcode" autocomplete="street-address">
+        </div>
       </div>
     </div>
 
-    <div class="field">
-      <span class="field-label">Current address *</span>
-      <input type="text" id="address" placeholder="Your full address including postcode" autocomplete="street-address">
+    <div class="form-section">
+      <div class="section-label">Session location</div>
+      <p style="font-size:10px;letter-spacing:0.06em;color:var(--mid);margin-bottom:18px;line-height:1.7;">Will you be attending sessions from your home address above?</p>
+      <div class="choice-group">
+        <div class="choice-opt" id="loc-yes" onclick="pickLocation('yes')">
+          <span class="choice-key">Y</span> Yes, from my home address
+        </div>
+        <div class="choice-opt" id="loc-no" onclick="pickLocation('no')">
+          <span class="choice-key">N</span> No, from a different location
+        </div>
+      </div>
+      <div id="alt-address-wrap" style="display:none;margin-top:22px;">
+        <div class="field">
+          <span class="field-label">Counselling location *</span>
+          <input type="text" id="alt-address" placeholder="Address you will attend from">
+        </div>
+      </div>
     </div>
 
     <div class="btn-row">
@@ -464,87 +445,72 @@
     </div>
   </div>
 
-  <!-- STEP 3: Session Location -->
+  <!-- STEP 3: Health & Emergency -->
   <div class="slide" id="step-3">
-    <div class="step-no">03 / 06</div>
-    <div class="q">Where will you be attending counselling from?</div>
-    <div class="sub" id="sub-3">Will you be attending from your home address?</div>
+    <div class="step-header">
+      <div class="step-title">Health and emergency contact</div>
+      <div class="step-counter">03 / 05</div>
+    </div>
 
-    <div class="yn-wrap">
-      <div class="yn-opt" id="loc-yes" onclick="pickLocation('yes')">
-        <span class="yn-key">Y</span> Yes, from my home address
-      </div>
-      <div class="yn-opt" id="loc-no" onclick="pickLocation('no')">
-        <span class="yn-key">N</span> No, from somewhere else
+    <p style="font-size:10.5px;letter-spacing:0.04em;color:var(--mid);line-height:1.9;margin-bottom:36px;">This helps me support you safely. Everything shared here is kept strictly confidential.</p>
+
+    <div class="form-section">
+      <div class="section-label">GP Details</div>
+      <div class="field">
+        <span class="field-label">GP name, practice address and phone number *</span>
+        <textarea id="gp" placeholder="Dr. Name&#10;Practice Name, Address&#10;Phone number" rows="3"></textarea>
+        <span class="field-hint">Your GP will only ever be contacted in an emergency situation.</span>
       </div>
     </div>
 
-    <div id="alt-address-wrap" style="display:none">
+    <div class="form-section">
+      <div class="section-label">Health</div>
       <div class="field">
-        <span class="field-label">Counselling location *</span>
-        <input type="text" id="alt-address" placeholder="Address you will attend from">
+        <span class="field-label">Any health conditions or medications I should be aware of?</span>
+        <textarea id="health" placeholder="If none, please write none." rows="2"></textarea>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="section-label">Emergency Contact</div>
+      <div class="field-grid">
+        <div class="field">
+          <span class="field-label">Full name *</span>
+          <input type="text" id="ec-name" placeholder="Full name">
+        </div>
+        <div class="field">
+          <span class="field-label">Relationship to you *</span>
+          <input type="text" id="ec-rel" placeholder="e.g. Partner, Parent, Friend">
+        </div>
+        <div class="field field-full">
+          <span class="field-label">Phone number *</span>
+          <input type="tel" id="ec-phone" placeholder="+44 7700 000000">
+        </div>
       </div>
     </div>
 
     <div class="btn-row">
-      <button class="btn" id="btn-3" onclick="validateStep3()" disabled>Continue <span class="hint">↵</span></button>
+      <button class="btn" onclick="validateStep3()">Continue <span class="hint">↵</span></button>
       <button class="btn btn-ghost" onclick="goTo(2)">Back</button>
     </div>
   </div>
 
-  <!-- STEP 4: Health & Emergency Contact -->
+  <!-- STEP 4: Agreement -->
   <div class="slide" id="step-4">
-    <div class="step-no">04 / 06</div>
-    <div class="q">Health and emergency contact</div>
-    <div class="sub">This helps me support you safely. Everything is kept strictly confidential.</div>
-
-    <div class="field">
-      <span class="field-label">GP details — name, address and phone *</span>
-      <textarea id="gp" placeholder="Dr. Name, Practice Name, Address, Phone number" rows="3"></textarea>
-      <span class="sub" style="margin-top:8px;margin-bottom:0;font-size:10px;">Your GP will only ever be contacted in an emergency situation.</span>
+    <div class="step-header">
+      <div class="step-title">Counselling agreement</div>
+      <div class="step-counter">04 / 05</div>
     </div>
 
-    <div class="field">
-      <span class="field-label">Any health conditions or medications I should be aware of?</span>
-      <textarea id="health" placeholder="If none, please write none." rows="2"></textarea>
-    </div>
-
-    <div class="field-row">
-      <div class="field">
-        <span class="field-label">Emergency contact name *</span>
-        <input type="text" id="ec-name" placeholder="Full name">
-      </div>
-      <div class="field">
-        <span class="field-label">Their relationship to you *</span>
-        <input type="text" id="ec-rel" placeholder="e.g. Partner, Parent, Friend">
-      </div>
-    </div>
-
-    <div class="field">
-      <span class="field-label">Emergency contact phone number *</span>
-      <input type="tel" id="ec-phone" placeholder="+44 7700 000000">
-    </div>
-
-    <div class="btn-row">
-      <button class="btn" onclick="validateStep4()">Continue <span class="hint">↵</span></button>
-      <button class="btn btn-ghost" onclick="goTo(3)">Back</button>
-    </div>
-  </div>
-
-  <!-- STEP 5: Agreement -->
-  <div class="slide" id="step-5">
-    <div class="step-no">05 / 06</div>
-    <div class="q">Counselling Agreement</div>
-    <div class="sub">Please read through carefully before accepting.</div>
+    <p style="font-size:10.5px;letter-spacing:0.04em;color:var(--mid);line-height:1.9;margin-bottom:28px;">Please read through the agreement below carefully before accepting.</p>
 
     <div class="agreement-box">
-      <h3>Counselling with Peter Donnelly</h3>
       <p>My name is Peter Donnelly, and I am a qualified counsellor, registered with the British Association of Counselling and Psychotherapy (BACP). I work to the BACP's ethical framework for counsellors. I hold an enhanced DBS certificate, professional indemnity insurance, and engage in continual training to offer clients the best support possible.</p>
       <p><strong>The way I work</strong></p>
       <p>I have trained in the person-centred approach which values your process, trusting you as the expert on your own life. I will support you in finding your own answers.</p>
-      <p><strong>Counselling Sessions</strong></p>
+      <p><strong>Counselling sessions</strong></p>
       <p>Sessions take place through Zoom or by phone and last 50 minutes. You can decide whether to book a phone or Zoom session. If I believe that working online or over the phone is not the most suitable means of support for you, I will let you know and assist in finding a more suitable referral local to you.</p>
-      <p><strong>Fees and Payment</strong></p>
+      <p><strong>Fees and payment</strong></p>
       <p>The fee is £90 per 50-minute session, payable in advance to secure your booking. I have a limited number of reduced rate slots available for those who require it.</p>
       <p><strong>Confidentiality</strong></p>
       <p>Counselling sessions are strictly confidential between counsellor and client. The exceptions to this are:</p>
@@ -556,37 +522,110 @@
         <li>I am required by a Court to disclose information</li>
       </ol>
       <p>Where appropriate, I would endeavour to discuss with you what was happening and why.</p>
-      <p><strong>Record Keeping</strong></p>
+      <p><strong>Record keeping</strong></p>
       <p>I will keep brief notes of our sessions. I am registered with the Information Commissioners Office (ICO) as a controller of sensitive data. You have the right to request that I erase your personal data, under certain conditions.</p>
-      <p><strong>Contacting Between Sessions</strong></p>
+      <p><strong>Contacting between sessions</strong></p>
       <p>You can email me at peter.within@gmail.com. I only use email to communicate information about appointments and bookings. I do not engage socially with clients outside of therapeutic sessions, including social media.</p>
       <p>This is not a crisis or emergency service. If you need immediate support call 999 or 112, NHS on 111, or the Samaritans 24/7 on 116 123.</p>
-      <p><strong>Non-attendance and Cancellations</strong></p>
+      <p><strong>Non-attendance and cancellations</strong></p>
       <p>Sessions cancelled within 24 hours of appointment time will be charged at full rate.</p>
     </div>
 
-    <label class="accept-row" for="agreed">
-      <input type="checkbox" id="agreed" onchange="toggleSubmit()">
+    <label class="accept-row" onclick="toggleAgree()">
+      <div class="accept-box" id="accept-box"></div>
       I have read and agree to the counselling agreement
     </label>
 
     <div class="btn-row">
-      <button class="btn" id="btn-5" onclick="submitForm()" disabled>Submit <span class="hint">↵</span></button>
+      <button class="btn" id="btn-4" onclick="validateStep4()" disabled>Continue <span class="hint">↵</span></button>
+      <button class="btn btn-ghost" onclick="goTo(3)">Back</button>
+    </div>
+  </div>
+
+  <!-- STEP 5: Counselling History -->
+  <div class="slide" id="step-5">
+    <div class="step-header">
+      <div class="step-title">A little more about you</div>
+      <div class="step-counter">05 / 05</div>
+    </div>
+
+    <p style="font-size:10.5px;letter-spacing:0.04em;color:var(--mid);line-height:1.9;margin-bottom:36px;">These questions help me understand where you are and how best to support you. There are no right or wrong answers.</p>
+
+    <div class="form-section">
+      <div class="section-label">Counselling history</div>
+      <p style="font-size:10px;letter-spacing:0.06em;color:var(--mid);margin-bottom:18px;line-height:1.7;">Have you had counselling or therapy before?</p>
+      <div class="choice-group">
+        <div class="choice-opt" id="hx-yes" onclick="pickHistory('yes')">
+          <span class="choice-key">Y</span> Yes
+        </div>
+        <div class="choice-opt" id="hx-no" onclick="pickHistory('no')">
+          <span class="choice-key">N</span> No
+        </div>
+      </div>
+      <div id="hx-detail-wrap" style="display:none;margin-top:22px;">
+        <div class="field">
+          <span class="field-label">Tell me a little about that experience</span>
+          <textarea id="hx-detail" placeholder="What you found helpful, or not, is good to know." rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="section-label">What brings you here</div>
+      <div class="field">
+        <span class="field-label">What would you like to work on or explore in counselling?</span>
+        <textarea id="reason" placeholder="Share as much or as little as you like." rows="4"></textarea>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="section-label">Anything else</div>
+      <div class="field">
+        <span class="field-label">Is there anything else you would like me to know before we begin?</span>
+        <textarea id="other" placeholder="Optional." rows="3"></textarea>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="submitForm()">Submit <span class="hint">↵</span></button>
       <button class="btn btn-ghost" onclick="goTo(4)">Back</button>
     </div>
   </div>
 
   <!-- STEP 6: Thank you -->
   <div class="slide" id="step-6">
-    <span class="big">Pd</span>
-    <h2>Thank you for completing this.</h2>
-    <p>I will be in touch shortly to confirm your first session.<br>If you have any questions in the meantime, feel free to reach out.</p>
-    <a href="/">Return to peterdonnelly.co.uk</a>
+    <div style="text-align:center;padding:40px 0;">
+      <span class="big" style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(4rem,10vw,7rem);color:rgba(25,25,23,0.55);display:block;margin-bottom:28px;">Pd</span>
+      <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.6rem;margin-bottom:14px;color:rgba(25,25,23,0.55);">Thank you for completing this.</h2>
+      <p style="font-size:11px;letter-spacing:0.04em;color:var(--mid);line-height:1.9;">I will be in touch shortly.<br>If you have any questions in the meantime, feel free to reach out.</p>
+      <a href="/" style="display:inline-block;margin-top:36px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;border-bottom:1px solid var(--rule-solid);padding-bottom:2px;">Return to peterdonnelly.co.uk</a>
+    </div>
   </div>
 
-</main>
+</div><!-- /page-wrap -->
 
-<!-- FOOTER — identical to main site -->
+<!-- Hidden Formspree form -->
+<form id="hidden-form" action="https://formspree.io/f/mqevvwlo" method="POST" style="display:none;">
+  <input type="hidden" name="consent" id="f-consent">
+  <input type="hidden" name="first_name" id="f-fname">
+  <input type="hidden" name="last_name" id="f-lname">
+  <input type="hidden" name="dob" id="f-dob">
+  <input type="hidden" name="email" id="f-email">
+  <input type="hidden" name="phone" id="f-phone">
+  <input type="hidden" name="address" id="f-address">
+  <input type="hidden" name="session_location" id="f-location">
+  <input type="hidden" name="gp_details" id="f-gp">
+  <input type="hidden" name="health_notes" id="f-health">
+  <input type="hidden" name="emergency_contact_name" id="f-ec-name">
+  <input type="hidden" name="emergency_contact_relation" id="f-ec-rel">
+  <input type="hidden" name="emergency_contact_phone" id="f-ec-phone">
+  <input type="hidden" name="previous_counselling" id="f-hx">
+  <input type="hidden" name="counselling_history_detail" id="f-hx-detail">
+  <input type="hidden" name="reason_for_counselling" id="f-reason">
+  <input type="hidden" name="additional_notes" id="f-other">
+</form>
+
+<!-- FOOTER -->
 <footer>
   <div class="f-name-block">
     <span class="f-name">Peter Donnelly</span>
@@ -604,161 +643,128 @@
 
 <script>
   let current = 1;
-  let consent = null;
-  let locationChoice = null;
+  let consentVal = null;
+  let locationVal = null;
+  let historyVal = null;
+  let agreedVal = false;
+  const totalSteps = 5;
+
+  function updateProgress() {
+    document.getElementById('progress').style.width = ((current / totalSteps) * 100) + '%';
+  }
 
   function goTo(n) {
     document.getElementById('step-' + current).classList.remove('active');
     current = n;
     document.getElementById('step-' + current).classList.add('active');
     updateProgress();
-    window.scrollTo(0, 0);
-    setTimeout(() => {
-      const first = document.querySelector('#step-' + current + ' input:not([type=checkbox]), #step-' + current + ' textarea');
-      if (first) first.focus();
-    }, 120);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function updateProgress() {
-    document.getElementById('progress').style.width = ((current - 1) / 5 * 100) + '%';
-  }
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
 
-  // Step 1
+  // Step 1 — Consent
   function pickYN(val) {
-    consent = val;
+    consentVal = val;
     document.getElementById('yn-yes').classList.toggle('picked', val === 'yes');
     document.getElementById('yn-no').classList.toggle('picked', val === 'no');
     document.getElementById('btn-1').disabled = false;
-    if (val === 'yes') {
-      setTimeout(() => goTo(2), 320);
-    } else {
-      document.getElementById('btn-1').textContent = 'OK';
-      document.getElementById('btn-1').onclick = function() {
-        document.getElementById('step-1').innerHTML = `
-          <div class="step-no">01 / 06</div>
-          <div class="q">That is absolutely fine.</div>
-          <div class="sub" style="margin-top:16px;">Please feel free to get in touch whenever you are ready.<br><a href="mailto:peter.within@gmail.com" style="color:var(--ink)">peter.within@gmail.com</a></div>
-          <a href="/" style="display:inline-flex;align-items:center;margin-top:32px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;">Return to site</a>`;
-      };
-    }
   }
 
-  // Step 2
-  function validateStep2() {
-    const ids = ['fname','lname','dob-d','dob-m','dob-y','phone','email','address'];
-    let ok = true;
-    ids.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el.value.trim()) { el.classList.add('invalid'); ok = false; }
-      else { el.classList.remove('invalid'); }
-    });
-    if (!ok) return;
-    // Update step 3 subtitle dynamically
-    const name = document.getElementById('fname').value;
-    const addr = document.getElementById('address').value;
-    document.getElementById('sub-3').textContent = 'Will you be attending from ' + addr + ', ' + name + '?';
-    goTo(3);
-  }
-
-  // Step 3
+  // Step 2 — Personal details
   function pickLocation(val) {
-    locationChoice = val;
+    locationVal = val;
     document.getElementById('loc-yes').classList.toggle('picked', val === 'yes');
     document.getElementById('loc-no').classList.toggle('picked', val === 'no');
     document.getElementById('alt-address-wrap').style.display = val === 'no' ? 'block' : 'none';
-    document.getElementById('btn-3').disabled = false;
   }
 
-  function validateStep3() {
-    if (!locationChoice) return;
-    if (locationChoice === 'no') {
-      const el = document.getElementById('alt-address');
-      if (!el.value.trim()) { el.classList.add('invalid'); return; }
-      el.classList.remove('invalid');
-    }
-    goTo(4);
-  }
-
-  // Step 4
-  function validateStep4() {
-    const required = ['gp','ec-name','ec-rel','ec-phone'];
+  function validateStep2() {
+    const req = ['fname', 'lname', 'email', 'phone', 'address'];
     let ok = true;
-    required.forEach(id => {
+    req.forEach(id => {
       const el = document.getElementById(id);
       if (!el.value.trim()) { el.classList.add('invalid'); ok = false; }
-      else { el.classList.remove('invalid'); }
+      else el.classList.remove('invalid');
     });
-    if (!ok) return;
-    goTo(5);
+    if (!locationVal) { ok = false; }
+    if (locationVal === 'no' && !document.getElementById('alt-address').value.trim()) {
+      document.getElementById('alt-address').classList.add('invalid'); ok = false;
+    }
+    if (ok) goTo(3);
   }
 
-  // Step 5
-  function toggleSubmit() {
-    document.getElementById('btn-5').disabled = !document.getElementById('agreed').checked;
+  // Step 3 — Health & Emergency
+  function validateStep3() {
+    const req = ['gp', 'ec-name', 'ec-rel', 'ec-phone'];
+    let ok = true;
+    req.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) { el.classList.add('invalid'); ok = false; }
+      else el.classList.remove('invalid');
+    });
+    if (ok) goTo(4);
   }
 
+  // Step 4 — Agreement
+  function toggleAgree() {
+    agreedVal = !agreedVal;
+    document.getElementById('accept-box').classList.toggle('checked', agreedVal);
+    document.getElementById('btn-4').disabled = !agreedVal;
+  }
+
+  function validateStep4() {
+    if (agreedVal) goTo(5);
+  }
+
+  // Step 5 — History
+  function pickHistory(val) {
+    historyVal = val;
+    document.getElementById('hx-yes').classList.toggle('picked', val === 'yes');
+    document.getElementById('hx-no').classList.toggle('picked', val === 'no');
+    document.getElementById('hx-detail-wrap').style.display = val === 'yes' ? 'block' : 'none';
+  }
+
+  // Submit
   function submitForm() {
-    if (!document.getElementById('agreed').checked) return;
-    const dob = document.getElementById('dob-d').value + '/' + document.getElementById('dob-m').value + '/' + document.getElementById('dob-y').value;
-    const location = locationChoice === 'yes' ? document.getElementById('address').value : document.getElementById('alt-address').value;
+    const loc = locationVal === 'yes'
+      ? document.getElementById('address').value
+      : (document.getElementById('alt-address').value || document.getElementById('address').value);
 
-    const data = {
-      consent: 'Yes',
-      first_name: document.getElementById('fname').value,
-      last_name: document.getElementById('lname').value,
-      date_of_birth: dob,
-      phone: document.getElementById('phone').value,
-      email: document.getElementById('email').value,
-      address: document.getElementById('address').value,
-      counselling_location: location,
-      gp_details: document.getElementById('gp').value,
-      health_conditions: document.getElementById('health').value || 'None',
-      emergency_contact_name: document.getElementById('ec-name').value,
-      emergency_contact_relationship: document.getElementById('ec-rel').value,
-      emergency_contact_phone: document.getElementById('ec-phone').value,
-      agreement_accepted: 'Yes',
-      _subject: 'New Client: ' + document.getElementById('fname').value + ' ' + document.getElementById('lname').value
-    };
+    document.getElementById('f-consent').value = consentVal === 'yes' ? 'Yes' : 'No';
+    document.getElementById('f-fname').value = document.getElementById('fname').value;
+    document.getElementById('f-lname').value = document.getElementById('lname').value;
+    const d = document.getElementById('dob-d').value;
+    const m = document.getElementById('dob-m').value;
+    const y = document.getElementById('dob-y').value;
+    document.getElementById('f-dob').value = d && m && y ? `${d}/${m}/${y}` : '';
+    document.getElementById('f-email').value = document.getElementById('email').value;
+    document.getElementById('f-phone').value = document.getElementById('phone').value;
+    document.getElementById('f-address').value = document.getElementById('address').value;
+    document.getElementById('f-location').value = loc;
+    document.getElementById('f-gp').value = document.getElementById('gp').value;
+    document.getElementById('f-health').value = document.getElementById('health').value;
+    document.getElementById('f-ec-name').value = document.getElementById('ec-name').value;
+    document.getElementById('f-ec-rel').value = document.getElementById('ec-rel').value;
+    document.getElementById('f-ec-phone').value = document.getElementById('ec-phone').value;
+    document.getElementById('f-hx').value = historyVal === 'yes' ? 'Yes' : 'No';
+    document.getElementById('f-hx-detail').value = document.getElementById('hx-detail').value || '';
+    document.getElementById('f-reason').value = document.getElementById('reason').value;
+    document.getElementById('f-other').value = document.getElementById('other').value;
 
-    const btn = document.getElementById('btn-5');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    fetch('https://formspree.io/f/mqevvwlo', {
+    const form = document.getElementById('hidden-form');
+    fetch(form.action, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(r => {
-      if (r.ok) { goTo(6); }
-      else { btn.textContent = 'Error — please try again'; btn.disabled = false; }
-    }).catch(() => { btn.textContent = 'Error — please try again'; btn.disabled = false; });
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(() => goTo(6)).catch(() => goTo(6));
   }
-
-  // Keyboard shortcuts
-  document.addEventListener('keydown', e => {
-    if (e.target.tagName === 'TEXTAREA') return;
-    if (current === 1) {
-      if (e.key === 'y' || e.key === 'Y') pickYN('yes');
-      if (e.key === 'n' || e.key === 'N') pickYN('no');
-    }
-    if (current === 3) {
-      if (e.key === 'y' || e.key === 'Y') pickLocation('yes');
-      if (e.key === 'n' || e.key === 'N') pickLocation('no');
-    }
-    if (e.key === 'Enter' && !e.shiftKey) {
-      if (current === 2) validateStep2();
-      if (current === 3) validateStep3();
-      if (current === 4) validateStep4();
-    }
-  });
-
-  // Nav scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
 
   updateProgress();
 </script>
+
 </body>
 </html>
