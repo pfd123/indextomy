@@ -148,7 +148,7 @@
       border-bottom: 1px solid var(--rule-solid);
       color: var(--ink);
       font-family: 'Geist Mono', monospace;
-      font-style: normal; font-size: 15px; font-weight: 300;
+      font-style: normal; font-size: 13px; font-weight: 300;
       padding: 8px 0 11px;
       outline: none; width: 100%;
       transition: border-color 0.2s;
@@ -380,11 +380,11 @@
       <div class="field-grid">
         <div class="field">
           <span class="field-label">First name *</span>
-          <input type="text" id="fname" placeholder="First name" autocomplete="given-name">
+          <input type="text" id="fname" placeholder="Emma" autocomplete="given-name">
         </div>
         <div class="field">
           <span class="field-label">Last name *</span>
-          <input type="text" id="lname" placeholder="Last name" autocomplete="family-name">
+          <input type="text" id="lname" placeholder="Clarke" autocomplete="family-name">
         </div>
       </div>
     </div>
@@ -394,15 +394,15 @@
       <div class="field-grid dob">
         <div class="field">
           <span class="field-label">Day</span>
-          <input type="number" id="dob-d" min="1" max="31" placeholder="DD">
+          <input type="number" id="dob-d" min="1" max="31" placeholder="14">
         </div>
         <div class="field">
           <span class="field-label">Month</span>
-          <input type="number" id="dob-m" min="1" max="12" placeholder="MM">
+          <input type="number" id="dob-m" min="1" max="12" placeholder="03">
         </div>
         <div class="field">
           <span class="field-label">Year</span>
-          <input type="number" id="dob-y" min="1920" max="2010" placeholder="YYYY">
+          <input type="number" id="dob-y" min="1920" max="2010" placeholder="1988">
         </div>
       </div>
     </div>
@@ -412,15 +412,15 @@
       <div class="field-grid">
         <div class="field">
           <span class="field-label">Email address *</span>
-          <input type="email" id="email" placeholder="you@email.com" autocomplete="email">
+          <input type="email" id="email" placeholder="emma.clarke@gmail.com" autocomplete="email">
         </div>
         <div class="field">
           <span class="field-label">Phone number *</span>
-          <input type="tel" id="phone" placeholder="+44 7700 000000" autocomplete="tel">
+          <input type="tel" id="phone" placeholder="+44 7891 234567" autocomplete="tel">
         </div>
         <div class="field field-full">
           <span class="field-label">Home address *</span>
-          <input type="text" id="address" placeholder="Full address including postcode" autocomplete="street-address">
+          <input type="text" id="address" placeholder="12 Maple Street, Belfast, BT1 2AB" autocomplete="street-address">
         </div>
       </div>
     </div>
@@ -439,7 +439,7 @@
       <div id="alt-address-wrap" style="display:none;margin-top:22px;">
         <div class="field">
           <span class="field-label">Counselling location *</span>
-          <input type="text" id="alt-address" placeholder="Address you will attend from">
+          <input type="text" id="alt-address" placeholder="24 Oak Avenue, Derry, BT48 6JQ">
         </div>
       </div>
     </div>
@@ -463,7 +463,7 @@
       <div class="section-label">GP Details</div>
       <div class="field">
         <span class="field-label">GP name, practice address and phone number *</span>
-        <textarea id="gp" placeholder="Dr. Name&#10;Practice Name, Address&#10;Phone number" rows="3"></textarea>
+        <textarea id="gp" placeholder="Dr. Sarah Hughes&#10;Elmwood Medical Centre, 5 Elmwood Ave, Belfast BT9 6AZ&#10;028 9066 1234" rows="3"></textarea>
         <span class="field-hint">Your GP will only ever be contacted in an emergency situation.</span>
       </div>
     </div>
@@ -472,7 +472,7 @@
       <div class="section-label">Health</div>
       <div class="field">
         <span class="field-label">Any health conditions or medications I should be aware of?</span>
-        <textarea id="health" placeholder="If none, please write none." rows="2"></textarea>
+        <textarea id="health" placeholder="Sertraline 50mg. No allergies." rows="2"></textarea>
       </div>
     </div>
 
@@ -481,15 +481,15 @@
       <div class="field-grid">
         <div class="field">
           <span class="field-label">Full name *</span>
-          <input type="text" id="ec-name" placeholder="Full name">
+          <input type="text" id="ec-name" placeholder="James Clarke">
         </div>
         <div class="field">
           <span class="field-label">Relationship to you *</span>
-          <input type="text" id="ec-rel" placeholder="e.g. Partner, Parent, Friend">
+          <input type="text" id="ec-rel" placeholder="Partner">
         </div>
         <div class="field field-full">
           <span class="field-label">Phone number *</span>
-          <input type="tel" id="ec-phone" placeholder="+44 7700 000000">
+          <input type="tel" id="ec-phone" placeholder="+44 7891 234567">
         </div>
       </div>
     </div>
@@ -570,7 +570,7 @@
       <div id="hx-detail-wrap" style="display:none;margin-top:22px;">
         <div class="field">
           <span class="field-label">Tell me a little about that experience</span>
-          <textarea id="hx-detail" placeholder="What you found helpful, or not, is good to know." rows="3"></textarea>
+          <textarea id="hx-detail" placeholder="Had six sessions of CBT in 2021. Found it helpful for anxiety but wanted something more open-ended." rows="3"></textarea>
         </div>
       </div>
     </div>
@@ -579,7 +579,7 @@
       <div class="section-label">What brings you here</div>
       <div class="field">
         <span class="field-label">What would you like to work on or explore in counselling?</span>
-        <textarea id="reason" placeholder="Share as much or as little as you like." rows="4"></textarea>
+        <textarea id="reason" placeholder="Feeling stuck in a pattern I can't quite name. Work stress, some relationship anxiety." rows="4"></textarea>
       </div>
     </div>
 
@@ -587,7 +587,7 @@
       <div class="section-label">Anything else</div>
       <div class="field">
         <span class="field-label">Is there anything else you would like me to know before we begin?</span>
-        <textarea id="other" placeholder="Optional." rows="3"></textarea>
+        <textarea id="other" placeholder="I work shifts so mornings tend to suit me best." rows="3"></textarea>
       </div>
     </div>
 
