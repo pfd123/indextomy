@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="c61934ec-6d74-4fb4-8591-8817db844ba8"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay for Sessions | Peter Donnelly | Online Counsellor</title>
+  <meta name="description" content="Secure payment for counselling sessions with Peter Donnelly. Single session, weekly subscription, or bundle of four sessions.">
+  <link rel="canonical" href="https://www.peterdonnelly.co.uk/pay.html">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  </style>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:  #F6F3EE;
+      --ink:    #191917;
+      --mid:    rgba(25,25,23,0.46);
+      --low:    rgba(25,25,23,0.2);
+      --forest: #3A4133;
+      --rule:   rgba(25,25,23,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Geist', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.22s; }
+    .d3 { transition-delay: 0.34s; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 160px 48px 80px;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    .page-tag {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 28px;
+    }
+    .page-header h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 200;
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .page-header h1 em {
+      font-style: italic;
+      color: var(--forest);
+    }
+    .page-header p {
+      font-size: 15px;
+      color: var(--mid);
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* DIVIDER */
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--rule);
+      margin: 0 auto 48px;
+    }
+
+    /* CARDS GRID */
+    .cards-section {
+      flex: 1;
+      padding: 0 48px 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      border: 1px solid var(--rule);
+    }
+
+    /* CARD */
+    .card {
+      background: var(--paper);
+      padding: 52px 44px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-right: 1px solid var(--rule);
+      transition: background 0.3s;
+      position: relative;
+    }
+    .card:last-child { border-right: none; }
+    .card:hover { background: rgba(58,65,51,0.03); }
+
+    .card-badge {
+      font-family: 'Geist Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: var(--forest);
+      display: inline-block;
+      padding: 4px 10px;
+      margin-bottom: 36px;
+      align-self: flex-start;
+    }
+    .card-badge.invisible {
+      visibility: hidden;
+    }
+
+    .card-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 14px;
+    }
+
+    .card-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 200;
+      font-size: clamp(26px, 3vw, 34px);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .card-title em {
+      font-style: italic;
+      color: var(--forest);
+    }
+
+    .card-price {
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--mid);
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
+    .card-price s {
+      opacity: 0.5;
+      margin-right: 6px;
+    }
+
+    .card-divider {
+      width: 28px;
+      height: 1px;
+      background: var(--rule);
+      margin-bottom: 28px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 40px;
+    }
+    .card-desc strong {
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    /* BUTTON */
+    .card-btn {
+      display: block;
+      width: 100%;
+      padding: 15px 24px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      text-decoration: none;
+    }
+    .card-btn:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .card-btn.primary {
+      background: var(--forest);
+      border-color: var(--forest);
+      color: var(--paper);
+    }
+    .card-btn.primary:hover {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    /* NOTICE */
+    .notice {
+      padding: 0 48px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .notice-inner {
+      border-top: 1px solid var(--rule);
+      padding-top: 36px;
+      display: flex;
+      gap: 64px;
+      align-items: flex-start;
+    }
+    .notice-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+    .notice-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .notice-text {
+      font-size: 13px;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-name {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-links {
+      display: flex; gap: 28px;
+    }
+    .f-links a {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-right { display: flex; flex-direction: column; align-items: flex-end; }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+      letter-spacing: 0.06em;
+    }
+
+    /* MOBILE */
+    @media (max-width: 860px) {
+      nav { padding: 24px 24px; }
+      nav.scrolled { padding: 18px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+
+      .page-header { padding: 120px 24px 60px; }
+
+      .cards-section { padding: 0 24px 80px; }
+      .cards { grid-template-columns: 1fr; gap: 0; border: none; }
+      .card {
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+        padding: 44px 28px 40px;
+      }
+      .card:last-child { border-bottom: none; }
+
+      .notice { padding: 0 24px 60px; }
+      .notice-inner { flex-direction: column; gap: 32px; }
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-right { align-items: center; }
+      .f-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-name">Peter Donnelly</a>
+  <div class="nav-links">
+    <a href="/#about">About</a>
+    <a href="/#practice">Practice</a>
+    <a href="/#contact" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <p class="page-tag reveal">Session Fees</p>
+  <h1 class="reveal d1">Simple, <em>transparent</em><br>pricing.</h1>
+  <div class="rule reveal d2"></div>
+  <p class="reveal d2">All sessions are 50 minutes, held online. Choose the option that works best for where you are in your journey.</p>
+</div>
+
+<section class="cards-section">
+  <div class="cards">
+
+    <!-- SINGLE SESSION -->
+    <div class="card reveal">
+      <span class="card-badge invisible">placeholder</span>
+      <p class="card-label">Single Session</p>
+      <h2 class="card-title">One<br><em>session.</em></h2>
+      <p class="card-price">50 min &nbsp;&middot;&nbsp; £90</p>
+      <div class="card-divider"></div>
+      <p class="card-desc">
+        A single 50-minute session, billed once. No commitment beyond this session.<br><br>
+        Pay as you go, at a pace that feels right for you.
+      </p>
+      <!-- Replace href with your Stripe Payment Link once created -->
+      <a href="#" class="card-btn" id="btn-single">Pay £90</a>
+    </div>
+
+    <!-- WEEKLY -->
+    <div class="card reveal d1">
+      <span class="card-badge">Most popular</span>
+      <p class="card-label">Weekly Subscription</p>
+      <h2 class="card-title">Every<br><em>week.</em></h2>
+      <p class="card-price">50 min &nbsp;&middot;&nbsp; £90 / week</p>
+      <div class="card-divider"></div>
+      <p class="card-desc">
+        <strong>Reserve your weekly slot</strong> and let the rest take care of itself.<br><br>
+        Your session time is held for you each week. Payment is taken automatically so you can focus entirely on the work, not the admin.
+      </p>
+      <!-- Replace href with your Stripe Payment Link once created -->
+      <a href="#" class="card-btn primary" id="btn-weekly">Start Weekly Sessions</a>
+    </div>
+
+    <!-- BUNDLE -->
+    <div class="card reveal d2">
+      <span class="card-badge">Best value</span>
+      <p class="card-label">Bundle of Four</p>
+      <h2 class="card-title">Four<br><em>sessions.</em></h2>
+      <p class="card-price"><s>£360</s> £325</p>
+      <div class="card-divider"></div>
+      <p class="card-desc">
+        Four sessions paid upfront at a <strong>discounted rate</strong>. That is £81.25 per session, saving you £35.<br><br>
+        A considered commitment to yourself, at a better price.
+      </p>
+      <!-- Replace href with your Stripe Payment Link once created -->
+      <a href="#" class="card-btn" id="btn-bundle">Pay £325</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="notice reveal">
+  <div class="notice-inner">
+    <div class="notice-item">
+      <span class="notice-label">Secure payments</span>
+      <p class="notice-text">All payments are processed securely by Stripe. Card and Apple Pay accepted. Peter never sees your payment details.</p>
+    </div>
+    <div class="notice-item">
+      <span class="notice-label">Cancellation</span>
+      <p class="notice-text">Please give at least 48 hours notice to cancel or reschedule a session. Late cancellations may be charged in full.</p>
+    </div>
+    <div class="notice-item">
+      <span class="notice-label">Questions?</span>
+      <p class="notice-text">Not sure which option is right for you? <a href="/#contact" style="border-bottom: 1px solid var(--low);">Book a free 20-minute intro call</a> and we can talk it through.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-name-block">
+    <span class="f-name">Peter Donnelly</span>
+    <span class="f-accred">MSc &middot; MBACP Accred</span>
+  </div>
+  <div class="f-links">
+    <a href="/#about">About</a>
+    <a href="/#practice">Practice</a>
+    <a href="/#contact">Contact</a>
+  </div>
+  <div class="f-right">
+    <span class="f-locations">UK &middot; Ireland &middot; Europe &nbsp;&nbsp;&nbsp; &copy; 2026</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll behaviour
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Trigger reveals already in view on load
+  setTimeout(() => {
+    reveals.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) el.classList.add('in');
+    });
+  }, 80);
+</script>
+
+</body>
+</html>
