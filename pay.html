@@ -164,6 +164,7 @@
       border-right: 1px solid var(--rule);
       transition: background 0.3s;
       position: relative;
+      -webkit-tap-highlight-color: transparent;
     }
     .card:last-child { border-right: none; }
     .card:hover { background: rgba(58,65,51,0.03); }
@@ -255,6 +256,10 @@
       color: var(--ink);
       transition: background 0.25s, color 0.25s, border-color 0.25s;
       text-decoration: none;
+      position: relative;
+      z-index: 2;
+      -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+      touch-action: manipulation;
     }
     .card-btn:hover {
       background: var(--ink);
