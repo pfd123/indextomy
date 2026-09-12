@@ -1,0 +1,68 @@
+{
+  "rewrites": [
+    {
+      "source": "/identity-and-self-acceptance-therapy",
+      "destination": "/identity-and-self-acceptance-therapy.html"
+    },
+    {
+      "source": "/lgbtq-affirming-therapy",
+      "destination": "/lgbtq-affirming-therapy.html"
+    },
+    {
+      "source": "/lgbtq-relationships-family-therapy",
+      "destination": "/lgbtq-relationships-family-therapy.html"
+    },
+    {
+      "source": "/lgbtq-therapist-belfast",
+      "destination": "/lgbtq-therapist-belfast.html"
+    },
+    {
+      "source": "/lgbtq-therapist-brighton",
+      "destination": "/lgbtq-therapist-brighton.html"
+    },
+    {
+      "source": "/lgbtq-therapist-london",
+      "destination": "/lgbtq-therapist-london.html"
+    },
+    {
+      "source": "/online-somatic-therapy-uk",
+      "destination": "/online-somatic-therapy-uk.html"
+    },
+    {
+      "source": "/online-therapist-dublin",
+      "destination": "/online-therapist-dublin.html"
+    },
+    {
+      "source": "/online-therapist-manchester",
+      "destination": "/online-therapist-manchester.html"
+    },
+    {
+      "source": "/online-therapist-northern-ireland",
+      "destination": "/online-therapist-northern-ireland.html"
+    },
+    {
+      "source": "/online-therapy-for-gay-men",
+      "destination": "/online-therapy-for-gay-men.html"
+    },
+    {
+      "source": "/somatic-therapist-london",
+      "destination": "/somatic-therapist-london.html"
+    },
+    {
+      "source": "/somatic-therapy-belfast",
+      "destination": "/somatic-therapy-belfast.html"
+    },
+    {
+      "source": "/somatic-therapy-for-anxiety",
+      "destination": "/somatic-therapy-for-anxiety.html"
+    },
+    {
+      "source": "/therapy-for-shame-and-self-esteem",
+      "destination": "/therapy-for-shame-and-self-esteem.html"
+    },
+    {
+      "source": "/trauma-informed-therapy",
+      "destination": "/trauma-informed-therapy.html"
+    }
+  ]
+}
