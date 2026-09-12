@@ -59,8 +59,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Non-blocking font load — eliminates render-blocking 780ms penalty -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap"></noscript>
   <!-- System font stack as fallback while custom fonts load — prevents layout shift -->
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
@@ -391,6 +391,7 @@
       max-width: 360px;
       margin-bottom: 20px;
     }
+    .lbl-strong{ font-weight: 600; }
     .ins-line{ margin-top: 8px; }
     .ins-links{
       margin-top: 8px;
@@ -816,9 +817,9 @@
       <span class="mono-label reveal">Get in Touch</span>
       <h2 class="reveal d1">Are we a<br><em>good fit?</em></h2>
       <p class="contact-intro reveal d2">The first session is free and takes around 20 minutes. It's a relaxed conversation to see if we're the right fit for each other, no pressure, no obligation.</p>
-      <span class="contact-avail reveal d2">Available Mondays &amp; Fridays</span>
+      <span class="contact-avail reveal d2 lbl-strong">Available Mondays &amp; Fridays</span>
       <span class="mono-label reveal d2" style="margin-top:10px;margin-bottom:0;">50 min &middot; &pound;90</span>
-      <span class="mono-label reveal d2 ins-line" style="margin-bottom:0;">I accept all major insurance providers</span>
+      <span class="mono-label reveal d2 ins-line lbl-strong" style="margin-bottom:0;">I accept all major insurance providers</span>
       <div class="ins-links reveal d2" aria-label="Insurance providers accepted">
         <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
         <span aria-hidden="true">&middot;</span>
