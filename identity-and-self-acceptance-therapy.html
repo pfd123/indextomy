@@ -85,6 +85,8 @@
 
 
 
+
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root{
@@ -273,9 +275,253 @@
     /* early enquiry CTA under the lede */
     .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
     .faq-cta.early p{ display: none; }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
   </style>
 </head>
 <body>
+
+<nav id="nav">
+  <a href="/" class="nav-name">Peter Donnelly</a>
+  <div class="nav-links">
+    <a href="/#about">About</a>
+    <a href="/#practice">Practice</a>
+    <a href="/#contact" class="nav-cta">Book a Call</a>
+    <a href="/#fee" class="nav-cta nav-pay">Fee</a>
+  </div>
+</nav>
 
   <div class="wrap">
     <span class="mono-label">Identity and Self-Acceptance</span>
@@ -341,18 +587,21 @@
   </div>
 
 <footer>
-    <div class="f-name-block">
-      <span class="f-name">Peter Donnelly</span>
-      <span class="f-accred">MSc &middot; MBACP Accred</span>
-    </div>
-    <div class="f-links">
-      <a href="/">Home</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="https://www.instagram.com/heldwithpeter" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.psychologytoday.com/gb/counselling/peter-donnelly-london/907474" target="_blank" rel="noopener">Psychology Today</a>
-      <a href="/pay.html">Pay</a>
-    </div>
-  </footer>
+  <div class="f-name-block">
+    <span class="f-name">Peter Donnelly</span>
+    <span class="f-accred">MSc &middot; MBACP Accred</span>
+  </div>
+  <div class="f-links">
+    <a href="/#about">About</a>
+    <a href="/#practice">Practice</a>
+    <a href="https://www.instagram.com/heldwithpeter" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.psychologytoday.com/gb/counselling/peter-donnelly-london/907474" target="_blank" rel="noopener">Psychology Today</a>
+    <a href="/pay.html">Pay</a>
+  </div>
+  <div class="f-right">
+    <span class="f-locations">UK &middot; Ireland &middot; Europe &nbsp;&nbsp;&nbsp; &copy; 2026 &nbsp;&nbsp;&nbsp; <a href="/faq.html" class="f-faq">FAQ</a></span>
+  </div>
+</footer>
 
 <script>
 (function(){
@@ -388,6 +637,13 @@
     })();
   }
 })();
+</script>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
 </script>
 
 </body>
