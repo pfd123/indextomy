@@ -70,6 +70,30 @@
           "@type": "Answer",
           "text": "Sessions are 50 minutes for \u00A390. The first introductory call, around 20 minutes, is free."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are most of your clients based?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Clients join from across the UK and Ireland, including Belfast, Dublin, London, Manchester and Edinburgh. Sessions are held online, so location is never a barrier."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you only work with LGBTQ+ clients?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. I work with adults from all backgrounds. Queer-informed practice is one of my specialisms, not a limit on who I work with."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long have you been a therapist?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "I have eight years of experience working as a therapist, alongside ongoing training in somatic and ecotherapy approaches."
+        }
       }
     ]
   }
@@ -245,6 +269,21 @@
       <p>Sessions are 50 minutes at &pound;90. The first introductory call, around 20 minutes, is free.</p>
     </div>
 
+    <div class="qa">
+      <h2>Where are most of your clients based?</h2>
+      <p>Clients join from across the UK and Ireland, including Belfast, Dublin, London, Manchester and Edinburgh. Sessions are held online, so location is never a barrier.</p>
+    </div>
+
+    <div class="qa">
+      <h2>Do you only work with LGBTQ+ clients?</h2>
+      <p>No. I work with adults from all backgrounds. Queer-informed practice is one of my specialisms, not a limit on who I work with.</p>
+    </div>
+
+    <div class="qa">
+      <h2>How long have you been a therapist?</h2>
+      <p>I have eight years of experience working as a therapist, alongside ongoing training in somatic and ecotherapy approaches.</p>
+    </div>
+
     <div class="faq-cta">
       <p>Not sure which approach is right for you? That's exactly what the intro call is for. We talk it through together, no pressure, no obligation.</p>
       <a href="/#contact">Book a free intro call</a>
@@ -259,9 +298,45 @@
     <div class="f-links">
       <a href="/">Home</a>
       <a href="https://www.instagram.com/heldwithpeter" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.psychologytoday.com/gb/counselling/peter-donnelly-london/907474" target="_blank" rel="noopener">Psychology Today</a>
       <a href="/pay.html">Pay</a>
     </div>
   </footer>
 
+<script>
+(function(){
+  var AI_HOSTS = [
+    'chat.openai.com','chatgpt.com','openai.com',
+    'claude.ai','anthropic.com',
+    'perplexity.ai',
+    'gemini.google.com','bard.google.com',
+    'copilot.microsoft.com',
+    'you.com','poe.com','character.ai',
+    'meta.ai','grok.com','x.ai'
+  ];
+  function hostFromUrl(u){
+    try { return new URL(u).hostname.replace(/^www\./,''); } catch(e){ return ''; }
+  }
+  var refHost = hostFromUrl(document.referrer);
+  var params = new URLSearchParams(location.search);
+  var utmSource = (params.get('utm_source') || '').toLowerCase();
+  var UTM_AI = ['chatgpt','openai','perplexity','claude','anthropic','gemini','copilot','poe','you.com','meta-ai','grok'];
+
+  var matchedHost = AI_HOSTS.some(function(h){ return refHost === h || refHost.slice(-(h.length+1)) === ('.'+h); });
+  var matchedUtm = UTM_AI.some(function(u){ return utmSource.indexOf(u) !== -1; });
+
+  if (matchedHost || matchedUtm) {
+    var source = matchedHost ? refHost : utmSource;
+    var tries = 0;
+    (function send(){
+      if (window.umami && typeof window.umami.track === 'function') {
+        window.umami.track('ai_referral', { source: source, page: location.pathname });
+      } else if (tries++ < 15) {
+        setTimeout(send, 300);
+      }
+    })();
+  }
+})();
+</script>
 </body>
 </html>

@@ -45,13 +45,14 @@
     "serviceType": ["Psychotherapy", "Person-Centred Therapy", "Somatic Therapy", "Online Therapy", "LGBT Therapy", "Ecotherapy"],
     "knowsAbout": ["Person-Centred Therapy", "Somatic Experiencing", "Ecotherapy", "LGBT Therapy", "Psychotherapy", "Online Counselling"],
     "knowsLanguage": "English",
-    "sameAs": ["https://www.instagram.com/heldwithpeter"],
+    "sameAs": ["https://www.instagram.com/heldwithpeter", "https://www.psychologytoday.com/gb/counselling/peter-donnelly-london/907474"],
+    "yearsInOperation": "P8Y",
     "founder": {
       "@type": "Person",
       "name": "Peter Donnelly",
-      "jobTitle": "Counsellor and Psychotherapist",
+      "jobTitle": "Therapist, Counsellor and Psychotherapist",
       "memberOf": "British Association for Counselling and Psychotherapy (MBACP)",
-      "sameAs": ["https://www.instagram.com/heldwithpeter"]
+      "sameAs": ["https://www.instagram.com/heldwithpeter", "https://www.psychologytoday.com/gb/counselling/peter-donnelly-london/907474"]
     }
   }
     </script>
@@ -650,7 +651,7 @@
   <div class="main-text">
     <span class="mono-label reveal">About Me</span>
     <h2 class="reveal d1">Hopeful, honest, accepting.</h2>
-    <p class="reveal d2">I'm a gay man and I bring that lived experience into the room. You don't need to explain yourself here. I work online with adults across the UK, Ireland and Europe, specialising in supporting LGBTQ+ clients navigating identity, anxiety, relationships and shame.</p>
+    <p class="reveal d2">I'm a gay man and I bring that lived experience into the room. You don't need to explain yourself here. As your therapist, I work online with adults from all backgrounds across the UK, Ireland and Europe, with eight years' experience, including specialist work supporting LGBTQ+ clients navigating identity, anxiety, relationships and shame.</p>
     <p class="reveal d2">I work with a relational, body-aware approach, drawing on Somatic Experiencing and ecotherapy to help you move at a pace that feels right.</p>
     <p class="reveal d3">If you've spent years managing, masking, or feeling like the real you takes up too much space, therapy can be a place to unlearn that.</p>
   </div>
@@ -784,6 +785,7 @@
       <p class="contact-intro reveal d2">The first session is free and takes around 20 minutes. It's a relaxed conversation to see if we're the right fit for each other, no pressure, no obligation.</p>
       <span class="contact-avail reveal d2">Available Mondays &amp; Fridays</span>
       <span class="mono-label reveal d2" style="margin-top:10px;margin-bottom:0;">50 min &middot; &pound;90</span>
+      <span class="mono-label reveal d2" style="margin-top:6px;margin-bottom:0;">Accepts Aviva, AXA PPP, Bupa, Healix &amp; Vitality insurance</span>
     </div>
     <div class="reveal d2">
       <form class="contact-form" action="https://formspree.io/f/mqevvwlo" method="POST" id="contact-form">
@@ -829,6 +831,7 @@
     <a href="#about">About</a>
     <a href="#practice">Practice</a>
     <a href="https://www.instagram.com/heldwithpeter" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.psychologytoday.com/gb/counselling/peter-donnelly-london/907474" target="_blank" rel="noopener">Psychology Today</a>
     <a href="/faq.html">Questions</a>
     <a href="/pay.html">Pay</a>
   </div>
@@ -912,6 +915,41 @@
 })();
 
 
+</script>
+<script>
+(function(){
+  var AI_HOSTS = [
+    'chat.openai.com','chatgpt.com','openai.com',
+    'claude.ai','anthropic.com',
+    'perplexity.ai',
+    'gemini.google.com','bard.google.com',
+    'copilot.microsoft.com',
+    'you.com','poe.com','character.ai',
+    'meta.ai','grok.com','x.ai'
+  ];
+  function hostFromUrl(u){
+    try { return new URL(u).hostname.replace(/^www\./,''); } catch(e){ return ''; }
+  }
+  var refHost = hostFromUrl(document.referrer);
+  var params = new URLSearchParams(location.search);
+  var utmSource = (params.get('utm_source') || '').toLowerCase();
+  var UTM_AI = ['chatgpt','openai','perplexity','claude','anthropic','gemini','copilot','poe','you.com','meta-ai','grok'];
+
+  var matchedHost = AI_HOSTS.some(function(h){ return refHost === h || refHost.slice(-(h.length+1)) === ('.'+h); });
+  var matchedUtm = UTM_AI.some(function(u){ return utmSource.indexOf(u) !== -1; });
+
+  if (matchedHost || matchedUtm) {
+    var source = matchedHost ? refHost : utmSource;
+    var tries = 0;
+    (function send(){
+      if (window.umami && typeof window.umami.track === 'function') {
+        window.umami.track('ai_referral', { source: source, page: location.pathname });
+      } else if (tries++ < 15) {
+        setTimeout(send, 300);
+      }
+    })();
+  }
+})();
 </script>
 </body>
 </html>
