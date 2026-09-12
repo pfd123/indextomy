@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap"></noscript>
 
   <script type="application/ld+json">
 {
@@ -56,7 +56,7 @@
       "name": "Do I have to talk about my past trauma in detail?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Trauma-informed somatic therapy does not require you to revisit or retell painful memories to heal. Instead, we focus on how your nervous system holds the trauma in the present moment. We work safely within your window of tolerance, keeping you grounded throughout every session."
+        "text": "No. Trauma-informed somatic therapy does not require you to revisit or retell painful memories to process them. Instead, we pay attention to how your nervous system holds tension in the present moment, working safely within your comfort level so you stay grounded throughout our work."
       }
     },
     {
@@ -64,7 +64,7 @@
       "name": "How does somatic work help with feeling hypervigilant or on edge?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hypervigilance is your nervous system remaining on high alert to protect you from harm. Somatic Experiencing tracks subtle physical cues like muscle tension and breath patterns, helping your nervous system discharge stuck survival energy and gradually learn that the current moment is safe."
+        "text": "Hypervigilance reflects a nervous system remaining alert to keep you safe. Somatic Experiencing tracks subtle physical cues like muscular tension and breathing patterns, helping your system explore gentle grounding so you can notice whether the present environment feels safer than past experiences."
       }
     },
     {
@@ -72,7 +72,7 @@
       "name": "Is online trauma-informed therapy effective?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, online therapy allows you to remain in your own comfortable space where you already feel secure. Video sessions offer the full relational presence needed for somatic work, allowing us to attend to body cues, pacing, and grounding just as effectively as in person."
+        "text": "Yes. Online therapy allows you to stay in your own familiar space where you already feel comfortable. Video sessions offer the relational connection needed for somatic work, allowing us to attend to bodily cues, pacing, and grounding just as attentively as in-person sessions."
       }
     }
   ]
@@ -82,6 +82,7 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c61934ec-6d74-4fb4-8591-8817db844ba8"></script>
 
   <style>
+
 
 
 
@@ -98,12 +99,14 @@
       --rule:   rgba(25,25,23,0.1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+    a { color: inherit; text-decoration: none; }
 
     body{
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.6;
@@ -509,6 +512,241 @@
       .f-links { flex-wrap: wrap; justify-content: center; }
 
     }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* EXPLORE MENU */
+    .explore-menu{
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{
+      content: '+';
+      font-size: 13px;
+      transition: transform 0.2s;
+    }
+    .explore-menu[open] summary::after{ content: '2'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:600px){
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+      .explore-menu{ text-align: left; }
+    }
+
+    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    .cred-panel{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 22px 0 24px;
+    }
+    .cred-panel.side-right{ flex-direction: row; }
+    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
+    .cred-photo{
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--rule);
+    }
+    .cred-photo img{
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
+    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
+    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
+    .cred-text{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--low);
+      line-height: 1.7;
+    }
+    .cred-text strong{
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* PERSONAL NOTE pull quote */
+    .personal-note{
+      max-width: 560px;
+      margin: 36px auto 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--rule);
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -526,7 +764,7 @@
   <div class="wrap">
     <span class="mono-label">Trauma-Informed Therapy</span>
     <h1>Trauma-informed somatic therapy for <em>healing and safety.</em></h1>
-    <p class="lede">Living with unresolved trauma often feels like your body is stuck in a battle that ended long ago. You may feel hypervigilant, tense, or perpetually on edge even when daily life appears calm. Trauma-informed somatic therapy offers a safe, unhurried space to help your nervous system gently settle.</p>
+    <p class="lede">Living with unresolved trauma can feel as though your body remains braced for difficulties that happened long ago. You might experience hypervigilance, physical tension, or persistent alertness even in quiet moments. Trauma-informed somatic therapy provides a unhurried online space to help you explore these bodily responses at your own pace.</p>
 
     <div class="faq-cta early">
       <a href="/#contact">Book a free 20-minute call with Peter</a>
@@ -534,23 +772,33 @@
 
     <div class="qa">
       <h2>What trauma-informed therapy means in practice</h2>
-      <p>A trauma-informed approach begins with safety, consent, and clear boundaries. In traditional talking therapy, there can be an unspoken pressure to recount painful events in detail. In my practice, safety comes first. You will never be pushed to retell difficult stories before you feel fully grounded and ready. We move strictly at a pace that respects your system.</p>
-      <p>Trauma changes how your nervous system assesses threat. When overwhelming events occur, the conscious mind might move forward while the body remains braced for impact. A trauma-informed model recognizes that hypervigilance and numbness are protective mechanisms, not flaws. We honour those protective responses rather than trying to strip them away forcibly.</p>
+      <p>A trauma-informed approach prioritises personal safety, clear consent, and gentle boundaries. Traditional talking therapy can sometimes create an implicit expectation to retell painful stories in detail. In my practice, establishing physical and emotional safety comes first. You will never be pushed to recount overwhelming events before feeling grounded and ready, allowing us to move strictly at a pace your system can manage.</p>
+      <p>Trauma influences how your nervous system perceives safety and threat. Following overwhelming experiences, the mind may seek to move forward while the body continues to hold protective bracing. A trauma-informed model recognises that hypervigilance, muscle tightness, or numbness are protective strategies rather than personal shortcomings. We respect these bodily responses rather than attempting to force rapid change.</p>
     </div>
     <div class="qa">
       <h2>How Somatic Experiencing addresses stuck survival responses</h2>
-      <p>Developed by Dr Peter Levine, Somatic Experiencing focuses on how stress and trauma are held in the physical body. When a threat occurs, the body prepares to fight, flee, or freeze. If that self-protective energy cannot complete its cycle, it stays trapped as physical tension, chronic bracing, or an underlying feeling of dread.</p>
-      <p>By tracking physical sensations such as warmth, muscle tension, or subtle shifts in breathing, somatic work helps safely release trapped survival energy without causing overwhelm. Combining this body awareness with a person-centred foundation, I offer unconditional positive regard and steady empathy, creating a secure relational anchor as your nervous system gradually learns to settle.</p>
+      <p>Developed by Dr Peter Levine, Somatic Experiencing explores how stress and traumatic experiences are held in the body. When a threat arises, the nervous system naturally prepares to fight, flee, or freeze. If those self-protective responses are interrupted, physical tension, ongoing bracing, or an underlying sense of anxiety can remain stored in bodily patterns over time.</p>
+      <p>By noticing physical sensations such as warmth, muscle tightness, or subtle changes in breath, somatic therapy invites a gentle exploration of bodily tension without overwhelming your system. Combining body awareness with a person-centred foundation, I offer empathy and steady presence, creating a secure relational environment where your nervous system may gradually find greater physical ease.</p>
     </div>
+    <p class="personal-note">In trauma work, real progress often looks like a client noticing their breath for three seconds without bracing against it. Small moments of bodily safety like that build on each other far more reliably than big emotional breakthroughs.</p>
     <div class="qa">
       <h2>Sessions, fees and practical details</h2>
-      <p>Sessions are 50 minutes long and cost £90, conducted online for clients anywhere in the UK or Ireland. If you are experiencing panic alongside trauma symptoms, you can read more about my work on <a href="/somatic-therapy-for-anxiety">somatic therapy for anxiety</a> or explore the broader guide to <a href="/online-somatic-therapy-uk">online somatic therapy in the UK</a>.</p>
-      <p>Reaching out when you feel on edge can feel intimidating, so I aim to keep the initial process simple. The first step is a free 20-minute introductory call. This is a quiet, low-pressure conversation to discuss what you are seeking and see if we are a good fit, with no obligation to book further sessions.</p>
+      <p>Sessions last 50 minutes at a fee of £90, conducted online for clients living anywhere across the UK or Ireland. If you experience heightened anxiety or panic alongside trauma symptoms, you can read more about my work on <a href="/somatic-therapy-for-anxiety">somatic therapy for anxiety</a> or explore my general guide to <a href="/online-somatic-therapy-uk">online somatic therapy in the UK</a>.</p>
+      <p>Reaching out when you feel on edge can feel daunting, so I keep the initial process straightforward. We begin with a free 20 minute introductory call over video. This short conversation offers a calm, low-pressure space to share what you hope to work on and explore whether my approach feels like the right fit for you.</p>
     </div>
     <div class="qa">
       <h2>Credentials and insurance</h2>
-      <p>I hold an MSc in counselling and psychotherapy and I am an accredited member of the BACP (MBACP Accred), bringing eight years of clinical experience. Sessions are £90 for 50 minutes, held online across the UK and Ireland, starting with a free 20-minute consultation. I accept the following insurance providers:</p>
-      <p>I am registered as an approved provider with Aviva, AXA, Bupa, Healix, and Vitality, and I also work part of the week as a Bupa therapist. If you plan to claim session fees through your private healthcare provider, please mention this during our initial consultation so we can outline your coverage details smoothly.</p>
+      <p>I hold an MSc in counselling and psychotherapy and I am an accredited member of the British Association for Counselling and Psychotherapy (MBACP Accred), bringing eight years of clinical experience. Sessions are £90 for 50 minutes, conducted online across the UK and Ireland, beginning with a free 20 minute consultation. I accept the following insurance providers:</p>
+      <p>I am registered as an approved provider with Aviva, AXA, Bupa, Healix, and Vitality, and I also work a couple of days each week as a Bupa therapist. If you plan to claim session fees through private health insurance, please mention this during our initial consultation so we can outline the administrative steps together with ease.</p>
+    <div class="cred-panel side-left">
+      <div class="cred-photo shape-arch">
+        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
+      </div>
+      <div class="cred-text">
+        <strong>Peter Donnelly</strong>
+        MSc &middot; MBACP Accred<br>Eight years in practice
+      </div>
+    </div>
     <div class="ins-row" aria-label="Insurance providers accepted">
       <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
       <span aria-hidden="true">&middot;</span>
@@ -568,23 +816,50 @@
       <h2>Questions about trauma-informed somatic therapy</h2>
       <div class="q">
         <h3>Do I have to talk about my past trauma in detail?</h3>
-        <p>No. Trauma-informed somatic therapy does not require you to revisit or retell painful memories to heal. Instead, we focus on how your nervous system holds the trauma in the present moment. We work safely within your window of tolerance, keeping you grounded throughout every session.</p>
+        <p>No. Trauma-informed somatic therapy does not require you to revisit or retell painful memories to process them. Instead, we pay attention to how your nervous system holds tension in the present moment, working safely within your comfort level so you stay grounded throughout our work.</p>
       </div>
       <div class="q">
         <h3>How does somatic work help with feeling hypervigilant or on edge?</h3>
-        <p>Hypervigilance is your nervous system remaining on high alert to protect you from harm. Somatic Experiencing tracks subtle physical cues like muscle tension and breath patterns, helping your nervous system discharge stuck survival energy and gradually learn that the current moment is safe.</p>
+        <p>Hypervigilance reflects a nervous system remaining alert to keep you safe. Somatic Experiencing tracks subtle physical cues like muscular tension and breathing patterns, helping your system explore gentle grounding so you can notice whether the present environment feels safer than past experiences.</p>
       </div>
       <div class="q">
         <h3>Is online trauma-informed therapy effective?</h3>
-        <p>Yes, online therapy allows you to remain in your own comfortable space where you already feel secure. Video sessions offer the full relational presence needed for somatic work, allowing us to attend to body cues, pacing, and grounding just as effectively as in person.</p>
+        <p>Yes. Online therapy allows you to stay in your own familiar space where you already feel comfortable. Video sessions offer the relational connection needed for somatic work, allowing us to attend to bodily cues, pacing, and grounding just as attentively as in-person sessions.</p>
       </div>
     </div>
 
     <div class="faq-cta">
-      <p>If you feel permanently on edge and want to explore a gentle, somatic approach to trauma, book a free 20 minute intro call today.</p>
+      <p>If you feel constantly on edge and want to explore a gentle, trauma-informed somatic approach, book a free 20 minute intro call to begin.</p>
       <a href="/#contact">Book a free 20-minute call with Peter</a>
     </div>
   </div>
+
+  <details class="explore-menu">
+    <summary>Explore working with me</summary>
+    <nav aria-label="Therapy options">
+      <div class="explore-col">
+        <span class="explore-heading">Specialisms</span>
+        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+        <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
+        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+      </div>
+      <div class="explore-col">
+        <span class="explore-heading">Locations</span>
+        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+      </div>
+    </nav>
+  </details>
 
 <footer>
   <div class="f-name-block">

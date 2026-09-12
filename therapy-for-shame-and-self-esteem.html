@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap"></noscript>
 
   <script type="application/ld+json">
 {
@@ -56,7 +56,7 @@
       "name": "How can somatic therapy help with feelings of shame?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Shame triggers a physiological collapse response, such as pulling shoulders inward or dropping eye contact. Somatic therapy notices these physical cues and supports your body to complete stuck protective responses, slowly building a physical sense of safety, presence, and worth."
+        "text": "Shame can often involve a physical collapse response, such as pulling shoulders inward. Somatic therapy notices these physical cues, offering gentle ways to work through protective tension and support a clearer feeling of physical ease and self-worth."
       }
     },
     {
@@ -64,7 +64,7 @@
       "name": "What is the difference between low self-esteem and shame?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Low self-esteem usually involves doubting your abilities or worth in specific situations. Shame is a deeper, core feeling that you are inherently broken or unworthy as a person. Therapy addresses both by untangling negative self-beliefs and building compassionate self-acceptance."
+        "text": "Low self-esteem usually involves doubting your abilities or worth in specific situations. Shame is a deeper feeling that you are inherently broken as a person. Therapy provides room to explore both, helping you examine rigid self-criticism and cultivate greater self-compassion."
       }
     },
     {
@@ -72,7 +72,7 @@
       "name": "What can I expect from the free intro call?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The intro call is a light, pressure-free way to meet online and see how working together feels. You can share a brief overview of what brings you to therapy, ask any questions about my somatic and person-centred approach, and decide if you want to proceed."
+        "text": "The intro call is a light, pressure-free way to meet online and see how working together feels. You can share a brief overview of what brings you to therapy, ask any questions about my approach, and decide if you want to proceed."
       }
     }
   ]
@@ -82,6 +82,7 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c61934ec-6d74-4fb4-8591-8817db844ba8"></script>
 
   <style>
+
 
 
 
@@ -98,12 +99,14 @@
       --rule:   rgba(25,25,23,0.1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+    a { color: inherit; text-decoration: none; }
 
     body{
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.6;
@@ -509,6 +512,241 @@
       .f-links { flex-wrap: wrap; justify-content: center; }
 
     }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* EXPLORE MENU */
+    .explore-menu{
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{
+      content: '+';
+      font-size: 13px;
+      transition: transform 0.2s;
+    }
+    .explore-menu[open] summary::after{ content: '2'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:600px){
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+      .explore-menu{ text-align: left; }
+    }
+
+    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    .cred-panel{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 22px 0 24px;
+    }
+    .cred-panel.side-right{ flex-direction: row; }
+    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
+    .cred-photo{
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--rule);
+    }
+    .cred-photo img{
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
+    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
+    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
+    .cred-text{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--low);
+      line-height: 1.7;
+    }
+    .cred-text strong{
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* PERSONAL NOTE pull quote */
+    .personal-note{
+      max-width: 560px;
+      margin: 36px auto 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--rule);
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -526,7 +764,7 @@
   <div class="wrap">
     <span class="mono-label">Shame and Self-Esteem</span>
     <h1>Therapy for shame and <em>low self-esteem.</em></h1>
-    <p class="lede">Shame tells you that you are fundamentally flawed, no matter how much you accomplish or how hard you try. It weighs heavily in the chest, shrinks your posture, and fuels a persistent inner critic. Online therapy provides a compassionate environment to soften shame and rebuild genuine self-esteem.</p>
+    <p class="lede">Living with constant self-criticism can feel deeply draining, making it hard to trust your own worth. Shame often carries physical tension and fuels a persistent internal referee. Online therapy offers a compassionate space where we can work gently with shame and support healthier self-esteem.</p>
 
     <div class="faq-cta early">
       <a href="/#contact">Book a free 20-minute call with Peter</a>
@@ -535,22 +773,33 @@
     <div class="qa">
       <h2>Understanding shame and the inner critic</h2>
       <p>Where guilt says you made a mistake, shame makes the painful claim that you are the mistake. It is an intensely physical sensation, often experienced as a heavy slump in the posture, a turning inward, or a burning sensation of wanting to disappear. High achievements or external success rarely quieten this internal sense of deficiency.</p>
-      <p>The inner critic often arises as a defensive shield, attempting to criticize you internally before anyone else has the chance to reject you. While its origin was self-protection, living with an relentless internal referee damages self-esteem and maintains a state of quiet insecurity. Therapy helps you observe this critical voice without accepting its harsh conclusions.</p>
+      <p>The inner critic often arises as a defensive shield, attempting to criticise you internally before anyone else has the chance to reject you. While its origin was self-protection, living with a relentless internal referee can weigh on self-esteem and maintain quiet insecurity. Therapy offers ways to observe this critical voice without accepting its harsh conclusions.</p>
     </div>
     <div class="qa">
       <h2>Somatic tracking and relational healing for shame</h2>
-      <p>Because shame lands so distinctly in the physical body, somatic work offers a powerful pathway to relief. Using techniques from Somatic Experiencing, we pay gentle attention to where shame resides physically, helping your nervous system release the urge to collapse or hide, and restoring a feeling of upright, grounded stability.</p>
-      <p>Relational healing occurs when shame is brought safely into a non-judgmental environment. Drawing on person-centred therapy, I offer steady empathy and unconditional positive regard, meeting all of your experiences without evaluation. Experiencing consistent acceptance within our therapeutic relationship helps deconstruct the deep-seated belief that you are fundamentally unworthy, broken, or unlovable.</p>
+      <p>Because shame lands so distinctly in the physical body, somatic work can offer a helpful pathway to explore. Using techniques from Somatic Experiencing, paying gentle attention to how shame feels physically can help you notice protective posture habits and explore a steadier, more grounded sense of presence.</p>
+      <p>Relational healing can begin when shame is brought safely into a non-judgemental environment. Drawing on person-centred therapy, I offer steady empathy and unconditional positive regard, meeting your experiences without evaluation. Experiencing consistent acceptance within our therapeutic relationship can help gently challenge the belief that you are fundamentally broken or unlovable.</p>
     </div>
+    <p class="personal-note">Shame usually wants us to hide, so even booking an initial call takes real courage. In our work, we do not try to force shame away, but rather build enough safety so it no longer runs the show.</p>
     <div class="qa">
       <h2>Sessions, fees and practical information</h2>
       <p>Sessions are 50 minutes long and cost £90, conducted online across the UK and Ireland. If your self-esteem issues stem from masking your authentic needs, you might find my page on <a href="/identity-and-self-acceptance-therapy">identity and self-acceptance therapy</a> helpful, or read about my work with gay men at <a href="/online-therapy-for-gay-men">online therapy for gay men</a>.</p>
       <p>Reaching out when you carry deep shame can feel exposing, which is why I keep the starting process as gentle as possible. We begin with a free 20-minute introductory call. This is an informal conversation to talk through what you want from therapy, with no pressure or expectation to commit.</p>
+      <p>Working online gives you complete control over your environment, allowing you to speak from a space where you feel secure and comfortable. Because there is no travel or commute involved, video appointments can easily fit into your weekly routine, offering a discreet and accessible way to engage in ongoing therapeutic work.</p>
     </div>
     <div class="qa">
       <h2>Credentials and insurance</h2>
       <p>I am an MSc qualified counsellor and psychotherapist, as well as an accredited member of the BACP (MBACP Accred), with eight years of clinical experience. Online sessions are £90 for 50 minutes across the UK and Ireland, starting with a free 20-minute introductory call. I accept the following insurance providers:</p>
       <p>I am an approved therapist with major health insurance providers, including Aviva, AXA, Bupa, Healix, and Vitality, and I also work part of the week for Bupa. If you would like to cover your therapy through private healthcare insurance, we can review the process together during your initial intro call.</p>
+    <div class="cred-panel side-left">
+      <div class="cred-photo shape-circle">
+        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
+      </div>
+      <div class="cred-text">
+        <strong>Peter Donnelly</strong>
+        MSc &middot; MBACP Accred<br>Eight years in practice
+      </div>
+    </div>
     <div class="ins-row" aria-label="Insurance providers accepted">
       <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
       <span aria-hidden="true">&middot;</span>
@@ -568,23 +817,50 @@
       <h2>Questions about therapy for shame and self-esteem</h2>
       <div class="q">
         <h3>How can somatic therapy help with feelings of shame?</h3>
-        <p>Shame triggers a physiological collapse response, such as pulling shoulders inward or dropping eye contact. Somatic therapy notices these physical cues and supports your body to complete stuck protective responses, slowly building a physical sense of safety, presence, and worth.</p>
+        <p>Shame can often involve a physical collapse response, such as pulling shoulders inward. Somatic therapy notices these physical cues, offering gentle ways to work through protective tension and support a clearer feeling of physical ease and self-worth.</p>
       </div>
       <div class="q">
         <h3>What is the difference between low self-esteem and shame?</h3>
-        <p>Low self-esteem usually involves doubting your abilities or worth in specific situations. Shame is a deeper, core feeling that you are inherently broken or unworthy as a person. Therapy addresses both by untangling negative self-beliefs and building compassionate self-acceptance.</p>
+        <p>Low self-esteem usually involves doubting your abilities or worth in specific situations. Shame is a deeper feeling that you are inherently broken as a person. Therapy provides room to explore both, helping you examine rigid self-criticism and cultivate greater self-compassion.</p>
       </div>
       <div class="q">
         <h3>What can I expect from the free intro call?</h3>
-        <p>The intro call is a light, pressure-free way to meet online and see how working together feels. You can share a brief overview of what brings you to therapy, ask any questions about my somatic and person-centred approach, and decide if you want to proceed.</p>
+        <p>The intro call is a light, pressure-free way to meet online and see how working together feels. You can share a brief overview of what brings you to therapy, ask any questions about my approach, and decide if you want to proceed.</p>
       </div>
     </div>
 
     <div class="faq-cta">
-      <p>If shame and self-doubt are holding you back, book a free 20 minute intro call to explore how therapy can help you feel worthy.</p>
+      <p>If shame and self-doubt are holding you back, I invite you to book a free 20 minute intro call to explore working together.</p>
       <a href="/#contact">Book a free 20-minute call with Peter</a>
     </div>
   </div>
+
+  <details class="explore-menu">
+    <summary>Explore working with me</summary>
+    <nav aria-label="Therapy options">
+      <div class="explore-col">
+        <span class="explore-heading">Specialisms</span>
+        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+      </div>
+      <div class="explore-col">
+        <span class="explore-heading">Locations</span>
+        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+      </div>
+    </nav>
+  </details>
 
 <footer>
   <div class="f-name-block">

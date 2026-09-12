@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap"></noscript>
 
   <script type="application/ld+json">
 {
@@ -56,15 +56,15 @@
       "name": "Why choose online LGBTQ+ therapy if I live in London?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "London is geographically vast, and travelling across the city for weekly appointments can add unwanted stress. Online therapy allows you to meet from the comfort and privacy of your home, saving time while ensuring you work with a specialist LGBTQ+ therapist who truly understands your background."
+        "text": "London is geographically large, and travelling across the capital for weekly appointments can add unwanted stress. Online therapy allows you to meet from a private, comfortable space at home, saving travel time while connecting with an affirming therapist who understands queer experience."
       }
     },
     {
       "@type": "Question",
-      "name": "Will I need to explain queer terms or lifestyle to you?",
+      "name": "Will I need to explain queer terms or dating culture to you?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. As a gay therapist with lived experience and eight years of clinical practice, I provide a queer-informed space where you never have to explain terminology, dating culture, or identity nuances. We can focus immediately on your personal growth, relationships, and emotional wellbeing."
+        "text": "No. As a gay therapist with lived experience and eight years of clinical practice, I offer a queer-informed space where you do not need to explain terminology, dating culture, or identity nuances. We can focus directly on your personal growth, relationships, and emotional health."
       }
     },
     {
@@ -72,7 +72,7 @@
       "name": "Can I use private health insurance for online LGBTQ+ therapy in London?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, if your health insurance policy covers outpatient mental health care. I am registered with major UK health insurers including Aviva, AXA, Bupa, Healix, and Vitality. During our free 20-minute introductory call, we can discuss how to use your insurance cover for online sessions."
+        "text": "Yes, if your health insurance policy covers outpatient mental health care. I am registered with major UK health insurers including Aviva, AXA, Bupa, Healix, and Vitality. During our free 20 minute introductory call, we can discuss how to use your insurance cover for online sessions."
       }
     }
   ]
@@ -82,6 +82,7 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c61934ec-6d74-4fb4-8591-8817db844ba8"></script>
 
   <style>
+
 
 
 
@@ -98,12 +99,14 @@
       --rule:   rgba(25,25,23,0.1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+    a { color: inherit; text-decoration: none; }
 
     body{
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.6;
@@ -509,6 +512,241 @@
       .f-links { flex-wrap: wrap; justify-content: center; }
 
     }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* EXPLORE MENU */
+    .explore-menu{
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{
+      content: '+';
+      font-size: 13px;
+      transition: transform 0.2s;
+    }
+    .explore-menu[open] summary::after{ content: '2'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:600px){
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+      .explore-menu{ text-align: left; }
+    }
+
+    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    .cred-panel{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 22px 0 24px;
+    }
+    .cred-panel.side-right{ flex-direction: row; }
+    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
+    .cred-photo{
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--rule);
+    }
+    .cred-photo img{
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
+    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
+    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
+    .cred-text{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--low);
+      line-height: 1.7;
+    }
+    .cred-text strong{
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* PERSONAL NOTE pull quote */
+    .personal-note{
+      max-width: 560px;
+      margin: 36px auto 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--rule);
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -526,7 +764,7 @@
   <div class="wrap">
     <span class="mono-label">Online Therapy for London</span>
     <h1>Online LGBTQ+ therapist for <em>people living in London.</em></h1>
-    <p class="lede">London is home to one of the largest LGBTQ+ communities in the world, yet finding a therapist who truly understands queer lives without requiring explanation can still feel remarkably difficult. I offer online therapy for LGBTQ+ adults living in London, bringing affirming, body-aware counselling straight to your home without cross-town commutes.</p>
+    <p class="lede">Finding a therapist who genuinely understands queer life without needing basic explanations can feel challenging, even in a city as diverse as London. I offer online therapy for LGBTQ+ adults across London, providing affirming, body-aware counselling from the comfort and privacy of your home.</p>
 
     <div class="faq-cta early">
       <a href="/#contact">Book a free 20-minute call with Peter</a>
@@ -534,23 +772,34 @@
 
     <div class="qa">
       <h2>Finding an affirming therapist in London</h2>
-      <p>Living in London offers vibrant queer spaces and diverse culture, but navigating city life can also carry unique pressures. Finding a therapist who understands minority stress, identity exploration, and queer relationship structures can take substantial time. When you are already balancing a demanding career and busy social schedule, searching for the right support across the capital can feel daunting.</p>
-      <p>Online sessions eliminate the stress of travelling across London after a long working day. Whether you live in Soho, Clapham, Hackney, Vauxhall, or outer Greater London, working online offers complete privacy, consistency, and comfort. You can settle into therapy from your own living room or private office space without adding hours of travel on the tube.</p>
+      <p>London offers vibrant queer spaces and a rich cultural scene, but navigating city life as an LGBTQ+ person can also bring distinct pressures. Finding support that feels knowledgeable about minority stress, identity exploration, or non-traditional relationships often takes significant effort. Balancing a busy professional schedule while searching for the right therapist can add unnecessary strain.</p>
+      <p>Meeting online removes the hassle of travelling across the capital after a demanding day. Wherever you are logging in from across London, online sessions provide privacy, consistency, and convenience. You can settle into your therapeutic work from a comfortable room at home or a private space without having to spend extra time navigating public transport.</p>
     </div>
     <div class="qa">
       <h2>Relational, somatic and person-centred LGBTQ+ therapy</h2>
-      <p>I work with adults from all backgrounds living in London, with a core specialism in LGBTQ+-affirming therapy. As a gay man, my work is rooted in lived experience as well as professional clinical training. In our sessions, you will never need to educate your therapist about queer terminology, gender identity, or non-traditional relationship models.</p>
-      <p>My therapeutic approach integrates person-centred counselling with somatic principles. Person-centred therapy provides deep empathy, warmth, and unconditional positive regard, creating a safe foundation where you can drop your guard. Combining this with somatic awareness allows us to explore how emotional stress, past shame, or societal pressure shows up physically in your body.</p>
+      <p>I work with adults from all backgrounds living in London, with a dedicated specialism in LGBTQ+-affirming therapy. As a gay man, my practice is grounded in both professional clinical training and lived experience. You won't need to spend time explaining queer terminology, gender identity, or non-monogamous relationship structures during our sessions.</p>
+      <p>My approach combines person-centred counselling with body-aware somatic principles. Person-centred therapy provides deep empathy, warmth, and unconditional positive regard, creating a supportive environment where you can explore difficult thoughts at your own pace. Integrating somatic awareness allows us to notice how societal pressure, past shame, or relational stress may manifest physically.</p>
+      <p>Exploring identity and relationships in therapy works best when you feel genuinely seen and accepted. Having a therapist who understands the nuances of queer social dynamics, coming out, or complex family tension means we can move past surface explanations quickly, focusing on what matters most to your emotional wellbeing and growth.</p>
     </div>
+    <p class="personal-note">Clients often tell me that half the relief of our first session was simply not having to translate their life into mainstream terms. Being understood from the first sentence changes what we can accomplish together.</p>
     <div class="qa">
       <h2>Common concerns LGBTQ+ Londoners bring to therapy</h2>
-      <p>People living in London reach out to me for support with a wide range of personal, relational, and identity challenges. Common themes include navigating coming out, managing complex family tension or estrangement, handling high-pressure workplace burnout, and addressing ongoing anxiety around dating, body image, or intimacy in fast-paced city environments.</p>
-      <p>If you are exploring family dynamics or partner communication, my dedicated page on <a href="/lgbtq-relationships-family-therapy">LGBTQ+ relationship and family therapy</a> outlines how we work with these dynamics in individual therapy. For men seeking focused guidance around identity, my <a href="/online-therapy-for-gay-men">online therapy for gay men</a> page offers further details, while broader queer support is covered under <a href="/lgbtq-affirming-therapy">LGBTQ+ affirming therapy</a>.</p>
+      <p>LGBTQ+ Londoners reach out for support with a wide range of personal, relational, and identity-related concerns. Common themes include navigating coming out, exploring complex family dynamics or estrangement, managing workplace burnout, and addressing ongoing anxiety around dating, body image, or intimacy in a fast-paced urban environment where expectations often feel high.</p>
+      <p>If you are exploring family relationships or partner communication, my page on <a href="/lgbtq-relationships-family-therapy">LGBTQ+ relationship and family therapy</a> outlines how we address these dynamics in individual work. For gay men seeking focused support, my <a href="/online-therapy-for-gay-men">online therapy for gay men</a> page offers further details, while general queer-informed care is detailed under <a href="/lgbtq-affirming-therapy">LGBTQ+ affirming therapy</a>.</p>
     </div>
     <div class="qa">
       <h2>Sessions, insurance and getting started</h2>
-      <p>Sessions are 50 minutes long at £90 per session, held online for individuals living across Greater London and the UK. I hold an MSc in counselling and psychotherapy and I am an accredited member of the BACP (MBACP Accred), bringing eight years of clinical experience to our relational work. I accept the following insurance providers:</p>
-      <p>I am registered with Aviva, AXA, Bupa, Healix, and Vitality, and I also work part of the week as a Bupa therapist. If you are also interested in how body-focused therapy helps with chronic city stress, you can read my page on <a href="/somatic-therapist-london">online somatic therapy in London</a>. To begin, we start with a free 20-minute introductory call to discuss what you need.</p>
+      <p>Sessions are 50 minutes long at £90 per session, held online for individuals living across Greater London and the wider UK. I hold an MSc in counselling and psychotherapy and I am an accredited member of the British Association for Counselling and Psychotherapy (MBACP Accred), with eight years of clinical experience. I accept the following insurance providers:</p>
+      <p>I am registered with Aviva, AXA, Bupa, Healix, and Vitality, and I also work part of the week as a Bupa therapist. If you are interested in how body-focused therapy supports stress regulation, you can read my page on <a href="/somatic-therapist-london">online somatic therapy in London</a>. We begin our work with a free 20 minute introductory call to discuss your needs.</p>
+    <div class="cred-panel side-right">
+      <div class="cred-photo shape-circle">
+        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
+      </div>
+      <div class="cred-text">
+        <strong>Peter Donnelly</strong>
+        MSc &middot; MBACP Accred<br>Eight years in practice
+      </div>
+    </div>
     <div class="ins-row" aria-label="Insurance providers accepted">
       <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
       <span aria-hidden="true">&middot;</span>
@@ -568,23 +817,50 @@
       <h2>Questions about online LGBTQ+ therapy in London</h2>
       <div class="q">
         <h3>Why choose online LGBTQ+ therapy if I live in London?</h3>
-        <p>London is geographically vast, and travelling across the city for weekly appointments can add unwanted stress. Online therapy allows you to meet from the comfort and privacy of your home, saving time while ensuring you work with a specialist LGBTQ+ therapist who truly understands your background.</p>
+        <p>London is geographically large, and travelling across the capital for weekly appointments can add unwanted stress. Online therapy allows you to meet from a private, comfortable space at home, saving travel time while connecting with an affirming therapist who understands queer experience.</p>
       </div>
       <div class="q">
-        <h3>Will I need to explain queer terms or lifestyle to you?</h3>
-        <p>No. As a gay therapist with lived experience and eight years of clinical practice, I provide a queer-informed space where you never have to explain terminology, dating culture, or identity nuances. We can focus immediately on your personal growth, relationships, and emotional wellbeing.</p>
+        <h3>Will I need to explain queer terms or dating culture to you?</h3>
+        <p>No. As a gay therapist with lived experience and eight years of clinical practice, I offer a queer-informed space where you do not need to explain terminology, dating culture, or identity nuances. We can focus directly on your personal growth, relationships, and emotional health.</p>
       </div>
       <div class="q">
         <h3>Can I use private health insurance for online LGBTQ+ therapy in London?</h3>
-        <p>Yes, if your health insurance policy covers outpatient mental health care. I am registered with major UK health insurers including Aviva, AXA, Bupa, Healix, and Vitality. During our free 20-minute introductory call, we can discuss how to use your insurance cover for online sessions.</p>
+        <p>Yes, if your health insurance policy covers outpatient mental health care. I am registered with major UK health insurers including Aviva, AXA, Bupa, Healix, and Vitality. During our free 20 minute introductory call, we can discuss how to use your insurance cover for online sessions.</p>
       </div>
     </div>
 
     <div class="faq-cta">
-      <p>Looking for an affirming space to talk without having to explain yourself? Book a free 20 minute call to discuss online LGBTQ+ therapy in London.</p>
+      <p>Looking for an affirming therapy space where you can speak openly without explaining yourself? Book a free 20 minute call to discuss online LGBTQ+ therapy in London.</p>
       <a href="/#contact">Book a free 20-minute call with Peter</a>
     </div>
   </div>
+
+  <details class="explore-menu">
+    <summary>Explore working with me</summary>
+    <nav aria-label="Therapy options">
+      <div class="explore-col">
+        <span class="explore-heading">Specialisms</span>
+        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+        <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
+        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+      </div>
+      <div class="explore-col">
+        <span class="explore-heading">Locations</span>
+        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+      </div>
+    </nav>
+  </details>
 
 <footer>
   <div class="f-name-block">

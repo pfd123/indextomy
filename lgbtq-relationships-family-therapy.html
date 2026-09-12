@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap"></noscript>
 
   <script type="application/ld+json">
 {
@@ -56,7 +56,7 @@
       "name": "Do you offer couples counselling or family therapy sessions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, I work exclusively with individuals one to one. Rather than hosting joint sessions with partners or family members, we use individual therapy to help you explore your own emotions, set healthy boundaries, process past dynamics, and gain clarity on what you want from your relationships."
+        "text": "No, I work exclusively with individuals one to one. Rather than hosting joint sessions with partners or family members, we use individual therapy to help you explore your own emotions, consider healthy boundaries, process past dynamics, and reflect on what you want from your relationships."
       }
     },
     {
@@ -64,7 +64,7 @@
       "name": "What kind of family issues can we talk about in individual sessions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We can explore any relationship difficulty that affects your wellbeing. Common themes include coming out to family, managing tension or disapproval, navigating family estrangement, setting firm boundaries with relatives, or unlearning old relational roles that no longer serve you in adulthood."
+        "text": "We can explore any relationship difficulty that affects your wellbeing. Common themes include coming out to family, managing tension or disapproval, navigating family estrangement, considering boundaries with relatives, or reflecting on old relational roles that may no longer suit you in adulthood."
       }
     },
     {
@@ -87,6 +87,7 @@
 
 
 
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root{
@@ -98,12 +99,14 @@
       --rule:   rgba(25,25,23,0.1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+    a { color: inherit; text-decoration: none; }
 
     body{
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.6;
@@ -509,6 +512,241 @@
       .f-links { flex-wrap: wrap; justify-content: center; }
 
     }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* EXPLORE MENU */
+    .explore-menu{
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{
+      content: '+';
+      font-size: 13px;
+      transition: transform 0.2s;
+    }
+    .explore-menu[open] summary::after{ content: '2'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:600px){
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+      .explore-menu{ text-align: left; }
+    }
+
+    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    .cred-panel{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 22px 0 24px;
+    }
+    .cred-panel.side-right{ flex-direction: row; }
+    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
+    .cred-photo{
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--rule);
+    }
+    .cred-photo img{
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
+    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
+    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
+    .cred-text{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--low);
+      line-height: 1.7;
+    }
+    .cred-text strong{
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* PERSONAL NOTE pull quote */
+    .personal-note{
+      max-width: 560px;
+      margin: 36px auto 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--rule);
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -526,7 +764,7 @@
   <div class="wrap">
     <span class="mono-label">LGBTQ+ Relationships and Family</span>
     <h1>Individual therapy for LGBTQ+ <em>relationships and family.</em></h1>
-    <p class="lede">Navigating family tension, coming out, or relationship patterns can feel overwhelming, especially when traditional models do not reflect queer realities. I offer individual online therapy for LGBTQ+ adults across the UK, creating a supportive space to explore these challenges at your own speed.</p>
+    <p class="lede">When family dynamics or relationship patterns feel heavy, traditional counselling models do not always reflect queer lives. I offer individual online therapy for LGBTQ+ adults across the UK, providing a steady space to explore these connections at your own pace.</p>
 
     <div class="faq-cta early">
       <a href="/#contact">Book a free 20-minute call with Peter</a>
@@ -534,14 +772,15 @@
 
     <div class="qa">
       <h2>Exploring relationship and family dynamics individually</h2>
-      <p>Many people seeking support for relationship or family difficulties wonder if they need to attend therapy together with a partner or relative. I work exclusively with individuals one to one. Focusing on your individual experience allows us to explore your feelings, boundaries, and personal history without needing to manage another person's reactions in the room.</p>
-      <p>Whether you are dealing with family estrangement, disapproval after coming out, or recurring struggles in dating and intimacy, individual sessions give you room to pause and reflect. We can look closely at old attachment patterns, emotional expectations, and communication habits, helping you discover what you truly need in your connections with others.</p>
+      <p>Many people seeking support for relationship or family difficulties wonder if they need to attend therapy together with a partner or relative. I work exclusively with individuals one to one. Focusing on your individual experience can allow us to explore your feelings, boundaries, and personal history without needing to manage another person's reactions in the room.</p>
+      <p>Whether you are dealing with family estrangement, disapproval after coming out, or recurring struggles in dating and intimacy, individual sessions give you room to pause and reflect. We can look closely at old attachment patterns, emotional expectations, and communication habits, supporting you to reflect on what feels important in your connections with others.</p>
     </div>
     <div class="qa">
       <h2>An affirming, relational and body aware approach</h2>
-      <p>As a gay therapist, I bring lived experience alongside professional training to our sessions. You will never have to explain basic queer terms, cultural context, or non-traditional relationship structures to me. That foundational understanding allows us to focus immediately on what matters most to you, building a warm and non-judgmental therapeutic relationship.</p>
-      <p>My practice combines person-centred counselling with somatic principles. Relationship struggles often manifest physically, such as a knot in the stomach before visiting family or tension during conflict with a partner. By noticing these bodily cues alongside your thoughts, we can help your nervous system feel safer while establishing healthy emotional boundaries.</p>
+      <p>As a gay therapist, I bring lived experience alongside professional training to our sessions. You will never have to explain basic queer terms, cultural context, or non-traditional relationship structures to me. That foundational understanding means we can focus directly on what matters most to you, building a warm and non-judgmental therapeutic relationship.</p>
+      <p>My practice combines person-centred counselling with somatic principles. Relationship struggles often manifest physically, such as a knot in the stomach before visiting family or tension during conflict with a partner. By noticing these bodily cues alongside your thoughts, sessions can support your system to settle while exploring how you might establish clearer emotional boundaries.</p>
     </div>
+    <p class="personal-note">Clients often wonder how individual work can shift a family dynamic when the other person is not in the room. Usually, changing how you carry the conversation inside yourself is where the real boundary begins.</p>
     <div class="qa">
       <h2>Sessions, fees and getting started</h2>
       <p>Individual therapy sessions are held online across the UK and Ireland, lasting 50 minutes at a fee of £90 per session. The first step is a free 20-minute introductory call, which gives us a chance to meet, talk about what you hope to gain from therapy, and see if we feel like a good match.</p>
@@ -551,6 +790,15 @@
       <h2>Credentials and health insurance</h2>
       <p>I hold a Master of Science degree in counselling and psychotherapy, and I am an accredited member of the British Association for Counselling and Psychotherapy (MBACP Accred). Drawing on eight years of dedicated clinical experience supporting adult clients through complex family dynamics, estrangement, and personal relationship concerns, I accept the following insurance providers:</p>
       <p>If you plan to use private health insurance for our sessions, please check your policy details regarding outpatient mental health coverage before our initial meeting. You can mention your insurance provider during our free 20-minute introductory call, and I can answer any questions you have about the claim process or session bookings.</p>
+    <div class="cred-panel side-right">
+      <div class="cred-photo shape-arch">
+        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
+      </div>
+      <div class="cred-text">
+        <strong>Peter Donnelly</strong>
+        MSc &middot; MBACP Accred<br>Eight years in practice
+      </div>
+    </div>
     <div class="ins-row" aria-label="Insurance providers accepted">
       <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
       <span aria-hidden="true">&middot;</span>
@@ -568,11 +816,11 @@
       <h2>Questions about LGBTQ+ relationship and family therapy</h2>
       <div class="q">
         <h3>Do you offer couples counselling or family therapy sessions?</h3>
-        <p>No, I work exclusively with individuals one to one. Rather than hosting joint sessions with partners or family members, we use individual therapy to help you explore your own emotions, set healthy boundaries, process past dynamics, and gain clarity on what you want from your relationships.</p>
+        <p>No, I work exclusively with individuals one to one. Rather than hosting joint sessions with partners or family members, we use individual therapy to help you explore your own emotions, consider healthy boundaries, process past dynamics, and reflect on what you want from your relationships.</p>
       </div>
       <div class="q">
         <h3>What kind of family issues can we talk about in individual sessions?</h3>
-        <p>We can explore any relationship difficulty that affects your wellbeing. Common themes include coming out to family, managing tension or disapproval, navigating family estrangement, setting firm boundaries with relatives, or unlearning old relational roles that no longer serve you in adulthood.</p>
+        <p>We can explore any relationship difficulty that affects your wellbeing. Common themes include coming out to family, managing tension or disapproval, navigating family estrangement, considering boundaries with relatives, or reflecting on old relational roles that may no longer suit you in adulthood.</p>
       </div>
       <div class="q">
         <h3>How do online sessions work for relationship concerns?</h3>
@@ -585,6 +833,33 @@
       <a href="/#contact">Book a free 20-minute call with Peter</a>
     </div>
   </div>
+
+  <details class="explore-menu">
+    <summary>Explore working with me</summary>
+    <nav aria-label="Therapy options">
+      <div class="explore-col">
+        <span class="explore-heading">Specialisms</span>
+        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+        <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
+      </div>
+      <div class="explore-col">
+        <span class="explore-heading">Locations</span>
+        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+      </div>
+    </nav>
+  </details>
 
 <footer>
   <div class="f-name-block">

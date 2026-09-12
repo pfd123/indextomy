@@ -65,6 +65,58 @@
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
+  
+    /* EXPLORE MENU */
+    .explore-menu{
+      padding: 0 48px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{ content: '+'; font-size: 13px; }
+    .explore-menu[open] summary::after{ content: '\2212'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{ display: flex; flex-direction: column; gap: 10px; min-width: 200px; }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:860px){
+      .explore-menu{ padding: 0 24px 18px; text-align: left; }
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+    }
   </style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -655,6 +707,58 @@
       footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
       .f-links { flex-wrap: wrap; justify-content: center; }
     }
+  
+    /* EXPLORE MENU */
+    .explore-menu{
+      padding: 0 48px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{ content: '+'; font-size: 13px; }
+    .explore-menu[open] summary::after{ content: '\2212'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{ display: flex; flex-direction: column; gap: 10px; min-width: 200px; }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:860px){
+      .explore-menu{ padding: 0 24px 18px; text-align: left; }
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+    }
   </style>
 </head>
 <body>
@@ -806,7 +910,7 @@
   <div class="split-photo">
     <picture>
       <source srcset="img/about_photo.webp" type="image/webp">
-      <img src="img/about_photo.webp" alt="Walking through a bluebell woodland — ecotherapy"
+      <img src="img/about_photo.webp" alt="Walking through a bluebell woodland, ecotherapy"
            loading="lazy"
            width="1200" height="1487"
            decoding="async">
@@ -842,7 +946,7 @@
     </div>
     <div class="reveal d2">
       <form class="contact-form" action="https://formspree.io/f/mqevvwlo" method="POST" id="contact-form">
-        <input type="hidden" name="_subject" value="New session enquiry — peterdonnelly.co.uk">
+        <input type="hidden" name="_subject" value="New session enquiry, peterdonnelly.co.uk">
         <div class="form-field">
           <label for="name">Your Name</label>
           <input type="text" id="name" name="name" placeholder="First name is fine" required>
@@ -874,6 +978,34 @@
     </div>
   </div>
 </section>
+
+  <details class="explore-menu">
+    <summary>Explore working with me</summary>
+    <nav aria-label="Therapy options">
+      <div class="explore-col">
+        <span class="explore-heading">Specialisms</span>
+        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+        <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
+        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+      </div>
+      <div class="explore-col">
+        <span class="explore-heading">Locations</span>
+        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+      </div>
+    </nav>
+  </details>
 
 <footer>
   <div class="f-name-block">

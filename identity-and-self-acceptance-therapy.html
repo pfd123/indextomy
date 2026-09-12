@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap"></noscript>
 
   <script type="application/ld+json">
 {
@@ -56,7 +56,7 @@
       "name": "What does conditions of worth mean in therapy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Conditions of worth refer to the beliefs we internalize that we are only worthy of love or respect when meeting certain criteria, such as pleasing others or suppressing our true feelings. Therapy helps you identify and untangle these unspoken rules so you can accept yourself unconditionally."
+        "text": "Conditions of worth refer to the beliefs we internalise that we are only worthy of love or respect when meeting certain criteria, such as pleasing others. Therapy offers room to notice and gently unpack these unspoken rules, supporting a shift toward greater self-acceptance."
       }
     },
     {
@@ -72,7 +72,7 @@
       "name": "How can therapy help me stop people-pleasing?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "People-pleasing is often a habitual way to secure safety and approval. In therapy, we explore the feelings that arise when you set boundaries or say no. By building somatic grounding and self-compassion, you learn to honor your own needs without fear of abandonment."
+        "text": "People-pleasing is often a habitual way to secure safety and approval. In therapy, we explore the feelings that arise when setting boundaries. By exploring somatic grounding and self-compassion, you can practice honouring your own needs with less fear of rejection."
       }
     }
   ]
@@ -82,6 +82,7 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c61934ec-6d74-4fb4-8591-8817db844ba8"></script>
 
   <style>
+
 
 
 
@@ -98,12 +99,14 @@
       --rule:   rgba(25,25,23,0.1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+    a { color: inherit; text-decoration: none; }
 
     body{
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.6;
@@ -509,6 +512,241 @@
       .f-links { flex-wrap: wrap; justify-content: center; }
 
     }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* EXPLORE MENU */
+    .explore-menu{
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{
+      content: '+';
+      font-size: 13px;
+      transition: transform 0.2s;
+    }
+    .explore-menu[open] summary::after{ content: '2'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:600px){
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+      .explore-menu{ text-align: left; }
+    }
+
+    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    .cred-panel{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 22px 0 24px;
+    }
+    .cred-panel.side-right{ flex-direction: row; }
+    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
+    .cred-photo{
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--rule);
+    }
+    .cred-photo img{
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
+    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
+    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
+    .cred-text{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--low);
+      line-height: 1.7;
+    }
+    .cred-text strong{
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* PERSONAL NOTE pull quote */
+    .personal-note{
+      max-width: 560px;
+      margin: 36px auto 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--rule);
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -526,7 +764,7 @@
   <div class="wrap">
     <span class="mono-label">Identity and Self-Acceptance</span>
     <h1>Therapy for identity and <em>self-acceptance.</em></h1>
-    <p class="lede">When you spend years adapting to what others expect, it is easy to lose touch with who you truly are. Wearing masks and pleasing people can keep you safe for a while, but eventually it leaves you exhausted. Therapy offers a space to drop the performance and rediscover your genuine self.</p>
+    <p class="lede">When you spend years adapting to what others expect, it is easy to lose touch with who you truly are. Wearing masks and pleasing people can keep you safe for a while, but eventually it leaves you exhausted. Therapy offers a quiet space to explore dropping the performance and connecting with your genuine self.</p>
 
     <div class="faq-cta early">
       <a href="/#contact">Book a free 20-minute call with Peter</a>
@@ -535,22 +773,33 @@
     <div class="qa">
       <h2>Conditions of worth and the masks we wear</h2>
       <p>In person-centred therapy, Carl Rogers introduced the idea of conditions of worth: the implicit lessons we learn growing up that we are only acceptable when we behave, succeed, or feel a certain way. To maintain love and approval, we construct protective masks, adapting our behaviour to satisfy external expectations while burying our true desires.</p>
-      <p>While people-pleasing and mask-wearing begin as sensible survival strategies, they come at a heavy cost over time. You might find yourself feeling disconnected from your own opinions, uncertain of your personal boundaries, or deeply exhausted by everyday social interactions. Recognizing these learned protective patterns is the essential first step toward reclaiming your authentic identity.</p>
+      <p>While people-pleasing and mask-wearing begin as sensible survival strategies, they come at a heavy cost over time. You might find yourself feeling disconnected from your own opinions, uncertain of your boundaries, or deeply exhausted by everyday interactions. Recognising these learned protective patterns can be a meaningful step toward understanding your authentic identity.</p>
     </div>
     <div class="qa">
-      <h2>Rediscovering who you are in a non-judgmental space</h2>
-      <p>My approach rests on core person-centred principles: empathy, congruence, and unconditional positive regard. In our sessions, there are no expectations to perform or fulfill a role. For those exploring gender or sexuality, my practice is LGBTQ+ affirming, rooted in lived experience as a gay man where there is no need to educate your therapist.</p>
-      <p>We also integrate body awareness to notice how self-suppression manifests physically. You might notice a constricted throat when holding back your truth, or tightness in the stomach when saying yes to something you dislike. Somatic tracking helps you tune in to these body signals, grounding self-acceptance in felt experience rather than abstract ideas.</p>
+      <h2>Rediscovering who you are in a non-judgemental space</h2>
+      <p>My approach rests on core person-centred principles: empathy, congruence, and unconditional positive regard. In our sessions, there are no expectations to perform or fulfil a role. For those exploring gender or sexuality, my practice is LGBTQ+ affirming, rooted in lived experience as a gay man where there is no need to educate your therapist.</p>
+      <p>We also integrate body awareness to notice how self-suppression manifests physically. You might notice a constricted throat when holding back your truth, or tightness in the stomach when saying yes to something you dislike. Somatic tracking can support you in tuning in to these body signals, offering a way to anchor self-acceptance in felt experience rather than abstract ideas.</p>
+      <p>Learning to trust your internal compass takes time, especially if you have spent years prioritising the needs of those around you. In our work together, we go at your pace, offering steady support as you explore what feels true to you without fear of judgement.</p>
     </div>
+    <p class="personal-note">We talk a lot about self-acceptance, but in practice it rarely feels like a sudden breakthrough. More often, it looks like noticing a habit of self-criticism as it happens and deciding not to follow it down the usual path.</p>
     <div class="qa">
       <h2>Sessions, fees and practical arrangements</h2>
-      <p>Sessions take place online across the UK and Ireland, lasting 50 minutes at a fee of £90. If your identity struggles are accompanied by persistent self-criticism, you may also wish to visit my dedicated page on <a href="/therapy-for-shame-and-self-esteem">therapy for shame and low self-esteem</a> or learn more about my specialized <a href="/lgbtq-affirming-therapy">LGBTQ+ affirming therapy</a> service.</p>
+      <p>Sessions take place online across the UK and Ireland, lasting 50 minutes at a fee of £90. If your identity struggles are accompanied by persistent self-criticism, you may also wish to visit my dedicated page on <a href="/therapy-for-shame-and-self-esteem">therapy for shame and low self-esteem</a> or learn more about my specialised <a href="/lgbtq-affirming-therapy">LGBTQ+ affirming therapy</a> service.</p>
       <p>Taking off a mask and allowing yourself to be genuinely seen can feel daunting. To help you take that step comfortably, I offer a free 20-minute introductory call. This brief online conversation gives us a chance to connect, discuss your goals, and see if working together feels right for you.</p>
     </div>
     <div class="qa">
       <h2>Credentials and insurance</h2>
       <p>As an MSc qualified therapist and accredited member of the British Association for Counselling and Psychotherapy (MBACP Accred), I bring eight years of therapeutic experience to our work. Online sessions are £90 for 50 minutes across the UK and Ireland, beginning with a free 20-minute initial consultation. I accept the following insurance providers:</p>
-      <p>My practice is registered with major health insurance providers including Aviva, AXA, Bupa, Healix, and Vitality. I also dedicate part of my working week to serving directly as a Bupa therapist. If you plan to use private healthcare cover, we can easily discuss your claim authorization during your free introductory consultation.</p>
+      <p>My practice is registered with major health insurance providers including Aviva, AXA, Bupa, Healix, and Vitality. I also dedicate part of my working week to serving directly as a Bupa therapist. If you plan to use private healthcare cover, we can easily discuss your claim authorisation during your free introductory consultation.</p>
+    <div class="cred-panel side-right">
+      <div class="cred-photo shape-portrait">
+        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
+      </div>
+      <div class="cred-text">
+        <strong>Peter Donnelly</strong>
+        MSc &middot; MBACP Accred<br>Eight years in practice
+      </div>
+    </div>
     <div class="ins-row" aria-label="Insurance providers accepted">
       <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
       <span aria-hidden="true">&middot;</span>
@@ -568,7 +817,7 @@
       <h2>Questions about identity and self-acceptance therapy</h2>
       <div class="q">
         <h3>What does conditions of worth mean in therapy?</h3>
-        <p>Conditions of worth refer to the beliefs we internalize that we are only worthy of love or respect when meeting certain criteria, such as pleasing others or suppressing our true feelings. Therapy helps you identify and untangle these unspoken rules so you can accept yourself unconditionally.</p>
+        <p>Conditions of worth refer to the beliefs we internalise that we are only worthy of love or respect when meeting certain criteria, such as pleasing others. Therapy offers room to notice and gently unpack these unspoken rules, supporting a shift toward greater self-acceptance.</p>
       </div>
       <div class="q">
         <h3>Is identity therapy only for LGBTQ+ clients?</h3>
@@ -576,15 +825,42 @@
       </div>
       <div class="q">
         <h3>How can therapy help me stop people-pleasing?</h3>
-        <p>People-pleasing is often a habitual way to secure safety and approval. In therapy, we explore the feelings that arise when you set boundaries or say no. By building somatic grounding and self-compassion, you learn to honor your own needs without fear of abandonment.</p>
+        <p>People-pleasing is often a habitual way to secure safety and approval. In therapy, we explore the feelings that arise when setting boundaries. By exploring somatic grounding and self-compassion, you can practice honouring your own needs with less fear of rejection.</p>
       </div>
     </div>
 
     <div class="faq-cta">
-      <p>Ready to stop pleasing others and start connecting with your true self? Book a free 20 minute intro call to explore working together.</p>
+      <p>If you are ready to explore people-pleasing patterns and connect with your authentic self, I invite you to book a free 20 minute intro call today.</p>
       <a href="/#contact">Book a free 20-minute call with Peter</a>
     </div>
   </div>
+
+  <details class="explore-menu">
+    <summary>Explore working with me</summary>
+    <nav aria-label="Therapy options">
+      <div class="explore-col">
+        <span class="explore-heading">Specialisms</span>
+        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+        <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
+        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+      </div>
+      <div class="explore-col">
+        <span class="explore-heading">Locations</span>
+        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+      </div>
+    </nav>
+  </details>
 
 <footer>
   <div class="f-name-block">

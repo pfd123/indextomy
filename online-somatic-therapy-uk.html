@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap"></noscript>
 
   <script type="application/ld+json">
 {
@@ -56,7 +56,7 @@
       "name": "What happens during an online somatic therapy session?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We sit together over a secure video connection and talk through what you are experiencing. Alongside your words, we pay quiet attention to physical cues such as your breath, posture, and muscle tension. We use simple grounding techniques to help your nervous system regulate at a comfortable pace."
+        "text": "We sit together over a secure video connection and talk through what you are experiencing. Alongside your words, we pay quiet attention to physical cues such as breath, posture, and muscular tension. We explore simple grounding exercises that may help your system settle at a comfortable pace."
       }
     },
     {
@@ -64,7 +64,7 @@
       "name": "Is somatic therapy suitable if I have never tried therapy before?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Somatic therapy is gentle and accessible, making it an excellent choice for anyone new to therapy. There are no complicated theories to learn or emotional demands placed upon you. We start exactly where you are, keeping the work safe, transparent, and focused on your personal comfort."
+        "text": "Yes. Somatic therapy is gentle and accessible, making it a supportive choice for anyone new to counselling. There are no complex theories to learn or pressure to perform. We start exactly where you are, keeping our work safe, transparent, and focused on what feels manageable."
       }
     },
     {
@@ -72,7 +72,7 @@
       "name": "How do I know if online somatic therapy is right for me?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "If you feel that stress or past difficulties are showing up physically in your body, somatic work may be ideal. The best way to find out is to book a free 20 minute introductory call, where we can chat about your goals and answer any questions."
+        "text": "If you notice stress or past difficulties showing up as physical tension, body-aware work may offer useful insights. The simplest way to find out is to book a free 20 minute introductory call, where we can discuss what you hope to explore and answer any questions."
       }
     }
   ]
@@ -82,6 +82,7 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c61934ec-6d74-4fb4-8591-8817db844ba8"></script>
 
   <style>
+
 
 
 
@@ -98,12 +99,14 @@
       --rule:   rgba(25,25,23,0.1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+    a { color: inherit; text-decoration: none; }
 
     body{
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.6;
@@ -509,6 +512,241 @@
       .f-links { flex-wrap: wrap; justify-content: center; }
 
     }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* EXPLORE MENU */
+    .explore-menu{
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{
+      content: '+';
+      font-size: 13px;
+      transition: transform 0.2s;
+    }
+    .explore-menu[open] summary::after{ content: '2'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:600px){
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+      .explore-menu{ text-align: left; }
+    }
+
+    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    .cred-panel{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 22px 0 24px;
+    }
+    .cred-panel.side-right{ flex-direction: row; }
+    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
+    .cred-photo{
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--rule);
+    }
+    .cred-photo img{
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
+    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
+    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
+    .cred-text{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--low);
+      line-height: 1.7;
+    }
+    .cred-text strong{
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* PERSONAL NOTE pull quote */
+    .personal-note{
+      max-width: 560px;
+      margin: 36px auto 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--rule);
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -526,7 +764,7 @@
   <div class="wrap">
     <span class="mono-label">Online Somatic Therapy UK</span>
     <h1>Online somatic therapy across the <em>UK.</em></h1>
-    <p class="lede">Somatic therapy offers a body-aware approach to emotional health, addressing stress and trauma where they are held physically. Based in the UK and working online, I help adults rebalance their nervous system, move past persistent anxiety, and release old survival patterns through gentle, paced work.</p>
+    <p class="lede">Somatic therapy offers a body-aware approach to emotional health, exploring how stress and difficult experiences can be held physically. Working online across the UK, I support adults seeking to understand nervous system responses, explore persistent anxiety, and move gently past long-standing patterns of tension at an unhurried pace.</p>
 
     <div class="faq-cta early">
       <a href="/#contact">Book a free 20-minute call with Peter</a>
@@ -534,23 +772,33 @@
 
     <div class="qa">
       <h2>Understanding somatic therapy and the nervous system</h2>
-      <p>Many people come to therapy having already spent years trying to think their way out of stress. While traditional talking therapies focus primarily on thoughts and narratives, somatic therapy recognises that difficult experiences leave physical footprints in the nervous system. When we experience overwhelm, our bodies store that protective energy as tension, hypervigilance, or a quiet sense of numbness. Somatic therapy works by bringing gentle attention to those physical sensations, allowing the body to complete unreleased survival responses safely.</p>
-      <p>The foundation of this approach was developed by Dr Peter Levine through Somatic Experiencing. His research demonstrated how nervous systems can become stuck in fight, flight, or freeze states long after a stressful event has ended. Rather than forcing you to relive painful memories, somatic work focuses on small, manageable sensations in the present moment. By tracking breath, posture, and subtle physical shifts, your body learns that the original threat has passed, restoring a genuine sense of internal calm and resilience.</p>
+      <p>Many people come to therapy having already spent years trying to think their way out of stress. While traditional talking therapies focus primarily on thoughts and narratives, somatic therapy recognises that difficult experiences can leave physical footprints in the body. When we experience overwhelm, our bodies may hold protective tension, hypervigilance, or a quiet sense of numbness. Somatic therapy works by bringing gentle attention to these physical sensations, offering space where long-held nervous system patterns may begin to settle.</p>
+      <p>The foundation of this approach was developed by Dr Peter Levine through Somatic Experiencing. His work highlights how nervous systems can remain in protective fight, flight, or freeze responses long after a stressful period. Rather than requiring you to relive painful memories, somatic work focuses on small, manageable sensations in the present moment. By noticing breath, posture, and subtle physical shifts, you can gently explore whether present surroundings feel safer, supporting a gradual movement towards physical ease.</p>
     </div>
     <div class="qa">
       <h2>Who somatic therapy helps and how I work</h2>
-      <p>This way of working is particularly helpful for adults living with chronic anxiety, unresolved trauma, emotional exhaustion, or the feeling of being trapped in recurring behavioural patterns. If you frequently feel on edge, disconnected from your body, or overwhelmed by sudden emotional spikes, somatic techniques offer a steady path forward. You can learn more about specific applications on my dedicated page for <a href="/somatic-therapy-for-anxiety">somatic therapy for anxiety</a> or explore my wider work with <a href="/trauma-informed-therapy">trauma-informed somatic therapy</a>.</p>
-      <p>My practice combines Somatic Experiencing with a deep person-centred foundation inspired by Carl Rogers. This means our relationship is built on unconditional positive regard, empathy, and absolute congruence. There is no diagnosis, no medical labelling, and no pressure to fix yourself. We work collaboratively at the speed your body dictates, ensuring you always feel grounded and supported. Whether we are exploring physical tension or underlying emotions, your pace and comfort guide every step of our conversation.</p>
+      <p>This way of working is often helpful for adults living with persistent anxiety, unresolved trauma, emotional exhaustion, or recurring behavioural patterns. If you frequently feel on edge, disconnected from your body, or overwhelmed by sudden emotional spikes, somatic principles can offer a supportive framework to explore. You can learn more about specific applications on my dedicated page for <a href="/somatic-therapy-for-anxiety">somatic therapy for anxiety</a> or explore my wider work with <a href="/trauma-informed-therapy">trauma-informed somatic therapy</a>.</p>
+      <p>My practice combines Somatic Experiencing with a deep person-centred foundation inspired by Carl Rogers. This means our relationship is built on unconditional positive regard, empathy, and genuine congruence. There is no diagnosis, no medical labelling, and no pressure to fix yourself. We work collaboratively at a speed that feels manageable for your nervous system, keeping safety and comfort at the centre. Whether exploring physical tension or underlying emotions, your pace guides every step of our work.</p>
     </div>
+    <p class="personal-note">When people start tracking subtle physical shifts rather than analysing every thought, the shift in tone is noticeable. Breathing deepens slightly and the shoulders drop an inch. That quiet bodily recognition is often where meaningful change begins.</p>
     <div class="qa">
       <h2>The benefits of body-aware therapy online</h2>
-      <p>A common question is whether body-aware therapy can be effective over a video connection. In practice, working online from your own home often enhances the sense of physical safety. Being in a familiar, comfortable environment helps your nervous system settle more readily than arriving at an unfamiliar clinic. Without the added stress of travelling across town, you can drop into the session feeling relaxed and transition quietly back into your day afterward.</p>
-      <p>I work with clients living throughout the United Kingdom and Ireland, providing private video sessions that bring specialist care directly to your space. Whether you are looking for <a href="/somatic-therapist-london">somatic therapy in London</a> or joining from a quiet rural town, the focus remains entirely on your internal experience. Through careful observation and attentive listening, I guide you in tracking physical sensations, using simple grounding exercises that you can comfortably practice in your daily life.</p>
+      <p>A common question is whether body-aware therapy can feel meaningful over a video connection. In practice, working online from your own home can support a sense of personal safety. Being in familiar surroundings may help your nervous system settle more readily than arriving at an unfamiliar clinical office. Without the time and stress of a commute, you can enter the session from a quiet space and transition gently back into your day afterward.</p>
+      <p>I work with clients living throughout the United Kingdom and Ireland, providing private video sessions that bring body-aware support into your own space. Whether you are looking for an online <a href="/somatic-therapist-london">somatic therapist in London</a> or joining from a quiet rural town, our focus remains on your lived experience. Through careful observation and attentive listening, I assist you in tracking subtle physical sensations and exploring simple grounding practices at your own pace.</p>
     </div>
     <div class="qa">
       <h2>Credentials, session fees and insurance</h2>
       <p>I hold an MSc in counselling and psychotherapeutic practice and I am an accredited member of the British Association for Counselling and Psychotherapy (MBACP Accred), with eight years of clinical experience. Sessions are conducted online, lasting 50 minutes at a fee of £90. The process begins with a free 20 minute introductory call, giving us time to discuss your needs without any obligation. I accept the following insurance providers:</p>
-      <p>In addition to my independent practice, I work as a Bupa registered therapist a couple of days each week. Clients covered by Aviva, AXA, Healix, or Vitality can also access my care using their private healthcare policies. Arranging coverage is straightforward, and I am happy to assist with any administrative details during our initial consultation. Taking that first step is simple, and our free intro call offers a calm, welcoming space to begin.</p>
+      <p>In addition to my independent practice, I work as a Bupa therapist a couple of days each week. Clients covered by Aviva, AXA, Healix, or Vitality can also access sessions through their private health policies. Arranging coverage is usually straightforward, and I am glad to assist with administrative details during our initial consultation. Taking that first step can feel big, and our free intro call offers a calm, welcoming space to begin.</p>
+    <div class="cred-panel side-left">
+      <div class="cred-photo shape-circle">
+        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
+      </div>
+      <div class="cred-text">
+        <strong>Peter Donnelly</strong>
+        MSc &middot; MBACP Accred<br>Eight years in practice
+      </div>
+    </div>
     <div class="ins-row" aria-label="Insurance providers accepted">
       <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
       <span aria-hidden="true">&middot;</span>
@@ -568,23 +816,50 @@
       <h2>Questions about online somatic therapy in the UK</h2>
       <div class="q">
         <h3>What happens during an online somatic therapy session?</h3>
-        <p>We sit together over a secure video connection and talk through what you are experiencing. Alongside your words, we pay quiet attention to physical cues such as your breath, posture, and muscle tension. We use simple grounding techniques to help your nervous system regulate at a comfortable pace.</p>
+        <p>We sit together over a secure video connection and talk through what you are experiencing. Alongside your words, we pay quiet attention to physical cues such as breath, posture, and muscular tension. We explore simple grounding exercises that may help your system settle at a comfortable pace.</p>
       </div>
       <div class="q">
         <h3>Is somatic therapy suitable if I have never tried therapy before?</h3>
-        <p>Yes. Somatic therapy is gentle and accessible, making it an excellent choice for anyone new to therapy. There are no complicated theories to learn or emotional demands placed upon you. We start exactly where you are, keeping the work safe, transparent, and focused on your personal comfort.</p>
+        <p>Yes. Somatic therapy is gentle and accessible, making it a supportive choice for anyone new to counselling. There are no complex theories to learn or pressure to perform. We start exactly where you are, keeping our work safe, transparent, and focused on what feels manageable.</p>
       </div>
       <div class="q">
         <h3>How do I know if online somatic therapy is right for me?</h3>
-        <p>If you feel that stress or past difficulties are showing up physically in your body, somatic work may be ideal. The best way to find out is to book a free 20 minute introductory call, where we can chat about your goals and answer any questions.</p>
+        <p>If you notice stress or past difficulties showing up as physical tension, body-aware work may offer useful insights. The simplest way to find out is to book a free 20 minute introductory call, where we can discuss what you hope to explore and answer any questions.</p>
       </div>
     </div>
 
     <div class="faq-cta">
-      <p>Ready to explore how somatic therapy can help you feel more grounded? Book a free 20 minute call to discuss your needs in a calm space.</p>
+      <p>Curious about how body-aware therapy might support your emotional health? Book a free 20 minute intro call to explore online somatic therapy in a calm space.</p>
       <a href="/#contact">Book a free 20-minute call with Peter</a>
     </div>
   </div>
+
+  <details class="explore-menu">
+    <summary>Explore working with me</summary>
+    <nav aria-label="Therapy options">
+      <div class="explore-col">
+        <span class="explore-heading">Specialisms</span>
+        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+        <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
+        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+      </div>
+      <div class="explore-col">
+        <span class="explore-heading">Locations</span>
+        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+      </div>
+    </nav>
+  </details>
 
 <footer>
   <div class="f-name-block">

@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap"></noscript>
 
   <script type="application/ld+json">
 {
@@ -56,7 +56,7 @@
       "name": "What does LGBTQ+ affirming therapy actually mean?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It means your identity and relationships are fully respected as valid and healthy. Therapy is free from judgment, subtle bias, or pathologising assumptions. We work together with an understanding of queer culture and the unique stresses that can come with living in a minority group."
+        "text": "It means your identity and relationships are fully respected as valid and healthy. I aim to offer a therapeutic space free from judgment or pathologising assumptions, working with an understanding of queer culture and the unique stresses that can accompany living in a minority group."
       }
     },
     {
@@ -64,7 +64,7 @@
       "name": "Do we have to talk about my sexuality or gender in every session?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. You choose what we discuss in every session. Whether you want to focus on career changes, anxiety, family relationships, or personal identity, your identity is simply the safe backdrop against which our work takes place."
+        "text": "No. You choose what we discuss in every session. Whether you want to focus on career changes, anxiety, family relationships, or personal identity, your background serves as a supportive backdrop against which our work takes place."
       }
     },
     {
@@ -87,6 +87,7 @@
 
 
 
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root{
@@ -98,12 +99,14 @@
       --rule:   rgba(25,25,23,0.1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+    a { color: inherit; text-decoration: none; }
 
     body{
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.6;
@@ -509,6 +512,241 @@
       .f-links { flex-wrap: wrap; justify-content: center; }
 
     }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* EXPLORE MENU */
+    .explore-menu{
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{
+      content: '+';
+      font-size: 13px;
+      transition: transform 0.2s;
+    }
+    .explore-menu[open] summary::after{ content: '2'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:600px){
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+      .explore-menu{ text-align: left; }
+    }
+
+    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    .cred-panel{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 22px 0 24px;
+    }
+    .cred-panel.side-right{ flex-direction: row; }
+    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
+    .cred-photo{
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--rule);
+    }
+    .cred-photo img{
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
+    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
+    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
+    .cred-text{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--low);
+      line-height: 1.7;
+    }
+    .cred-text strong{
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* PERSONAL NOTE pull quote */
+    .personal-note{
+      max-width: 560px;
+      margin: 36px auto 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--rule);
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -534,23 +772,34 @@
 
     <div class="qa">
       <h2>A queer informed space where you never have to explain yourself</h2>
-      <p>Therapy should be a place of genuine safety where you can speak openly without fear of judgment or misunderstanding. Affirming therapy goes beyond simple tolerance; it actively honours queer lives, relationships, and identities. In our sessions, your experience is recognised as valid and meaningful, creating an environment where you can explore personal concerns without needing to censor who you are or defend your way of living.</p>
-      <p>As a gay therapist, my practice is built on shared lived experience of coming out, navigating identity, managing family dynamics, and unlearning internalized shame. One of the greatest relief points for queer clients is knowing that you never have to educate your therapist about basic terminology or cultural nuances. We can jump straight into what matters most to you, saving your energy for deep, meaningful self-discovery and healing.</p>
+      <p>Therapy should be a space of genuine safety where you can speak openly without fear of judgment. Affirming therapy goes beyond simple tolerance; it actively honours queer lives, relationships, and identities. In our sessions, your experience is recognised as valid, creating an environment that aims to support open exploration without needing to censor who you are or defend your way of living.</p>
+      <p>As a gay therapist, my practice is built on shared lived experience of coming out, navigating identity, managing family dynamics, and unlearning internalised shame. Many clients find real comfort in knowing they do not need to educate their therapist about basic queer culture or terminology. We can focus straight on what matters to you, giving you room for personal reflection and self-discovery.</p>
+      <p>Living as a queer person often involves navigating subtle, ongoing social pressures that can linger in the background. In our sessions, we pay attention to how these external messages might influence your self-worth, offering a calm, non-judgemental space to explore your thoughts and feelings at a pace that feels comfortable for you.</p>
     </div>
     <div class="qa">
       <h2>Navigating identity, relationships and self-esteem</h2>
-      <p>Queer individuals often carry subtle emotional weight from growing up in a world that assumes heteronormativity. We frequently explore topics such as family acceptance, workplace stress, intimacy, and releasing lingering guilt. If you are seeking targeted support for personal growth, you might explore my pages on <a href="/therapy-for-shame-and-self-esteem">therapy for shame and self-esteem</a> or my specific focus on <a href="/online-therapy-for-gay-men">online therapy for gay men</a>.</p>
-      <p>While queer-informed work is a primary specialism of mine, I work with adults from all backgrounds and walks of life. Affirming therapy does not mean every conversation must focus on your sexuality or gender. Instead, it ensures that when identity does intersect with anxiety, work, or relationships, it is understood through an empathetic lens. We combine relational warmth with gentle body-aware somatic practices to support your overall emotional health.</p>
+      <p>Queer individuals often carry subtle emotional weight from growing up in a world that assumes heteronormativity. We frequently explore topics such as family acceptance, workplace stress, intimacy, and working through lingering guilt. If you are seeking targeted support for personal growth, you might explore my pages on <a href="/therapy-for-shame-and-self-esteem">therapy for shame and self-esteem</a> or my specific focus on <a href="/online-therapy-for-gay-men">online therapy for gay men</a>.</p>
+      <p>While queer-informed work is a primary specialism of mine, I work with adults from all backgrounds and walks of life. Affirming therapy does not mean every conversation must focus on your sexuality or gender. Instead, it offers a space where, if identity intersects with anxiety, work, or relationships, it can be understood through an empathetic lens. We combine relational warmth with gentle body-aware somatic practices to support your overall emotional health.</p>
     </div>
+    <p class="personal-note">Clients often tell me how exhausting it was having to explain basic queer vocabulary in past therapy sessions. When that burden is lifted from the room, people tend to settle much faster into the actual work.</p>
     <div class="qa">
       <h2>Online sessions across the UK and Ireland</h2>
-      <p>Accessing specialised affirming care can sometimes be difficult depending on where you live. By offering sessions online, I connect with clients across the UK and Ireland, ensuring you can work with a queer therapist regardless of your location. Whether you are seeking an <a href="/lgbtq-therapist-london">LGBTQ+ therapist in London</a> or living in a smaller community, video sessions offer complete privacy and convenience from the comfort of home.</p>
+      <p>Accessing specialised affirming care can sometimes be difficult depending on where you live. By offering sessions online, I connect with clients across the UK and Ireland, making it possible to connect with a queer therapist regardless of location. Whether you are seeking an <a href="/lgbtq-therapist-london">LGBTQ+ therapist in London</a> or living in a smaller community, video sessions offer privacy and convenience from home.</p>
       <p>Sessions last 50 minutes and cost £90. The therapeutic journey begins with a free 20 minute introductory call over video or phone. This initial chat gives us a chance to meet, talk about what brings you to therapy, and decide if we feel like a good match. There is never any pressure to commit, and we move forward only when you feel completely ready.</p>
     </div>
     <div class="qa">
       <h2>Professional credentials and insurance coverage</h2>
       <p>I hold an MSc in counselling and psychotherapeutic practice and I am an accredited member of the British Association for Counselling and Psychotherapy (MBACP Accred), bringing eight years of professional clinical experience to our work. Online sessions are £90 for 50 minutes, and we start with a free 20 minute introductory call. I accept the following insurance providers:</p>
-      <p>I am registered with major UK health insurance companies, including Bupa, Aviva, AXA, Healix, and Vitality, and I work a couple of days each week as a Bupa therapist. If you have private health cover, using your policy for therapy is straightforward. I can guide you through the process during our first conversation to ensure your sessions are properly authorised and seamlessly covered.</p>
+      <p>I am registered with major UK health insurance companies, including Bupa, Aviva, AXA, Healix, and Vitality, and I work a couple of days each week as a Bupa therapist. If you have private health cover, using your policy for therapy is usually straightforward. I can guide you through the process during our first conversation to help arrange authorization with your provider.</p>
+    <div class="cred-panel side-right">
+      <div class="cred-photo shape-arch">
+        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
+      </div>
+      <div class="cred-text">
+        <strong>Peter Donnelly</strong>
+        MSc &middot; MBACP Accred<br>Eight years in practice
+      </div>
+    </div>
     <div class="ins-row" aria-label="Insurance providers accepted">
       <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
       <span aria-hidden="true">&middot;</span>
@@ -568,11 +817,11 @@
       <h2>Questions about LGBTQ+ affirming therapy</h2>
       <div class="q">
         <h3>What does LGBTQ+ affirming therapy actually mean?</h3>
-        <p>It means your identity and relationships are fully respected as valid and healthy. Therapy is free from judgment, subtle bias, or pathologising assumptions. We work together with an understanding of queer culture and the unique stresses that can come with living in a minority group.</p>
+        <p>It means your identity and relationships are fully respected as valid and healthy. I aim to offer a therapeutic space free from judgment or pathologising assumptions, working with an understanding of queer culture and the unique stresses that can accompany living in a minority group.</p>
       </div>
       <div class="q">
         <h3>Do we have to talk about my sexuality or gender in every session?</h3>
-        <p>No. You choose what we discuss in every session. Whether you want to focus on career changes, anxiety, family relationships, or personal identity, your identity is simply the safe backdrop against which our work takes place.</p>
+        <p>No. You choose what we discuss in every session. Whether you want to focus on career changes, anxiety, family relationships, or personal identity, your background serves as a supportive backdrop against which our work takes place.</p>
       </div>
       <div class="q">
         <h3>How do I start online therapy with Peter?</h3>
@@ -581,10 +830,37 @@
     </div>
 
     <div class="faq-cta">
-      <p>If you are seeking a genuinely affirming space where you can speak freely without explanation, I invite you to book a free 20 minute intro call to explore working together.</p>
+      <p>If you are seeking an affirming space where you can speak freely without explanation, I invite you to book a free 20 minute intro call to explore working together.</p>
       <a href="/#contact">Book a free 20-minute call with Peter</a>
     </div>
   </div>
+
+  <details class="explore-menu">
+    <summary>Explore working with me</summary>
+    <nav aria-label="Therapy options">
+      <div class="explore-col">
+        <span class="explore-heading">Specialisms</span>
+        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+        <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
+        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+      </div>
+      <div class="explore-col">
+        <span class="explore-heading">Locations</span>
+        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+      </div>
+    </nav>
+  </details>
 
 <footer>
   <div class="f-name-block">

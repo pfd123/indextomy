@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Geist:wght@300;400&family=Geist+Mono:wght@300;400;600&display=swap"></noscript>
 
   <script type="application/ld+json">
 {
@@ -64,7 +64,7 @@
       "name": "How are payment and currency handled for Irish clients?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The session fee is £90 Sterling per 50-minute session, payable online. If you hold UK-based private health insurance, your policy may cover the cost subject to your provider's terms."
+        "text": "The session fee is £90 Sterling per 50-minute session, payable online prior to meeting. If you hold UK-based private health insurance, your policy may cover the cost subject to your provider's terms."
       }
     },
     {
@@ -72,7 +72,7 @@
       "name": "What is the benefit of somatic therapy compared to standard talk therapy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Somatic therapy includes the body's physical responses alongside thoughts and emotions. This helps release stored stress and nervous system tension that talking alone might not fully resolve."
+        "text": "Somatic therapy brings gentle attention to physical sensations alongside thoughts. This approach can help you notice and work with physical patterns of stress that intellectual discussion alone may not fully address."
       }
     }
   ]
@@ -82,6 +82,7 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c61934ec-6d74-4fb4-8591-8817db844ba8"></script>
 
   <style>
+
 
 
 
@@ -98,12 +99,14 @@
       --rule:   rgba(25,25,23,0.1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+    a { color: inherit; text-decoration: none; }
 
     body{
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.6;
@@ -509,6 +512,241 @@
       .f-links { flex-wrap: wrap; justify-content: center; }
 
     }
+  
+    /* early enquiry CTA under the lede */
+    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
+    .faq-cta.early p{ display: none; }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* EXPLORE MENU */
+    .explore-menu{
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 18px;
+      text-align: right;
+    }
+    .explore-menu summary{
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    .explore-menu summary::-webkit-details-marker{ display: none; }
+    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
+    .explore-menu summary::after{
+      content: '+';
+      font-size: 13px;
+      transition: transform 0.2s;
+    }
+    .explore-menu[open] summary::after{ content: '2'; }
+    .explore-menu nav{
+      display: flex;
+      gap: 40px;
+      justify-content: flex-end;
+      text-align: left;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 2px;
+    }
+    .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:600px){
+      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
+      .explore-menu{ text-align: left; }
+    }
+
+    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    .cred-panel{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 22px 0 24px;
+    }
+    .cred-panel.side-right{ flex-direction: row; }
+    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
+    .cred-photo{
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--rule);
+    }
+    .cred-photo img{
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
+    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
+    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
+    .cred-text{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--low);
+      line-height: 1.7;
+    }
+    .cred-text strong{
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* PERSONAL NOTE pull quote */
+    .personal-note{
+      max-width: 560px;
+      margin: 36px auto 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--rule);
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -526,31 +764,42 @@
   <div class="wrap">
     <span class="mono-label">Online Therapy for Dublin</span>
     <h1>Online therapy for people living in <em>Dublin.</em></h1>
-    <p class="lede">Finding the right therapist in Dublin who combines body-aware practice with a person-centred foundation can be challenging. Working online means distance is no barrier, giving you direct access to specialized therapy across Ireland and the UK from the comfort and privacy of your own home.</p>
+    <p class="lede">If you are living in Dublin and searching for therapy that connects mind and body, online sessions offer a direct way to work together. From your own space, you can access specialised somatic and LGBTQ+-affirming support across Ireland and the UK without navigating long city commutes.</p>
 
     <div class="faq-cta early">
       <a href="/#contact">Book a free 20-minute call with Peter</a>
     </div>
 
     <div class="qa">
-      <h2>Connecting with specialized therapy from Dublin</h2>
+      <h2>Connecting with specialised therapy from Dublin</h2>
       <p>Dublin is a vibrant and fast-paced city, but navigating daily demands alongside personal challenges can leave you feeling drained and disconnected. Finding a therapist who aligns with your specific needs, such as somatic practice or queer-informed care, does not have to be limited by your immediate neighbourhood or commuting distance across the city.</p>
       <p>Because I work online across the UK and Ireland, Dublin is fully in reach. Online sessions eliminate the hassle of travelling across Dublin during peak hours, allowing you to create a quiet, comfortable space at home. You can step into your session focused entirely on your well-being and return to your routine immediately afterward.</p>
     </div>
     <div class="qa">
       <h2>Somatic and person-centred therapy for adults</h2>
-      <p>I support adults from all walks of life who are looking for a gentle, non-pathologising approach to therapy. My practice blends person-centred therapy with Somatic Experiencing, focusing on the connection between mind and body. Rather than viewing your symptoms as something to be fixed, we explore how your nervous system holds stress, using <a href="/online-somatic-therapy-uk">online somatic therapy in the UK</a> principles to foster genuine healing.</p>
+      <p>I support adults from all walks of life who are looking for a gentle, non-pathologising approach to therapy. My practice blends person-centred therapy with Somatic Experiencing, focusing on the connection between mind and body. Rather than viewing your symptoms as something to be fixed, we explore how your nervous system holds stress, using <a href="/online-somatic-therapy-uk">online somatic therapy in the UK</a> principles to foster greater body awareness and ease.</p>
       <p>I also offer extensive experience in <a href="/lgbtq-affirming-therapy">LGBTQ+ affirming therapy</a>. As a gay man, my work is grounded in lived experience as well as clinical expertise. Clients appreciate having a safe space where they do not need to explain queer culture, coming out, or systemic shame, allowing us to focus deeply on your personal growth and emotional well-being.</p>
     </div>
+    <p class="personal-note">Clients in Dublin often express relief at finding a space where they can talk about identity and body tension without feeling rushed. Working online across borders often makes it easier to step away from familiar surroundings and speak openly.</p>
     <div class="qa">
       <h2>Addressing anxiety, stress and relationship patterns</h2>
-      <p>Many people living in Dublin get in touch when they feel stuck in patterns of anxiety, burnout, or emotional overwhelm. You might notice physical signs like persistent tightness in your chest, digestive discomfort, or an inability to truly relax. Somatic work helps your nervous system process stored tension so that you can feel more grounded and present in your everyday life.</p>
+      <p>Many people living in Dublin get in touch when they feel stuck in patterns of anxiety, burnout, or emotional overwhelm. You might notice physical signs like persistent tightness in your chest or an inability to truly relax. Somatic work offers a gentle way to explore these physical stress signals, supporting a gradual movement towards greater internal ease.</p>
       <p>Other clients seek support for self-esteem issues, identity exploration, or relationship struggles. While I do not offer couples therapy, I regularly help individuals explore their relationship patterns, boundary setting, and family dynamics. Together, we work at a steady pace that respects your boundaries, helping you build self-trust and self-acceptance without judgment or pressure.</p>
+      <p>By paying attention to both somatic responses and relational patterns, therapy can help you clarify what you need in your daily connections. We take time to notice how old survival habits show up in present relationships, giving you space to explore new ways of setting boundaries at a pace that feels manageable.</p>
     </div>
     <div class="qa">
       <h2>Sessions, fees and insurance information</h2>
       <p>Sessions are 50 minutes long and cost £90, conducted online for clients living in Dublin and throughout Ireland. I hold an MSc in Counselling and Psychotherapy, hold MBACP Accred status, and have eight years of clinical experience. The process begins with a free 20-minute introductory call to discuss your goals and answer any questions you might have. I accept the following insurance providers:</p>
       <p>If you hold UK-based health insurance through an employer or provider such as Bupa, Aviva, AXA, Healix, or Vitality, your sessions may be eligible for coverage depending on your policy terms. Please note that fees are set in British pounds (£90 per session). The intro call is completely free, confidential, and carries no obligation to proceed.</p>
+    <div class="cred-panel side-left">
+      <div class="cred-photo shape-portrait">
+        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
+      </div>
+      <div class="cred-text">
+        <strong>Peter Donnelly</strong>
+        MSc &middot; MBACP Accred<br>Eight years in practice
+      </div>
+    </div>
     <div class="ins-row" aria-label="Insurance providers accepted">
       <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
       <span aria-hidden="true">&middot;</span>
@@ -572,11 +821,11 @@
       </div>
       <div class="q">
         <h3>How are payment and currency handled for Irish clients?</h3>
-        <p>The session fee is £90 Sterling per 50-minute session, payable online. If you hold UK-based private health insurance, your policy may cover the cost subject to your provider's terms.</p>
+        <p>The session fee is £90 Sterling per 50-minute session, payable online prior to meeting. If you hold UK-based private health insurance, your policy may cover the cost subject to your provider's terms.</p>
       </div>
       <div class="q">
         <h3>What is the benefit of somatic therapy compared to standard talk therapy?</h3>
-        <p>Somatic therapy includes the body's physical responses alongside thoughts and emotions. This helps release stored stress and nervous system tension that talking alone might not fully resolve.</p>
+        <p>Somatic therapy brings gentle attention to physical sensations alongside thoughts. This approach can help you notice and work with physical patterns of stress that intellectual discussion alone may not fully address.</p>
       </div>
     </div>
 
@@ -585,6 +834,33 @@
       <a href="/#contact">Book a free 20-minute call with Peter</a>
     </div>
   </div>
+
+  <details class="explore-menu">
+    <summary>Explore working with me</summary>
+    <nav aria-label="Therapy options">
+      <div class="explore-col">
+        <span class="explore-heading">Specialisms</span>
+        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+        <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
+        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+      </div>
+      <div class="explore-col">
+        <span class="explore-heading">Locations</span>
+        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+      </div>
+    </nav>
+  </details>
 
 <footer>
   <div class="f-name-block">
