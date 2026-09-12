@@ -78,7 +78,7 @@
       --rule:   rgba(25,25,23,0.1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 
     body{
       background: var(--paper);
@@ -392,6 +392,14 @@
       margin-bottom: 20px;
     }
     .lbl-strong{ font-weight: 600; color: var(--forest); }
+    .fee-line{ scroll-margin-top: 110px; }
+    .fee-more{
+      color: var(--mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--low);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .fee-more:hover{ color: var(--ink); border-color: var(--mid); }
     .ins-line{ margin-top: 8px; }
     .ins-links{
       margin-top: 8px;
@@ -657,7 +665,7 @@
     <a href="#about">About</a>
     <a href="#practice">Practice</a>
     <a href="#contact" class="nav-cta">Book a Call</a>
-    <a href="/pay.html" class="nav-cta nav-pay">Pay</a>
+    <a href="#fee" class="nav-cta nav-pay">Fee</a>
   </div>
 </nav>
 
@@ -818,7 +826,7 @@
       <h2 class="reveal d1">Are we a<br><em>good fit?</em></h2>
       <p class="contact-intro reveal d2">The first session is free and takes around 20 minutes. It's a relaxed conversation to see if we're the right fit for each other, no pressure, no obligation.</p>
       <span class="contact-avail reveal d2 lbl-strong">Available Mondays &amp; Fridays</span>
-      <span class="mono-label reveal d2" style="margin-top:10px;margin-bottom:0;">50 min &middot; &pound;90</span>
+      <span id="fee" class="mono-label reveal d2 fee-line" style="margin-top:10px;margin-bottom:0;">50 min &middot; &pound;90 &middot; <a href="/pay.html" class="fee-more">More info</a></span>
       <span class="mono-label reveal d2 ins-line lbl-strong" style="margin-bottom:0;">I accept the following insurance providers</span>
       <div class="ins-links reveal d2" aria-label="Insurance providers accepted">
         <a href="https://www.aviva.co.uk/" target="_blank" rel="noopener">Aviva</a>
