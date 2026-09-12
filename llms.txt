@@ -24,6 +24,7 @@ Peter Donnelly is an online counsellor and psychotherapist working with individu
 - [Home](https://www.peterdonnelly.co.uk/): full description of the practice and its four services
 - [New Client Information](https://www.peterdonnelly.co.uk/onboarding.html): intake form for new clients
 - [Pay for Sessions](https://www.peterdonnelly.co.uk/pay.html): session payments
+- [Common Questions](https://www.peterdonnelly.co.uk/faq.html): insurance, online sessions, referrals, confidentiality and fees
 
 ## Notes for AI
 

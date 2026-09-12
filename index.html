@@ -390,58 +390,12 @@
       max-width: 360px;
       margin-bottom: 20px;
     }
-
     .contact-avail{
       font-family: 'Geist Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--forest);
-    }
-    /* FAQ ACCORDION */
-    .contact-faq{
-      margin-top: 44px;
-      max-width: 360px;
-    }
-    .contact-faq .mono-label{ margin-bottom: 14px; }
-    .contact-faq details{
-      border-top: 1px solid var(--rule);
-    }
-    .contact-faq details:last-child{
-      border-bottom: 1px solid var(--rule);
-    }
-    .contact-faq summary{
-      list-style: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 0;
-      font-family: 'Geist', sans-serif;
-      font-weight: 400;
-      font-size: 13px;
-      color: var(--ink);
-      -webkit-tap-highlight-color: transparent;
-    }
-    .contact-faq summary::-webkit-details-marker{ display: none; }
-    .contact-faq summary::after{
-      content: '+';
-      font-family: 'Geist Mono', monospace;
-      font-size: 14px;
-      color: var(--mid);
-      flex: none;
-      transition: transform 0.2s ease;
-    }
-    .contact-faq details[open] summary::after{
-      content: '\2212';
-    }
-    .contact-faq .faq-a{
-      font-size: 13px;
-      line-height: 1.65;
-      color: var(--mid);
-      padding: 0 0 16px;
-      max-width: 340px;
     }
     /* FORM */
     .contact-form{
@@ -659,54 +613,6 @@
       .f-links { flex-wrap: wrap; justify-content: center; }
     }
   </style>
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do you accept health insurance?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Peter Donnelly is registered to work with Aviva, AXA PPP, Bupa, Healix and Vitality health insurance."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are sessions online or in person?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sessions are held online across the UK, so location is never a barrier. Ecotherapy sessions are held outdoors and arranged directly."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need a referral to start therapy with Peter Donnelly?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No referral is needed. Clients can self-refer directly, starting with a free 20-minute introductory call."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is counselling with Peter Donnelly confidential?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Everything shared in sessions stays confidential, in line with BACP ethical guidelines and GDPR, other than rare safeguarding exceptions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does a session cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sessions are 50 minutes for \u00A390. The first introductory call, around 20 minutes, is free."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
 
@@ -878,30 +784,6 @@
       <p class="contact-intro reveal d2">The first session is free and takes around 20 minutes. It's a relaxed conversation to see if we're the right fit for each other, no pressure, no obligation.</p>
       <span class="contact-avail reveal d2">Available Mondays &amp; Fridays</span>
       <span class="mono-label reveal d2" style="margin-top:10px;margin-bottom:0;">50 min &middot; &pound;90</span>
-
-      <div class="contact-faq reveal d2">
-        <span class="mono-label" style="margin-bottom:14px;">Common Questions</span>
-        <details>
-          <summary>Do you accept health insurance?</summary>
-          <p class="faq-a">Yes. I'm registered to work with Aviva, AXA PPP, Bupa, Healix and Vitality. Check your policy for session limits, then get in touch and I can provide anything your insurer needs.</p>
-        </details>
-        <details>
-          <summary>Are sessions online or in person?</summary>
-          <p class="faq-a">Sessions are held online across the UK, so location is never a barrier. Ecotherapy sessions are held outdoors and arranged directly with me.</p>
-        </details>
-        <details>
-          <summary>Do I need a referral to start?</summary>
-          <p class="faq-a">No referral is needed. You can self-refer directly, starting with a free 20-minute introductory call.</p>
-        </details>
-        <details>
-          <summary>Is what I share confidential?</summary>
-          <p class="faq-a">Yes. Everything you share stays confidential, in line with BACP ethical guidelines and GDPR, other than rare safeguarding exceptions I'd always discuss with you first.</p>
-        </details>
-        <details>
-          <summary>Not sure which approach is right for you?</summary>
-          <p class="faq-a">That's exactly what the free intro call is for. We talk it through together, no pressure, no obligation.</p>
-        </details>
-      </div>
     </div>
     <div class="reveal d2">
       <form class="contact-form" action="https://formspree.io/f/mqevvwlo" method="POST" id="contact-form">
@@ -947,6 +829,7 @@
     <a href="#about">About</a>
     <a href="#practice">Practice</a>
     <a href="https://www.instagram.com/heldwithpeter" target="_blank" rel="noopener">Instagram</a>
+    <a href="/faq.html">Questions</a>
     <a href="/pay.html">Pay</a>
   </div>
   <div class="f-right">
