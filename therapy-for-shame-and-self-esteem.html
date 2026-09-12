@@ -86,8 +86,6 @@
 
 
 
-
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root{
@@ -279,473 +277,303 @@
     .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
     .faq-cta.early p{ display: none; }
   
-    /* early enquiry CTA under the lede */
-    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
-    .faq-cta.early p{ display: none; }
 
-    nav{
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 30px 48px;
-      transition: background 0.5s, padding 0.4s, border-color 0.5s;
-      border-bottom: 1px solid transparent;
+    /* LANDING HERO (homepage-inspired split) */
+    .lp-hero{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 72svh;
+      border-bottom: 1px solid var(--rule);
     }
-    nav.scrolled{
-      background: rgba(246,243,238,0.92);
-      backdrop-filter: blur(14px);
-      padding: 20px 48px;
-      border-color: var(--rule);
-    }
-    .nav-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .nav-links{
-      display: flex; gap: 36px; align-items: center;
-    }
-    .nav-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { color: var(--forest) !important; }
-
-
-    /* FOOTER */
-    footer{
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--rule);
-    }
-    .f-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .f-links{
-      display: flex; gap: 28px;
-    }
-    .f-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .f-links a:hover { color: var(--ink); }
-    .f-copy{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      color: var(--low);
-    }
-    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
-    .f-accred {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-    .f-right {
+    .lp-hero-text{
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
+      justify-content: flex-end;
+      padding: 120px 56px 72px 48px;
     }
-    .f-locations a.f-faq{
-      color: var(--low);
-      text-decoration: none;
-      transition: color 0.2s;
+    .lp-hero-text .mono-label{ margin-bottom: 30px; color: var(--mid); }
+    .lp-hero h1{
+      font-family: 'Fraunces', serif;
+      font-weight: 200;
+      font-size: clamp(36px, 4vw, 56px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
     }
-    .f-locations a.f-faq:hover { color: var(--mid); }
-    .f-locations {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--low);
-    }
-
-
-@media(max-width:860px){
-      /* NAV */
-
-      nav { padding: 20px 24px; }
-      nav.scrolled { padding: 14px 24px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .nav-pay { display: none; }
-      /* FOOTER */
-
-      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
-      .f-links { flex-wrap: wrap; justify-content: center; }
-
-    }
-  
-    /* early enquiry CTA under the lede */
-    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
-    .faq-cta.early p{ display: none; }
-
-    nav{
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 30px 48px;
-      transition: background 0.5s, padding 0.4s, border-color 0.5s;
-      border-bottom: 1px solid transparent;
-    }
-    nav.scrolled{
-      background: rgba(246,243,238,0.92);
-      backdrop-filter: blur(14px);
-      padding: 20px 48px;
-      border-color: var(--rule);
-    }
-    .nav-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .nav-links{
-      display: flex; gap: 36px; align-items: center;
-    }
-    .nav-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { color: var(--forest) !important; }
-
-
-    /* FOOTER */
-    footer{
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--rule);
-    }
-    .f-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .f-links{
-      display: flex; gap: 28px;
-    }
-    .f-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .f-links a:hover { color: var(--ink); }
-    .f-copy{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      color: var(--low);
-    }
-    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
-    .f-accred {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-    .f-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-    }
-    .f-locations a.f-faq{
-      color: var(--low);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .f-locations a.f-faq:hover { color: var(--mid); }
-    .f-locations {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--low);
-    }
-
-
-@media(max-width:860px){
-      /* NAV */
-
-      nav { padding: 20px 24px; }
-      nav.scrolled { padding: 14px 24px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .nav-pay { display: none; }
-      /* FOOTER */
-
-      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
-      .f-links { flex-wrap: wrap; justify-content: center; }
-
-    }
-  
-    /* early enquiry CTA under the lede */
-    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
-    .faq-cta.early p{ display: none; }
-
-    nav{
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 30px 48px;
-      transition: background 0.5s, padding 0.4s, border-color 0.5s;
-      border-bottom: 1px solid transparent;
-    }
-    nav.scrolled{
-      background: rgba(246,243,238,0.92);
-      backdrop-filter: blur(14px);
-      padding: 20px 48px;
-      border-color: var(--rule);
-    }
-    .nav-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .nav-links{
-      display: flex; gap: 36px; align-items: center;
-    }
-    .nav-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { color: var(--forest) !important; }
-
-
-    /* FOOTER */
-    footer{
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--rule);
-    }
-    .f-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .f-links{
-      display: flex; gap: 28px;
-    }
-    .f-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .f-links a:hover { color: var(--ink); }
-    .f-copy{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      color: var(--low);
-    }
-    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
-    .f-accred {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-    .f-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-    }
-    .f-locations a.f-faq{
-      color: var(--low);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .f-locations a.f-faq:hover { color: var(--mid); }
-    .f-locations {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--low);
-    }
-
-
-@media(max-width:860px){
-      /* NAV */
-
-      nav { padding: 20px 24px; }
-      nav.scrolled { padding: 14px 24px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .nav-pay { display: none; }
-      /* FOOTER */
-
-      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
-      .f-links { flex-wrap: wrap; justify-content: center; }
-
-    }
-
-
-    /* EXPLORE MENU */
-    .explore-menu{
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 24px 18px;
-      text-align: right;
-    }
-    .explore-menu summary{
-      cursor: pointer;
-      list-style: none;
+    .lp-hero h1 em{ font-style: italic; color: var(--forest); }
+    .lp-hero .lede{ margin-bottom: 0; }
+    .lp-cta{
+      margin-top: 44px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
       font-family: 'Geist Mono', monospace;
       font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--low);
-      transition: color 0.2s;
-    }
-    .explore-menu summary::-webkit-details-marker{ display: none; }
-    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
-    .explore-menu summary::after{
-      content: '+';
-      font-size: 13px;
-      transition: transform 0.2s;
-    }
-    .explore-menu[open] summary::after{ content: '2'; }
-    .explore-menu nav{
-      display: flex;
-      gap: 40px;
-      justify-content: flex-end;
-      text-align: left;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-    .explore-col{
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-width: 200px;
-    }
-    .explore-heading{
-      font-family: 'Geist Mono', monospace;
-      font-size: 9.5px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--low);
-      margin-bottom: 2px;
+      color: var(--forest);
+      border-bottom: 1px solid var(--forest);
+      padding-bottom: 4px;
+      width: fit-content;
+      transition: opacity 0.2s;
     }
-    .explore-col a{
-      font-family: 'Geist', sans-serif;
-      font-size: 13.5px;
-      color: var(--mid);
-      transition: color 0.2s;
+    .lp-cta:hover{ opacity: 0.7; }
+    .lp-hero-photo{
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
     }
-    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
-    @media(max-width:600px){
-      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
-      .explore-menu{ text-align: left; }
+    .lp-hero-photo img{
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 50% 30%;
     }
 
-    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    /* EDITORIAL BANDS */
+    .lp-band{ border-bottom: 1px solid var(--rule); }
+    .lp-band.alt{ background: rgba(25,25,23,0.025); }
+    .lp-in{ max-width: 720px; margin: 0 auto; padding: 84px 28px; }
+    .lp-in .qa{ border-top: 1px solid var(--rule); padding: 34px 0 40px; }
+    .lp-in .qa:first-child{ border-top: none; padding-top: 0; }
+
+    /* CREDENTIALS TEXT PANEL */
     .cred-panel{
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin: 22px 0 24px;
+      display: inline-block;
+      border: 1px solid var(--rule);
+      padding: 18px 24px;
+      margin: 26px 0 20px;
     }
-    .cred-panel.side-right{ flex-direction: row; }
-    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
-    .cred-photo{
-      flex-shrink: 0;
-      overflow: hidden;
-      background: var(--rule);
-    }
-    .cred-photo img{
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
-    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
-    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
     .cred-text{
       font-family: 'Geist Mono', monospace;
       font-size: 10.5px;
       letter-spacing: 0.07em;
       text-transform: uppercase;
       color: var(--low);
-      line-height: 1.7;
+      line-height: 1.8;
     }
     .cred-text strong{
       display: block;
       font-family: 'Fraunces', serif;
       font-style: italic;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 17px;
       letter-spacing: 0;
       text-transform: none;
       color: var(--ink);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
-    /* PERSONAL NOTE pull quote */
-    .personal-note{
-      max-width: 560px;
-      margin: 36px auto 40px;
-      padding-left: 20px;
-      border-left: 2px solid var(--rule);
-      font-family: 'Fraunces', serif;
-      font-style: italic;
+    @media(max-width:860px){
+      .lp-hero{ grid-template-columns: 1fr; min-height: auto; }
+      .lp-hero-photo{
+        order: -1;
+        min-height: 0;
+        height: min(110vw, 56svh);
+      }
+      .lp-hero-text{ padding: 52px 24px 60px; }
+      .lp-in{ padding: 60px 22px; }
+    }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
       font-weight: 300;
-      font-size: 18px;
-      line-height: 1.5;
-      color: var(--ink);
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* FOOTER EXPLORE MENU */
+    footer{ overflow: visible; }
+    footer .f-right{ flex-direction: row; align-items: baseline; gap: 18px; }
+    footer .explore-menu{ position: relative; display: inline-block; }
+    footer .explore-menu summary{
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    footer .explore-menu summary::-webkit-details-marker{ display: none; }
+    footer .explore-menu summary:hover,
+    footer .explore-menu[open] summary{ color: var(--mid); }
+    footer .explore-menu summary:focus-visible{
+      outline: 2px solid var(--mid);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    footer .explore-menu summary::after{ content: '+'; font-size: 12px; }
+    footer .explore-menu[open] summary::after{ content: '\2212'; }
+    footer .explore-menu nav{
+      position: absolute;
+      top: auto;      /* neutralise the global nav{top:0;left:0;right:0} rule */
+      left: auto;
+      bottom: calc(100% + 14px);
+      right: 0;
+      width: min(560px, calc(100vw - 48px));
+      display: flex;
+      gap: 36px;
+      text-align: left;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 16px 44px rgba(25,25,23,0.14);
+      padding: 26px 30px;
+      z-index: 120;
+    }
+    footer .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      flex: 1;
+      min-width: 170px;
+    }
+    footer .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 3px;
+    }
+    footer .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: rgba(25,25,23,0.62);
+      padding: 5px 0;
+    }
+    footer .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:860px){
+      footer .explore-menu{ display: block; }
+      footer .explore-menu nav{
+        position: static;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 20px 24px;
+        margin-top: 12px;
+        padding: 18px 20px;
+        box-shadow: none;
+      }
+      footer .explore-col{ flex: 1 1 130px; min-width: 130px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      *, *::before, *::after{
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
@@ -761,40 +589,50 @@
   </div>
 </nav>
 
-  <div class="wrap">
+<section class="lp-hero">
+  <div class="lp-hero-text">
     <span class="mono-label">Shame and Self-Esteem</span>
     <h1>Therapy for shame and <em>low self-esteem.</em></h1>
     <p class="lede">Living with constant self-criticism can feel deeply draining, making it hard to trust your own worth. Shame often carries physical tension and fuels a persistent internal referee. Online therapy offers a compassionate space where we can work gently with shame and support healthier self-esteem.</p>
+    <a class="lp-cta" href="/#contact">Book a free intro call &rarr;</a>
+  </div>
+  <div class="lp-hero-photo">
+    <img src="/img/peter_photo.webp" alt="Peter Donnelly" width="1200" height="1600" fetchpriority="high" decoding="async">
+  </div>
+</section>
 
-    <div class="faq-cta early">
-      <a href="/#contact">Book a free 20-minute call with Peter</a>
-    </div>
-
-    <div class="qa">
-      <h2>Understanding shame and the inner critic</h2>
-      <p>Where guilt says you made a mistake, shame makes the painful claim that you are the mistake. It is an intensely physical sensation, often experienced as a heavy slump in the posture, a turning inward, or a burning sensation of wanting to disappear. High achievements or external success rarely quieten this internal sense of deficiency.</p>
-      <p>The inner critic often arises as a defensive shield, attempting to criticise you internally before anyone else has the chance to reject you. While its origin was self-protection, living with a relentless internal referee can weigh on self-esteem and maintain quiet insecurity. Therapy offers ways to observe this critical voice without accepting its harsh conclusions.</p>
-    </div>
-    <div class="qa">
-      <h2>Somatic tracking and relational healing for shame</h2>
-      <p>Because shame lands so distinctly in the physical body, somatic work can offer a helpful pathway to explore. Using techniques from Somatic Experiencing, paying gentle attention to how shame feels physically can help you notice protective posture habits and explore a steadier, more grounded sense of presence.</p>
-      <p>Relational healing can begin when shame is brought safely into a non-judgemental environment. Drawing on person-centred therapy, I offer steady empathy and unconditional positive regard, meeting your experiences without evaluation. Experiencing consistent acceptance within our therapeutic relationship can help gently challenge the belief that you are fundamentally broken or unlovable.</p>
-    </div>
-    <p class="personal-note">Shame usually wants us to hide, so even booking an initial call takes real courage. In our work, we do not try to force shame away, but rather build enough safety so it no longer runs the show.</p>
-    <div class="qa">
-      <h2>Sessions, fees and practical information</h2>
-      <p>Sessions are 50 minutes long and cost £90, conducted online across the UK and Ireland. If your self-esteem issues stem from masking your authentic needs, you might find my page on <a href="/identity-and-self-acceptance-therapy">identity and self-acceptance therapy</a> helpful, or read about my work with gay men at <a href="/online-therapy-for-gay-men">online therapy for gay men</a>.</p>
-      <p>Reaching out when you carry deep shame can feel exposing, which is why I keep the starting process as gentle as possible. We begin with a free 20-minute introductory call. This is an informal conversation to talk through what you want from therapy, with no pressure or expectation to commit.</p>
-      <p>Working online gives you complete control over your environment, allowing you to speak from a space where you feel secure and comfortable. Because there is no travel or commute involved, video appointments can easily fit into your weekly routine, offering a discreet and accessible way to engage in ongoing therapeutic work.</p>
-    </div>
-    <div class="qa">
-      <h2>Credentials and insurance</h2>
-      <p>I am an MSc qualified counsellor and psychotherapist, as well as an accredited member of the BACP (MBACP Accred), with eight years of clinical experience. Online sessions are £90 for 50 minutes across the UK and Ireland, starting with a free 20-minute introductory call. I accept the following insurance providers:</p>
-      <p>I am an approved therapist with major health insurance providers, including Aviva, AXA, Bupa, Healix, and Vitality, and I also work part of the week for Bupa. If you would like to cover your therapy through private healthcare insurance, we can review the process together during your initial intro call.</p>
-    <div class="cred-panel side-left">
-      <div class="cred-photo shape-circle">
-        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
-      </div>
+<section class="lp-band">
+  <div class="lp-in">
+  <div class="qa">
+    <h2>Understanding shame and the inner critic</h2>
+    <p>Where guilt says you made a mistake, shame makes the painful claim that you are the mistake. It is an intensely physical sensation, often experienced as a heavy slump in the posture, a turning inward, or a burning sensation of wanting to disappear. High achievements or external success rarely quieten this internal sense of deficiency.</p>
+    <p>The inner critic often arises as a defensive shield, attempting to criticise you internally before anyone else has the chance to reject you. While its origin was self-protection, living with a relentless internal referee can weigh on self-esteem and maintain quiet insecurity. Therapy offers ways to observe this critical voice without accepting its harsh conclusions.</p>
+  </div>
+  </div>
+</section><section class="lp-band alt">
+  <div class="lp-in">
+  <div class="qa">
+    <h2>Somatic tracking and relational healing for shame</h2>
+    <p>Because shame lands so distinctly in the physical body, somatic work can offer a helpful pathway to explore. Using techniques from Somatic Experiencing, paying gentle attention to how shame feels physically can help you notice protective posture habits and explore a steadier, more grounded sense of presence.</p>
+    <p>Relational healing can begin when shame is brought safely into a non-judgemental environment. Drawing on person-centred therapy, I offer steady empathy and unconditional positive regard, meeting your experiences without evaluation. Experiencing consistent acceptance within our therapeutic relationship can help gently challenge the belief that you are fundamentally broken or unlovable.</p>
+  </div>
+  </div>
+</section><section class="lp-band">
+  <div class="lp-in">
+  <div class="qa">
+    <h2>Sessions, fees and practical information</h2>
+    <p>Sessions are 50 minutes long and cost £90, conducted online across the UK and Ireland. If your self-esteem issues stem from masking your authentic needs, you might find my page on <a href="/identity-and-self-acceptance-therapy">identity and self-acceptance therapy</a> helpful, or read about my work with gay men at <a href="/online-therapy-for-gay-men">online therapy for gay men</a>.</p>
+    <p>Reaching out when you carry deep shame can feel exposing, which is why I keep the starting process as gentle as possible. We begin with a free 20-minute introductory call. This is an informal conversation to talk through what you want from therapy, with no pressure or expectation to commit.</p>
+    <p>Working online gives you complete control over your environment, allowing you to speak from a space where you feel secure and comfortable. Because there is no travel or commute involved, video appointments can easily fit into your weekly routine, offering a discreet and accessible way to engage in ongoing therapeutic work.</p>
+  </div>
+  </div>
+</section><section class="lp-band alt">
+  <div class="lp-in">
+  <div class="qa">
+    <h2>Credentials and insurance</h2>
+    <p>I am an MSc-qualified therapist and an accredited member of the British Association for Counselling and Psychotherapy (MBACP Accred), with eight years of experience. Online sessions are £90 for 50 minutes across the UK and Ireland, starting with a free 20-minute introductory call. I accept the following insurance providers:</p>
+    <p>I am an approved therapist with major health insurance providers, including Aviva, AXA, Bupa, Healix, and Vitality, and I also work part of the week for Bupa. If you would like to cover your therapy through private healthcare insurance, we can review the process together during your initial intro call.</p>
+    <div class="cred-panel">
       <div class="cred-text">
         <strong>Peter Donnelly</strong>
         MSc &middot; MBACP Accred<br>Eight years in practice
@@ -811,57 +649,35 @@
       <span aria-hidden="true">&middot;</span>
       <a href="https://www.vitality.co.uk/" target="_blank" rel="noopener">Vitality</a>
     </div>
+  </div>
+  </div>
+</section><section class="lp-band">
+  <div class="lp-in">
+  <div class="faq-mini">
+    <h2>Questions about therapy for shame and self-esteem</h2>
+    <div class="q">
+      <h3>How can somatic therapy help with feelings of shame?</h3>
+      <p>Shame can often involve a physical collapse response, such as pulling shoulders inward. Somatic therapy notices these physical cues, offering gentle ways to work through protective tension and support a clearer feeling of physical ease and self-worth.</p>
     </div>
-
-    <div class="faq-mini">
-      <h2>Questions about therapy for shame and self-esteem</h2>
-      <div class="q">
-        <h3>How can somatic therapy help with feelings of shame?</h3>
-        <p>Shame can often involve a physical collapse response, such as pulling shoulders inward. Somatic therapy notices these physical cues, offering gentle ways to work through protective tension and support a clearer feeling of physical ease and self-worth.</p>
-      </div>
-      <div class="q">
-        <h3>What is the difference between low self-esteem and shame?</h3>
-        <p>Low self-esteem usually involves doubting your abilities or worth in specific situations. Shame is a deeper feeling that you are inherently broken as a person. Therapy provides room to explore both, helping you examine rigid self-criticism and cultivate greater self-compassion.</p>
-      </div>
-      <div class="q">
-        <h3>What can I expect from the free intro call?</h3>
-        <p>The intro call is a light, pressure-free way to meet online and see how working together feels. You can share a brief overview of what brings you to therapy, ask any questions about my approach, and decide if you want to proceed.</p>
-      </div>
+    <div class="q">
+      <h3>What is the difference between low self-esteem and shame?</h3>
+      <p>Low self-esteem usually involves doubting your abilities or worth in specific situations. Shame is a deeper feeling that you are inherently broken as a person. Therapy provides room to explore both, helping you examine rigid self-criticism and cultivate greater self-compassion.</p>
     </div>
-
-    <div class="faq-cta">
-      <p>If shame and self-doubt are holding you back, I invite you to book a free 20 minute intro call to explore working together.</p>
-      <a href="/#contact">Book a free 20-minute call with Peter</a>
+    <div class="q">
+      <h3>What can I expect from the free intro call?</h3>
+      <p>The intro call is a light, pressure-free way to meet online and see how working together feels. You can share a brief overview of what brings you to therapy, ask any questions about my approach, and decide if you want to proceed.</p>
     </div>
   </div>
-
-  <details class="explore-menu">
-    <summary>Explore working with me</summary>
-    <nav aria-label="Therapy options">
-      <div class="explore-col">
-        <span class="explore-heading">Specialisms</span>
-        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
-        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
-        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
-        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
-        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
-        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
-        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
-      </div>
-      <div class="explore-col">
-        <span class="explore-heading">Locations</span>
-        <a href="/somatic-therapist-london">Somatic Therapy in London</a>
-        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
-        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
-        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
-        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
-        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
-        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
-        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
-      </div>
-    </nav>
-  </details>
-
+  </div>
+</section>
+<section class="lp-band alt">
+  <div class="lp-in">
+  <div class="faq-cta">
+    <p>If shame and self-doubt are holding you back, I invite you to book a free 20 minute intro call to explore working together.</p>
+    <a href="/#contact">Book a free 20-minute call with Peter</a>
+  </div>
+  </div>
+</section>
 <footer>
   <div class="f-name-block">
     <span class="f-name">Peter Donnelly</span>
@@ -875,7 +691,34 @@
     <a href="/pay.html">Pay</a>
   </div>
   <div class="f-right">
-    <span class="f-locations">UK &middot; Ireland &middot; Europe &nbsp;&nbsp;&nbsp; &copy; 2026 &nbsp;&nbsp;&nbsp; <a href="/faq.html" class="f-faq">FAQ</a></span>
+    <span class="f-locations">UK &middot; Ireland &middot; Europe &nbsp;&nbsp;&nbsp; &copy; 2026</span>
+    <details class="explore-menu">
+      <summary>Explore</summary>
+      <nav aria-label="Therapy options">
+        <div class="explore-col">
+          <span class="explore-heading">Specialisms</span>
+          <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+          <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+          <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+          <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+          <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+          <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+          <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+        </div>
+        <div class="explore-col">
+          <span class="explore-heading">Locations</span>
+          <a href="/somatic-therapist-london">Somatic Therapy in London</a>
+          <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+          <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+          <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+          <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+          <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+          <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+          <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+        </div>
+      </nav>
+    </details>
+    <a href="/faq.html" class="f-faq">FAQ</a>
   </div>
 </footer>
 
@@ -920,6 +763,18 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
+</script>
+
+<script>
+  (function(){
+    var menus = document.querySelectorAll('details.explore-menu');
+    document.addEventListener('click', function(e){
+      menus.forEach(function(m){ if (m.open && !m.contains(e.target)) m.open = false; });
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') menus.forEach(function(m){ if (m.open) m.open = false; });
+    });
+  })();
 </script>
 
 </body>

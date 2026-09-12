@@ -56,7 +56,7 @@
       "name": "Do you offer in-person somatic therapy in London?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, all my sessions are held online. Working over secure video allows London clients to attend therapy without travelling across the city, providing a quiet, familiar space where you can focus on your nervous system and body awareness."
+        "text": "No, all my sessions are held online."
       }
     },
     {
@@ -82,8 +82,6 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c61934ec-6d74-4fb4-8591-8817db844ba8"></script>
 
   <style>
-
-
 
 
 
@@ -279,473 +277,303 @@
     .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
     .faq-cta.early p{ display: none; }
   
-    /* early enquiry CTA under the lede */
-    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
-    .faq-cta.early p{ display: none; }
 
-    nav{
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 30px 48px;
-      transition: background 0.5s, padding 0.4s, border-color 0.5s;
-      border-bottom: 1px solid transparent;
+    /* LANDING HERO (homepage-inspired split) */
+    .lp-hero{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 72svh;
+      border-bottom: 1px solid var(--rule);
     }
-    nav.scrolled{
-      background: rgba(246,243,238,0.92);
-      backdrop-filter: blur(14px);
-      padding: 20px 48px;
-      border-color: var(--rule);
-    }
-    .nav-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .nav-links{
-      display: flex; gap: 36px; align-items: center;
-    }
-    .nav-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { color: var(--forest) !important; }
-
-
-    /* FOOTER */
-    footer{
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--rule);
-    }
-    .f-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .f-links{
-      display: flex; gap: 28px;
-    }
-    .f-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .f-links a:hover { color: var(--ink); }
-    .f-copy{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      color: var(--low);
-    }
-    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
-    .f-accred {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-    .f-right {
+    .lp-hero-text{
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
+      justify-content: flex-end;
+      padding: 120px 56px 72px 48px;
     }
-    .f-locations a.f-faq{
-      color: var(--low);
-      text-decoration: none;
-      transition: color 0.2s;
+    .lp-hero-text .mono-label{ margin-bottom: 30px; color: var(--mid); }
+    .lp-hero h1{
+      font-family: 'Fraunces', serif;
+      font-weight: 200;
+      font-size: clamp(36px, 4vw, 56px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
     }
-    .f-locations a.f-faq:hover { color: var(--mid); }
-    .f-locations {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--low);
-    }
-
-
-@media(max-width:860px){
-      /* NAV */
-
-      nav { padding: 20px 24px; }
-      nav.scrolled { padding: 14px 24px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .nav-pay { display: none; }
-      /* FOOTER */
-
-      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
-      .f-links { flex-wrap: wrap; justify-content: center; }
-
-    }
-  
-    /* early enquiry CTA under the lede */
-    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
-    .faq-cta.early p{ display: none; }
-
-    nav{
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 30px 48px;
-      transition: background 0.5s, padding 0.4s, border-color 0.5s;
-      border-bottom: 1px solid transparent;
-    }
-    nav.scrolled{
-      background: rgba(246,243,238,0.92);
-      backdrop-filter: blur(14px);
-      padding: 20px 48px;
-      border-color: var(--rule);
-    }
-    .nav-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .nav-links{
-      display: flex; gap: 36px; align-items: center;
-    }
-    .nav-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { color: var(--forest) !important; }
-
-
-    /* FOOTER */
-    footer{
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--rule);
-    }
-    .f-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .f-links{
-      display: flex; gap: 28px;
-    }
-    .f-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .f-links a:hover { color: var(--ink); }
-    .f-copy{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      color: var(--low);
-    }
-    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
-    .f-accred {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-    .f-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-    }
-    .f-locations a.f-faq{
-      color: var(--low);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .f-locations a.f-faq:hover { color: var(--mid); }
-    .f-locations {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--low);
-    }
-
-
-@media(max-width:860px){
-      /* NAV */
-
-      nav { padding: 20px 24px; }
-      nav.scrolled { padding: 14px 24px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .nav-pay { display: none; }
-      /* FOOTER */
-
-      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
-      .f-links { flex-wrap: wrap; justify-content: center; }
-
-    }
-  
-    /* early enquiry CTA under the lede */
-    .faq-cta.early{ border-top: none; padding-top: 0; margin: 0 0 56px; }
-    .faq-cta.early p{ display: none; }
-
-    nav{
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 30px 48px;
-      transition: background 0.5s, padding 0.4s, border-color 0.5s;
-      border-bottom: 1px solid transparent;
-    }
-    nav.scrolled{
-      background: rgba(246,243,238,0.92);
-      backdrop-filter: blur(14px);
-      padding: 20px 48px;
-      border-color: var(--rule);
-    }
-    .nav-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .nav-links{
-      display: flex; gap: 36px; align-items: center;
-    }
-    .nav-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { color: var(--forest) !important; }
-
-
-    /* FOOTER */
-    footer{
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--rule);
-    }
-    .f-name{
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .f-links{
-      display: flex; gap: 28px;
-    }
-    .f-links a{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .f-links a:hover { color: var(--ink); }
-    .f-copy{
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      color: var(--low);
-    }
-    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
-    .f-accred {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-    .f-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-    }
-    .f-locations a.f-faq{
-      color: var(--low);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .f-locations a.f-faq:hover { color: var(--mid); }
-    .f-locations {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--low);
-    }
-
-
-@media(max-width:860px){
-      /* NAV */
-
-      nav { padding: 20px 24px; }
-      nav.scrolled { padding: 14px 24px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .nav-pay { display: none; }
-      /* FOOTER */
-
-      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
-      .f-links { flex-wrap: wrap; justify-content: center; }
-
-    }
-
-
-    /* EXPLORE MENU */
-    .explore-menu{
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 24px 18px;
-      text-align: right;
-    }
-    .explore-menu summary{
-      cursor: pointer;
-      list-style: none;
+    .lp-hero h1 em{ font-style: italic; color: var(--forest); }
+    .lp-hero .lede{ margin-bottom: 0; }
+    .lp-cta{
+      margin-top: 44px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
       font-family: 'Geist Mono', monospace;
       font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--low);
-      transition: color 0.2s;
-    }
-    .explore-menu summary::-webkit-details-marker{ display: none; }
-    .explore-menu summary:hover, .explore-menu[open] summary{ color: var(--mid); }
-    .explore-menu summary::after{
-      content: '+';
-      font-size: 13px;
-      transition: transform 0.2s;
-    }
-    .explore-menu[open] summary::after{ content: '2'; }
-    .explore-menu nav{
-      display: flex;
-      gap: 40px;
-      justify-content: flex-end;
-      text-align: left;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-    .explore-col{
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-width: 200px;
-    }
-    .explore-heading{
-      font-family: 'Geist Mono', monospace;
-      font-size: 9.5px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--low);
-      margin-bottom: 2px;
+      color: var(--forest);
+      border-bottom: 1px solid var(--forest);
+      padding-bottom: 4px;
+      width: fit-content;
+      transition: opacity 0.2s;
     }
-    .explore-col a{
-      font-family: 'Geist', sans-serif;
-      font-size: 13.5px;
-      color: var(--mid);
-      transition: color 0.2s;
+    .lp-cta:hover{ opacity: 0.7; }
+    .lp-hero-photo{
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
     }
-    .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
-    @media(max-width:600px){
-      .explore-menu nav{ justify-content: flex-start; gap: 28px; }
-      .explore-menu{ text-align: left; }
+    .lp-hero-photo img{
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 50% 30%;
     }
 
-    /* CREDENTIALS PANEL (photo + name + accreditation) */
+    /* EDITORIAL BANDS */
+    .lp-band{ border-bottom: 1px solid var(--rule); }
+    .lp-band.alt{ background: rgba(25,25,23,0.025); }
+    .lp-in{ max-width: 720px; margin: 0 auto; padding: 84px 28px; }
+    .lp-in .qa{ border-top: 1px solid var(--rule); padding: 34px 0 40px; }
+    .lp-in .qa:first-child{ border-top: none; padding-top: 0; }
+
+    /* CREDENTIALS TEXT PANEL */
     .cred-panel{
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin: 22px 0 24px;
+      display: inline-block;
+      border: 1px solid var(--rule);
+      padding: 18px 24px;
+      margin: 26px 0 20px;
     }
-    .cred-panel.side-right{ flex-direction: row; }
-    .cred-panel.side-left{ flex-direction: row-reverse; text-align: right; }
-    .cred-photo{
-      flex-shrink: 0;
-      overflow: hidden;
-      background: var(--rule);
-    }
-    .cred-photo img{
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .cred-photo.shape-circle{ width: 76px; height: 76px; border-radius: 50%; }
-    .cred-photo.shape-arch{ width: 84px; height: 108px; border-radius: 50% 50% 6px 6px; }
-    .cred-photo.shape-portrait{ width: 92px; height: 116px; border-radius: 14px; }
     .cred-text{
       font-family: 'Geist Mono', monospace;
       font-size: 10.5px;
       letter-spacing: 0.07em;
       text-transform: uppercase;
       color: var(--low);
-      line-height: 1.7;
+      line-height: 1.8;
     }
     .cred-text strong{
       display: block;
       font-family: 'Fraunces', serif;
       font-style: italic;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 17px;
       letter-spacing: 0;
       text-transform: none;
       color: var(--ink);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
-    /* PERSONAL NOTE pull quote */
-    .personal-note{
-      max-width: 560px;
-      margin: 36px auto 40px;
-      padding-left: 20px;
-      border-left: 2px solid var(--rule);
-      font-family: 'Fraunces', serif;
-      font-style: italic;
+    @media(max-width:860px){
+      .lp-hero{ grid-template-columns: 1fr; min-height: auto; }
+      .lp-hero-photo{
+        order: -1;
+        min-height: 0;
+        height: min(110vw, 56svh);
+      }
+      .lp-hero-text{ padding: 52px 24px 60px; }
+      .lp-in{ padding: 60px 22px; }
+    }
+
+    nav{
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 30px 48px;
+      transition: background 0.5s, padding 0.4s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled{
+      background: rgba(246,243,238,0.92);
+      backdrop-filter: blur(14px);
+      padding: 20px 48px;
+      border-color: var(--rule);
+    }
+    .nav-name{
+      font-family: 'Geist Mono', monospace;
       font-weight: 300;
-      font-size: 18px;
-      line-height: 1.5;
-      color: var(--ink);
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { color: var(--forest) !important; }
+
+
+    /* FOOTER */
+    footer{
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+    }
+    .f-name{
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .f-links{
+      display: flex; gap: 28px;
+    }
+    .f-links a{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .f-links a:hover { color: var(--ink); }
+    .f-copy{
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--low);
+    }
+    .f-name-block { display: flex; flex-direction: column; gap: 4px; }
+    .f-accred {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .f-locations a.f-faq{
+      color: var(--low);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-locations a.f-faq:hover { color: var(--mid); }
+    .f-locations {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+    }
+
+
+@media(max-width:860px){
+      /* NAV */
+
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-pay { display: none; }
+      /* FOOTER */
+
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 24px; }
+      .f-links { flex-wrap: wrap; justify-content: center; }
+
+    }
+
+
+    /* FOOTER EXPLORE MENU */
+    footer{ overflow: visible; }
+    footer .f-right{ flex-direction: row; align-items: baseline; gap: 18px; }
+    footer .explore-menu{ position: relative; display: inline-block; }
+    footer .explore-menu summary{
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--low);
+      transition: color 0.2s;
+    }
+    footer .explore-menu summary::-webkit-details-marker{ display: none; }
+    footer .explore-menu summary:hover,
+    footer .explore-menu[open] summary{ color: var(--mid); }
+    footer .explore-menu summary:focus-visible{
+      outline: 2px solid var(--mid);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    footer .explore-menu summary::after{ content: '+'; font-size: 12px; }
+    footer .explore-menu[open] summary::after{ content: '\2212'; }
+    footer .explore-menu nav{
+      position: absolute;
+      top: auto;      /* neutralise the global nav{top:0;left:0;right:0} rule */
+      left: auto;
+      bottom: calc(100% + 14px);
+      right: 0;
+      width: min(560px, calc(100vw - 48px));
+      display: flex;
+      gap: 36px;
+      text-align: left;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 16px 44px rgba(25,25,23,0.14);
+      padding: 26px 30px;
+      z-index: 120;
+    }
+    footer .explore-col{
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      flex: 1;
+      min-width: 170px;
+    }
+    footer .explore-heading{
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      margin-bottom: 3px;
+    }
+    footer .explore-col a{
+      font-family: 'Geist', sans-serif;
+      font-size: 13.5px;
+      color: rgba(25,25,23,0.62);
+      padding: 5px 0;
+    }
+    footer .explore-col a:hover{ color: var(--forest); text-decoration: underline; }
+    @media(max-width:860px){
+      footer .explore-menu{ display: block; }
+      footer .explore-menu nav{
+        position: static;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 20px 24px;
+        margin-top: 12px;
+        padding: 18px 20px;
+        box-shadow: none;
+      }
+      footer .explore-col{ flex: 1 1 130px; min-width: 130px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      *, *::before, *::after{
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
@@ -761,41 +589,51 @@
   </div>
 </nav>
 
-  <div class="wrap">
+<section class="lp-hero">
+  <div class="lp-hero-text">
     <span class="mono-label">Online Somatic Therapy for London</span>
     <h1>Online somatic therapist for <em>clients living in London.</em></h1>
     <p class="lede">Living in London often brings a demanding rhythm that can leave the body holding quiet tension long after work finishes. I offer online somatic therapy for adults living across the capital, providing a space to explore nervous system patterns and physical stress without adding a cross-town travel commitment to your schedule.</p>
+    <a class="lp-cta" href="/#contact">Book a free intro call &rarr;</a>
+  </div>
+  <div class="lp-hero-photo">
+    <img src="/img/peter_photo.webp" alt="Peter Donnelly" width="1200" height="1600" fetchpriority="high" decoding="async">
+  </div>
+</section>
 
-    <div class="faq-cta early">
-      <a href="/#contact">Book a free 20-minute call with Peter</a>
-    </div>
-
-    <div class="qa">
-      <h2>Why somatic therapy suits fast-paced London life</h2>
-      <p>The pace of life in London frequently demands high energy, tight schedules, and ongoing adaptability. For many people, this sustained momentum can be connected to feeling perpetually on edge or finding it difficult to unwind. You might notice physical signals such as tight shoulders, shallow breathing, disrupted sleep, or a persistent sense of restlessness even when trying to relax.</p>
-      <p>While traditional talking therapies offer valuable space to explore thoughts, somatic work brings gentle attention to how stress manifests physically. Working online allows you to join sessions from the comfort of home or a quiet space at work. Eliminating travel across London turns therapy into a reflective pause in your week rather than another task to hurry toward.</p>
-      <p>Whether you are navigating long corporate hours, creative deadlines, or the sheer volume of city life, having a dedicated space to slow down can make a noticeable difference. Online sessions allow you to build a reliable therapeutic routine that fits around your life, giving you time to settle before we begin and pause before stepping back into your day.</p>
-    </div>
-    <div class="qa">
-      <h2>A person-centred, body-aware and LGBTQ+ affirming practice</h2>
-      <p>My practice integrates Person-Centred counselling with Somatic Experiencing, an approach developed by Dr Peter Levine. Person-centred therapy establishes a foundation of unconditional positive regard, empathy, and authenticity, ensuring you feel heard without judgment. Combining this with body awareness offers a gentle way to explore physical tension and support your nervous system at a comfortable pace.</p>
-      <p>I work with clients from all backgrounds living in London, bringing extensive experience as a gay therapist. My practice is warmly LGBTQ+-affirming, offering a welcoming environment where queer clients can explore identity, relationship patterns, and minority stress without needing to explain cultural context. You can learn more about this work on my dedicated <a href="/lgbtq-therapist-london">online LGBTQ+ therapist in London</a> page.</p>
-    </div>
-    <p class="personal-note">London clients often log on still buzzing from the tube or a back-to-back workday. Spending the first two minutes simply noticing the contact of their feet on the floor usually changes the entire depth of the session.</p>
-    <div class="qa">
-      <h2>Common concerns London clients bring to therapy</h2>
-      <p>Clients living in London often reach out when cognitive strategies alone no longer ease feelings of overwhelm. Typical concerns include chronic anxiety, workplace exhaustion, feeling detached from bodily sensations, or carrying unresolved relational stress. Somatic therapy invites you to track physical cues slowly, helping you develop greater tolerance for stress without feeling overwhelmed.</p>
-      <p>If persistent worry is a primary concern, my page on <a href="/somatic-therapy-for-anxiety">somatic therapy for anxiety</a> offers specific insights into body-focused ways of working with fear. For a broader overview of how body awareness supports emotional wellbeing across the country, my guide to <a href="/online-somatic-therapy-uk">online somatic therapy in the UK</a> explains core principles, while my page on <a href="/trauma-informed-therapy">trauma-informed therapy</a> explores gentle approaches to hypervigilance.</p>
-      <p>In our sessions, we pay attention to small, manageable shifts rather than pushing for drastic change. You might notice how your breath changes when discussing a work situation, or how your posture adjusts when talking about a relationship. Noticing these quiet physical responses helps build a clearer understanding of how your body responds to everyday pressures.</p>
-    </div>
-    <div class="qa">
-      <h2>Sessions, fees, credentials and insurance</h2>
-      <p>Online sessions last 50 minutes at a fee of £90 per session, supporting clients living across Greater London and beyond. I hold an MSc in counselling and psychotherapy, with eight years of clinical experience as an accredited member of the British Association for Counselling and Psychotherapy (MBACP Accred). I accept the following insurance providers:</p>
-      <p>I am registered with Aviva, AXA, Bupa, Healix, and Vitality, and I work a couple of days each week as a Bupa therapist. We begin with a free 20 minute introductory call over video. This conversation gives us a quiet space to discuss what you hope to explore, answer any practical questions, and decide together if working online feels right for you.</p>
-    <div class="cred-panel side-left">
-      <div class="cred-photo shape-portrait">
-        <img src="/img/peter_photo.webp" alt="Peter Donnelly" loading="lazy" width="200" height="260">
-      </div>
+<section class="lp-band">
+  <div class="lp-in">
+  <div class="qa">
+    <h2>Why somatic therapy suits fast-paced London life</h2>
+    <p>The pace of life in London frequently demands high energy, tight schedules, and ongoing adaptability. For many people, this sustained momentum can be connected to feeling perpetually on edge or finding it difficult to unwind. You might notice physical signals such as tight shoulders, shallow breathing, disrupted sleep, or a persistent sense of restlessness even when trying to relax.</p>
+    <p>While traditional talking therapies offer valuable space to explore thoughts, somatic work brings gentle attention to how stress manifests physically. Working online allows you to join sessions from the comfort of home or a quiet space at work. Eliminating travel across London turns therapy into a reflective pause in your week rather than another task to hurry toward.</p>
+    <p>Whether you are navigating long corporate hours, creative deadlines, or the sheer volume of city life, having a dedicated space to slow down can make a noticeable difference. Online sessions allow you to build a reliable therapeutic routine that fits around your life, giving you time to settle before we begin and pause before stepping back into your day.</p>
+  </div>
+  </div>
+</section><section class="lp-band alt">
+  <div class="lp-in">
+  <div class="qa">
+    <h2>A person-centred, body-aware and LGBTQ+ affirming practice</h2>
+    <p>My practice integrates Person-Centred counselling with Somatic Experiencing, an approach developed by Dr Peter Levine. Person-centred therapy establishes a foundation of unconditional positive regard, empathy, and authenticity, ensuring you feel heard without judgment. Combining this with body awareness offers a gentle way to explore physical tension and support your nervous system at a comfortable pace.</p>
+    <p>I work with clients from all backgrounds living in London, bringing extensive experience as a gay therapist. My practice is warmly LGBTQ+-affirming, offering a welcoming environment where queer clients can explore identity, relationship patterns, and minority stress without needing to explain cultural context. You can learn more about this work on my dedicated <a href="/lgbtq-therapist-london">online LGBTQ+ therapist in London</a> page.</p>
+  </div>
+  </div>
+</section><section class="lp-band">
+  <div class="lp-in">
+  <div class="qa">
+    <h2>Common concerns London clients bring to therapy</h2>
+    <p>Clients living in London often reach out when cognitive strategies alone no longer ease feelings of overwhelm. Typical concerns include chronic anxiety, workplace exhaustion, feeling detached from bodily sensations, or carrying unresolved relational stress. Somatic therapy invites you to track physical cues slowly, helping you develop greater tolerance for stress without feeling overwhelmed.</p>
+    <p>If persistent worry is a primary concern, my page on <a href="/somatic-therapy-for-anxiety">somatic therapy for anxiety</a> offers specific insights into body-focused ways of working with fear. For a broader overview of how body awareness supports emotional wellbeing across the country, my guide to <a href="/online-somatic-therapy-uk">online somatic therapy in the UK</a> explains core principles, while my page on <a href="/trauma-informed-therapy">trauma-informed therapy</a> explores gentle approaches to hypervigilance.</p>
+    <p>In our sessions, we pay attention to small, manageable shifts rather than pushing for drastic change. You might notice how your breath changes when discussing a work situation, or how your posture adjusts when talking about a relationship. Noticing these quiet physical responses helps build a clearer understanding of how your body responds to everyday pressures.</p>
+  </div>
+  </div>
+</section><section class="lp-band alt">
+  <div class="lp-in">
+  <div class="qa">
+    <h2>Sessions, fees, credentials and insurance</h2>
+    <p>Online sessions last 50 minutes at a fee of £90 per session, supporting clients living across Greater London and beyond. I am an MSc-qualified therapist and an accredited member of the British Association for Counselling and Psychotherapy (MBACP Accred), with eight years of experience. I accept the following insurance providers:</p>
+    <p>I am registered with Aviva, AXA, Bupa, Healix, and Vitality, and I work a couple of days each week as a Bupa therapist. We begin with a free 20 minute introductory call over video. This conversation gives us a quiet space to discuss what you hope to explore, answer any practical questions, and decide together if working online feels right for you.</p>
+    <div class="cred-panel">
       <div class="cred-text">
         <strong>Peter Donnelly</strong>
         MSc &middot; MBACP Accred<br>Eight years in practice
@@ -812,57 +650,35 @@
       <span aria-hidden="true">&middot;</span>
       <a href="https://www.vitality.co.uk/" target="_blank" rel="noopener">Vitality</a>
     </div>
+  </div>
+  </div>
+</section><section class="lp-band">
+  <div class="lp-in">
+  <div class="faq-mini">
+    <h2>Questions about online somatic therapy in London</h2>
+    <div class="q">
+      <h3>Do you offer in-person somatic therapy in London?</h3>
+      <p>No, all my sessions are held online.</p>
     </div>
-
-    <div class="faq-mini">
-      <h2>Questions about online somatic therapy in London</h2>
-      <div class="q">
-        <h3>Do you offer in-person somatic therapy in London?</h3>
-        <p>No, all my sessions are held online. Working over secure video allows London clients to attend therapy without travelling across the city, providing a quiet, familiar space where you can focus on your nervous system and body awareness.</p>
-      </div>
-      <div class="q">
-        <h3>How can somatic therapy help with London city stress?</h3>
-        <p>Busy urban environments can leave many people feeling constantly on alert. Somatic therapy tracks bodily cues such as breath and muscular tension, offering gentle techniques that may help your system move towards greater ease and calmer physical responses over time.</p>
-      </div>
-      <div class="q">
-        <h3>Can I use private health insurance for somatic therapy in London?</h3>
-        <p>Yes, provided your policy covers outpatient psychotherapy. I am an approved provider with Aviva, AXA, Bupa, Healix, and Vitality. We can discuss how your health insurance coverage works during our free 20 minute introductory call.</p>
-      </div>
+    <div class="q">
+      <h3>How can somatic therapy help with London city stress?</h3>
+      <p>Busy urban environments can leave many people feeling constantly on alert. Somatic therapy tracks bodily cues such as breath and muscular tension, offering gentle techniques that may help your system move towards greater ease and calmer physical responses over time.</p>
     </div>
-
-    <div class="faq-cta">
-      <p>Curious how body-aware therapy might bring more ease to your London life? Book a free 20 minute call to discuss online somatic therapy with Peter.</p>
-      <a href="/#contact">Book a free 20-minute call with Peter</a>
+    <div class="q">
+      <h3>Can I use private health insurance for somatic therapy in London?</h3>
+      <p>Yes, provided your policy covers outpatient psychotherapy. I am an approved provider with Aviva, AXA, Bupa, Healix, and Vitality. We can discuss how your health insurance coverage works during our free 20 minute introductory call.</p>
     </div>
   </div>
-
-  <details class="explore-menu">
-    <summary>Explore working with me</summary>
-    <nav aria-label="Therapy options">
-      <div class="explore-col">
-        <span class="explore-heading">Specialisms</span>
-        <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
-        <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
-        <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
-        <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
-        <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
-        <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
-        <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
-        <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
-      </div>
-      <div class="explore-col">
-        <span class="explore-heading">Locations</span>
-        <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
-        <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
-        <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
-        <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
-        <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
-        <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
-        <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
-      </div>
-    </nav>
-  </details>
-
+  </div>
+</section>
+<section class="lp-band alt">
+  <div class="lp-in">
+  <div class="faq-cta">
+    <p>Curious how body-aware therapy might bring more ease to your London life? Book a free 20 minute call to discuss online somatic therapy with Peter.</p>
+    <a href="/#contact">Book a free 20-minute call with Peter</a>
+  </div>
+  </div>
+</section>
 <footer>
   <div class="f-name-block">
     <span class="f-name">Peter Donnelly</span>
@@ -876,7 +692,34 @@
     <a href="/pay.html">Pay</a>
   </div>
   <div class="f-right">
-    <span class="f-locations">UK &middot; Ireland &middot; Europe &nbsp;&nbsp;&nbsp; &copy; 2026 &nbsp;&nbsp;&nbsp; <a href="/faq.html" class="f-faq">FAQ</a></span>
+    <span class="f-locations">UK &middot; Ireland &middot; Europe &nbsp;&nbsp;&nbsp; &copy; 2026</span>
+    <details class="explore-menu">
+      <summary>Explore</summary>
+      <nav aria-label="Therapy options">
+        <div class="explore-col">
+          <span class="explore-heading">Specialisms</span>
+          <a href="/online-somatic-therapy-uk">Online Somatic Therapy</a>
+          <a href="/lgbtq-affirming-therapy">LGBTQ+ Affirming Therapy</a>
+          <a href="/online-therapy-for-gay-men">Therapy for Gay Men</a>
+          <a href="/somatic-therapy-for-anxiety">Somatic Therapy for Anxiety</a>
+          <a href="/trauma-informed-therapy">Trauma-Informed Therapy</a>
+          <a href="/identity-and-self-acceptance-therapy">Identity and Self-Acceptance</a>
+          <a href="/therapy-for-shame-and-self-esteem">Shame and Low Self-Esteem</a>
+          <a href="/lgbtq-relationships-family-therapy">LGBTQ+ Relationship and Family Therapy</a>
+        </div>
+        <div class="explore-col">
+          <span class="explore-heading">Locations</span>
+          <a href="/lgbtq-therapist-london">LGBTQ+ Therapy in London</a>
+          <a href="/somatic-therapy-belfast">Somatic Therapy in Belfast</a>
+          <a href="/lgbtq-therapist-belfast">LGBTQ+ Therapy in Belfast</a>
+          <a href="/online-therapist-northern-ireland">Online Therapy in Northern Ireland</a>
+          <a href="/online-therapist-manchester">Online Therapy in Manchester</a>
+          <a href="/online-therapist-dublin">Online Therapy in Dublin</a>
+          <a href="/lgbtq-therapist-brighton">LGBTQ+ Therapy in Brighton</a>
+        </div>
+      </nav>
+    </details>
+    <a href="/faq.html" class="f-faq">FAQ</a>
   </div>
 </footer>
 
@@ -921,6 +764,18 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
+</script>
+
+<script>
+  (function(){
+    var menus = document.querySelectorAll('details.explore-menu');
+    document.addEventListener('click', function(e){
+      menus.forEach(function(m){ if (m.open && !m.contains(e.target)) m.open = false; });
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') menus.forEach(function(m){ if (m.open) m.open = false; });
+    });
+  })();
 </script>
 
 </body>
