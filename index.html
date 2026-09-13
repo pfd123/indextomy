@@ -656,19 +656,25 @@
     /* FOOTER EXPLORE MENU */
     footer{ overflow: visible; }
     footer .f-right{ flex-direction: row; align-items: baseline; gap: 18px; }
-    footer .explore-menu{ position: relative; display: inline-block; }
-    footer .explore-menu summary{
-      list-style: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+    footer .f-faq{
       font-family: 'Geist Mono', monospace;
       font-size: 10px;
       font-weight: 300;
       letter-spacing: 0.09em;
       text-transform: uppercase;
       color: var(--low);
+      transition: color 0.2s;
+    }
+    footer .f-faq:hover{ color: var(--mid); }
+    footer .explore-menu{ position: relative; display: inline-block; }
+    footer .explore-menu summary{
+      list-style: none;
+      cursor: pointer;
+      font-family: 'Geist Mono', monospace;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--low);
+      padding: 4px 3px;
       transition: color 0.2s;
     }
     footer .explore-menu summary::-webkit-details-marker{ display: none; }
@@ -679,7 +685,7 @@
       outline-offset: 3px;
       border-radius: 2px;
     }
-    footer .explore-menu summary::after{ content: '+'; font-size: 12px; }
+    footer .explore-menu summary::after{ content: '+'; font-size: 14px; }
     footer .explore-menu[open] summary::after{ content: '\2212'; }
     footer .explore-menu nav{
       position: absolute;
@@ -975,7 +981,7 @@
   <div class="f-right">
     <span class="f-locations">UK &middot; Ireland &middot; Europe &nbsp;&nbsp;&nbsp; &copy; 2026</span>
     <details class="explore-menu">
-      <summary>Explore</summary>
+      <summary aria-label="Explore"></summary>
       <nav aria-label="Therapy options">
         <div class="explore-col">
           <span class="explore-heading">Specialisms</span>
